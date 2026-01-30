@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8914e1d95ca74ac458793c76cbdb4278, type: 3}
   m_Name: Knife
   m_EditorClassIdentifier: Assembly-CSharp::Weapons
-  totalThrows: 0
   throwCooldown: 0.4
+  damage: 1
   throwForce: 70
   throwUpwardForce: 0
   isExplosive: 0
@@ -21,3 +21,4 @@ MonoBehaviour:
   _explosionRadius: 5
   _explosionForce: 500
   _particles: {fileID: 0}
+  isEdible: 0

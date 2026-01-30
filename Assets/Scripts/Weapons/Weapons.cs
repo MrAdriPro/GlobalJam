@@ -5,7 +5,7 @@ public class Weapons : ScriptableObject
 {
     [Header("Settings")]
     public float throwCooldown;
-
+    public int damage;
     [Header("Throwing")]
     public float throwForce;
     public float throwUpwardForce;

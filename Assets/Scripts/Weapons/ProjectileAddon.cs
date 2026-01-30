@@ -3,7 +3,6 @@ using UnityEngine;
 public class ProjectileAddon : MonoBehaviour
 {
     private Rigidbody rb;
-    private bool targetHit;
     public Weapons weapon;
 
     public GameObject playerBody;
@@ -14,6 +13,7 @@ public class ProjectileAddon : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        HealthManager health = collision.gameObject.GetComponent<HealthManager>();
 
         if (playerBody != collision.gameObject)
         {
@@ -27,6 +27,10 @@ public class ProjectileAddon : MonoBehaviour
                     if (rb == null) continue;
 
                     rb.AddExplosionForce(weapon._explosionForce, transform.position, weapon._explosionRadius);
+                    if (health != null)
+                    {
+                        health.TakeDamage(weapon.damage);
+                    }
                 }
 
                 GameObject particles = Instantiate(weapon._particles, transform.position, Quaternion.identity);
@@ -34,6 +38,10 @@ public class ProjectileAddon : MonoBehaviour
                 Destroy(particles, 2);
             }
 
+        }
+        if (health != null)
+        {
+            health.TakeDamage(weapon.damage);
         }
         Destroy(gameObject);
     }
