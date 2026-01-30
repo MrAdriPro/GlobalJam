@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 130064864}
   - component: {fileID: 130064863}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Cube_Stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 177842736}
   - component: {fileID: 177842735}
   m_Layer: 0
-  m_Name: Cube (3)
+  m_Name: Cube_Stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -529,7 +529,7 @@ GameObject:
   - component: {fileID: 269438530}
   - component: {fileID: 269438529}
   m_Layer: 8
-  m_Name: Cube (11)
+  m_Name: Cube (11)_Stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -641,7 +641,7 @@ GameObject:
   - component: {fileID: 302490111}
   - component: {fileID: 302490110}
   m_Layer: 8
-  m_Name: Cube (7)
+  m_Name: Cube (7)_Stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -951,7 +951,7 @@ GameObject:
   - component: {fileID: 372376210}
   - component: {fileID: 372376209}
   m_Layer: 0
-  m_Name: Cube (5)
+  m_Name: Cube (5)_Stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1417,7 +1417,7 @@ GameObject:
   - component: {fileID: 823743558}
   - component: {fileID: 823743557}
   m_Layer: 8
-  m_Name: Cube (6)
+  m_Name: Cube (6)_Stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1579,7 +1579,7 @@ GameObject:
   - component: {fileID: 870045128}
   - component: {fileID: 870045127}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Cube_Stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1899,6 +1899,7 @@ MonoBehaviour:
   maxSlopeAngle: 40
   orientation: {fileID: 925173354}
   climbScript: {fileID: 925173358}
+  wallRunningScript: {fileID: 0}
   state: 0
   wallRunningMarks:
   - {fileID: 1315000149}
@@ -2003,6 +2004,8 @@ MonoBehaviour:
   gravityCounterForce: 20
   wallCheckDistance: 0.7
   minJumpHeight: 2
+  wallLeft: 0
+  wallRight: 0
   exitWallTime: 0.2
   orientation: {fileID: 925173354}
   pm: {fileID: 925173355}
@@ -2229,7 +2232,7 @@ GameObject:
   - component: {fileID: 968700612}
   - component: {fileID: 968700611}
   m_Layer: 0
-  m_Name: Cube (2)
+  m_Name: Cube_Stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2368,7 +2371,7 @@ GameObject:
   - component: {fileID: 1050556182}
   - component: {fileID: 1050556181}
   m_Layer: 0
-  m_Name: Cube (3)
+  m_Name: Cube (3)_Stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2480,7 +2483,7 @@ GameObject:
   - component: {fileID: 1082216410}
   - component: {fileID: 1082216409}
   m_Layer: 8
-  m_Name: Cube (9)
+  m_Name: Cube (9)_Stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2752,7 +2755,7 @@ GameObject:
   - component: {fileID: 1325998531}
   - component: {fileID: 1325998530}
   m_Layer: 8
-  m_Name: Cube (12)
+  m_Name: Cube (12)_Stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2905,6 +2908,7 @@ GameObject:
   - component: {fileID: 1510506903}
   - component: {fileID: 1510506904}
   - component: {fileID: 1510506905}
+  - component: {fileID: 1510506906}
   m_Layer: 3
   m_Name: Capsule (1)
   m_TagString: Player
@@ -2961,6 +2965,8 @@ MonoBehaviour:
   gravityCounterForce: 20
   wallCheckDistance: 0.7
   minJumpHeight: 2
+  wallLeft: 0
+  wallRight: 0
   exitWallTime: 0.2
   orientation: {fileID: 1510506901}
   pm: {fileID: 1510506897}
@@ -3075,6 +3081,7 @@ MonoBehaviour:
   maxSlopeAngle: 40
   orientation: {fileID: 1510506901}
   climbScript: {fileID: 1510506894}
+  wallRunningScript: {fileID: 0}
   state: 0
   wallRunningMarks:
   - {fileID: 483414642}
@@ -3173,6 +3180,7 @@ Transform:
   m_Children:
   - {fileID: 1341711801}
   - {fileID: 483414641}
+  - {fileID: 2131605661}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1510506902
@@ -3362,6 +3370,77 @@ MonoBehaviour:
   _explosionRadius: 25
   _explosionForce: 300
   _particles: {fileID: 3508374827897098203, guid: db86a58fcc1f0144c91c7f3f2778b4f2, type: 3}
+--- !u!114 &1510506906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510506891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a0b0cf1097fa84448d6af338e0d9436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::P_Footsteps
+  footstepCaster: {fileID: 483414641}
+  footstep: {fileID: 2131605660}
+  slide: {fileID: 2131605662}
+  footstepLayerMask:
+    serializedVersion: 2
+    m_Bits: 385
+  p_Movement: {fileID: 1510506897}
+  slideSound: {fileID: 8300000, guid: e91a9a766fea4c04e8e40067399527c7, type: 3}
+  wood_Footsteps_Walk: []
+  wood_Footsteps_Run: []
+  wood_Wander: []
+  dirt_Footsteps_Walk: []
+  dirt_Footsteps_Run: []
+  dirt_Wander: []
+  stone_Footsteps_Walk:
+  - {fileID: 8300000, guid: fd437484fd8fe394da31d993a4ed9442, type: 3}
+  - {fileID: 8300000, guid: 6d4c7085d49695f4e90b84f020f2c396, type: 3}
+  - {fileID: 8300000, guid: e3d48c8e7e64bf145a612724f7c19add, type: 3}
+  - {fileID: 8300000, guid: 9aabad737fc7c994a8bb857ef6d8d24e, type: 3}
+  - {fileID: 8300000, guid: c6c49047dadf2944a94d07f8dc760d5d, type: 3}
+  - {fileID: 8300000, guid: 5c13d1c1fa7a11d4d99c36009c1f391a, type: 3}
+  - {fileID: 8300000, guid: ea7ebcef57bfa8546951b4923317f296, type: 3}
+  - {fileID: 8300000, guid: d7ee58855bd8a74428860e5169678a8b, type: 3}
+  - {fileID: 8300000, guid: f63474858753ffa4c9f47bc7d546297c, type: 3}
+  - {fileID: 8300000, guid: a972b9e7bcea8b8478c49bb7d2eea9be, type: 3}
+  - {fileID: 8300000, guid: 9f416e7706230c44582b2a5c3cc56120, type: 3}
+  stone_Footsteps_Run:
+  - {fileID: 8300000, guid: 99d2fb7b2503caa4ba838d025b09ee5f, type: 3}
+  - {fileID: 8300000, guid: 6722adb86b33ec243a1fd8a0faa2bc39, type: 3}
+  - {fileID: 8300000, guid: f8702d44d58b8df48bb3462daf8c2270, type: 3}
+  - {fileID: 8300000, guid: dc77f96878845bf41bbbb47983c903da, type: 3}
+  - {fileID: 8300000, guid: ca5af83558dd9f34badb3b70935a7d0c, type: 3}
+  - {fileID: 8300000, guid: 0ca8563d2c830424b8eef12dfd2996c3, type: 3}
+  - {fileID: 8300000, guid: 3117bac226b9cdc45aec1d7cd8fc7db6, type: 3}
+  - {fileID: 8300000, guid: 62c647463d037fe4199d92bba7932520, type: 3}
+  - {fileID: 8300000, guid: 2938f03099115854fbcda20a6aa6427c, type: 3}
+  - {fileID: 8300000, guid: 796bce976388d8a4dbd5244245a75631, type: 3}
+  - {fileID: 8300000, guid: 8e39a89c756cd7641bdfe03f5e8190a0, type: 3}
+  stone_Wander:
+  - {fileID: 8300000, guid: d3d8719d697d2b34caee77cf47b08ff9, type: 3}
+  - {fileID: 8300000, guid: c88f9c5a3ebc44649ad07b7773a67dc9, type: 3}
+  - {fileID: 8300000, guid: f1ceb11644b2df2488f34a1b2a4d4a15, type: 3}
+  - {fileID: 8300000, guid: 2ed81204b3d165648ae68bf18f5ec6f0, type: 3}
+  - {fileID: 8300000, guid: ed7b51e691821a2428368e55aaa78036, type: 3}
+  rug_Footsteps_Walk: []
+  rug_Footsteps_Run: []
+  rug_Wander: []
+  snow_Footsteps_Walk: []
+  snow_Footsteps_Run: []
+  snow_Wander: []
+  water_Footsteps_Walk: []
+  water_Footsteps_Run: []
+  water_Wander: []
+  grass_Footsteps_Walk: []
+  grass_Footsteps_Run: []
+  grass_Wander: []
+  metal_Footsteps_Walk: []
+  metal_Footsteps_Run: []
+  metal_Wander: []
 --- !u!1 &1555031209
 GameObject:
   m_ObjectHideFlags: 0
@@ -3375,7 +3454,7 @@ GameObject:
   - component: {fileID: 1555031211}
   - component: {fileID: 1555031210}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Cube (1)_Stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3487,7 +3566,7 @@ GameObject:
   - component: {fileID: 1561756046}
   - component: {fileID: 1561756045}
   m_Layer: 7
-  m_Name: Plane
+  m_Name: Plane_Stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3679,7 +3758,7 @@ GameObject:
   - component: {fileID: 1781904198}
   - component: {fileID: 1781904197}
   m_Layer: 0
-  m_Name: Cube (4)
+  m_Name: Cube_Stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3818,7 +3897,7 @@ GameObject:
   - component: {fileID: 1830818181}
   - component: {fileID: 1830818180}
   m_Layer: 8
-  m_Name: Cube (8)
+  m_Name: Cube (8)_Stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3980,7 +4059,7 @@ GameObject:
   - component: {fileID: 1957941182}
   - component: {fileID: 1957941181}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Cube _Stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4119,7 +4198,7 @@ GameObject:
   - component: {fileID: 1990623859}
   - component: {fileID: 1990623858}
   m_Layer: 8
-  m_Name: Cube (10)
+  m_Name: Cube (10)_Stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4231,7 +4310,7 @@ GameObject:
   - component: {fileID: 2106294763}
   - component: {fileID: 2106294762}
   m_Layer: 0
-  m_Name: Cube (2)
+  m_Name: Cube (2)_Stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4343,7 +4422,7 @@ GameObject:
   - component: {fileID: 2128914954}
   - component: {fileID: 2128914953}
   m_Layer: 0
-  m_Name: Cube (4)
+  m_Name: Cube (4)_Stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4442,6 +4521,233 @@ Transform:
   m_Children: []
   m_Father: {fileID: 326113052}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -53.23}
+--- !u!1 &2131605659
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2131605661}
+  - component: {fileID: 2131605660}
+  - component: {fileID: 2131605662}
+  m_Layer: 3
+  m_Name: PlayerSounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &2131605660
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131605659}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 7865202614844859694, guid: 7d24451d3ac4be64e929d6fde420c3be, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.25
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &2131605661
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131605659}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1510506901}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &2131605662
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131605659}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 7865202614844859694, guid: 7d24451d3ac4be64e929d6fde420c3be, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

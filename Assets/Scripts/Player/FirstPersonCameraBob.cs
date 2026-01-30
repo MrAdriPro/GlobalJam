@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using UnityEngine;
 
 public class FirstPersonCameraBob : MonoBehaviour
@@ -20,12 +21,17 @@ public class FirstPersonCameraBob : MonoBehaviour
     [SerializeField] private PlayerMovement pm;
     [SerializeField] private Transform cameraTransform;
 
+    public event Action OnFootstep;
+
     private Vector3 originalPosition;
     private float timer = 0f;
     private float currentBobIntensity = 0f;
     private Sequence bobSequence;
     private Sequence shakeSequence;
 
+    private float previousVerticalOffset = 0f;
+    private bool hasTriggeredStep = false;
+    private bool isWallRunning = false;
     private void Awake()
     {
         if (cameraTransform == null)
@@ -39,14 +45,23 @@ public class FirstPersonCameraBob : MonoBehaviour
 
     private void Update()
     {
-        bool isMoving = pm.isMoving() &&
-                         pm.isGrounded;
+        bool isMoving = false;
+
+        if (pm.isMoving())
+        {
+            if (pm.isGrounded || pm.wallRunning || pm.climbing)
+            {
+                isMoving = true;
+                isWallRunning = pm.wallRunning || pm.climbing;
+            }
+        }        
 
         // Suavizar la intensidad del bob
         float targetIntensity = isMoving ? 1f : 0f;
+        targetIntensity = isWallRunning ? targetIntensity * 2 : targetIntensity;
         currentBobIntensity = Mathf.Lerp(
             currentBobIntensity,
-            targetIntensity,
+            targetIntensity ,
             Time.deltaTime * transitionSpeed
         );
 
@@ -57,11 +72,12 @@ public class FirstPersonCameraBob : MonoBehaviour
         }
         else
         {
-            // Volver suavemente a la posición original
             cameraTransform.DOLocalMove(
                 originalPosition,
                 smoothTime
             ).SetEase(Ease.OutQuad);
+
+            hasTriggeredStep = false;
         }
     }
 
@@ -70,6 +86,20 @@ public class FirstPersonCameraBob : MonoBehaviour
         float verticalOffset = Mathf.Sin(timer) * bobAmplitude * currentBobIntensity;
         float horizontalOffset = Mathf.Cos(timer * 0.5f) *
                                  bobHorizontalAmount * currentBobIntensity;
+
+        if (previousVerticalOffset > 0f && verticalOffset <= 0f && !hasTriggeredStep)
+        {
+            if(!pm.sliding)
+            OnFootstep?.Invoke(); 
+
+            hasTriggeredStep = true;
+        }
+        else if (verticalOffset > 0f)
+        {
+            hasTriggeredStep = false;
+        }
+
+        previousVerticalOffset = verticalOffset;
 
         Vector3 targetPosition = originalPosition +
             new Vector3(horizontalOffset, verticalOffset, 0f);

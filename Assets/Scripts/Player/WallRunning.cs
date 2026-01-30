@@ -27,8 +27,8 @@ public class WallRunning : MonoBehaviour
     public float minJumpHeight;
     private RaycastHit leftWallHit;
     private RaycastHit rightWallHit;
-    private bool wallLeft;
-    private bool wallRight;
+    public bool wallLeft;
+    public bool wallRight;
 
     [Header("Exiting")]
     private bool exitingWall;
@@ -160,6 +160,7 @@ public class WallRunning : MonoBehaviour
 
     private void WallJump() 
     {
+        pm.onJump?.Invoke();
         exitingWall = true;
         exitWallTimer = exitWallTime;
 
