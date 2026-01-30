@@ -61,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
     public MovementState state;
     private PlayerInput playerInput;
 
+    public TrailRenderer[] wallRunningMarks;
     public enum MovementState 
     {
         walking,
@@ -94,6 +95,7 @@ public class PlayerMovement : MonoBehaviour
         MyInput();
         SpeedControl();
         StateHandler();
+        IsWallRunning();
 
         if (isGrounded)
             rb.linearDamping = groundDrag;
@@ -130,7 +132,35 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public bool isMoving() => horizontalInput != 0 || verticalInput != 0;
-    
+
+
+    private void IsWallRunning() 
+    {
+        if (wallRunning || sliding || climbing)
+        {
+            StartEmmiterTrail();
+        }
+        else 
+        {
+            StopEmmiter();
+        }
+    }
+
+    private void StartEmmiterTrail() 
+    {
+        foreach (var trail in wallRunningMarks)
+        {
+            trail.emitting = true;
+        }
+    }
+
+    private void StopEmmiter()
+    {
+        foreach (var trail in wallRunningMarks)
+        {
+            trail.emitting = false;
+        }
+    }
 
     private void MovePlayer() 
     {
