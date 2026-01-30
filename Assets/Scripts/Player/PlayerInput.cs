@@ -25,6 +25,8 @@ public class PlayerInput : MonoBehaviour
     public bool UpwardsRunKey { get; private set; }
     public bool DownwardsRunKey { get; private set; }
     public bool ForwardKey { get; private set; }
+    public bool Throw { get; private set; }
+
 
     void Update()
     {
@@ -76,7 +78,7 @@ public class PlayerInput : MonoBehaviour
         CrouchButtonDown = Input.GetButtonDown("Crouch");
         CrouchButtonUp = Input.GetButtonUp("Crouch");
         RunButton = Input.GetButton("Run");
-
+        Throw = Input.GetButtonDown("Fire1");
         // Keys específicas
         UpwardsRunKey = Input.GetKey(KeyCode.LeftShift);
         DownwardsRunKey = Input.GetKey(KeyCode.LeftControl);
@@ -111,6 +113,10 @@ public class PlayerInput : MonoBehaviour
         CrouchButtonDown = Input.GetButtonDown(prefix + "Crouch Controller");
         CrouchButtonUp = Input.GetButtonUp(prefix + "Crouch Controller");
         RunButton = Input.GetButton(prefix + "Run Controller");
+        float trigger = Input.GetAxis(prefix + "Fire1");
+        Throw = trigger > 0.1;
+        
+
         UpwardsRunKey = RunButton;
         DownwardsRunKey = CrouchButton;
         ForwardKey = verticalInput > 0.5f;
