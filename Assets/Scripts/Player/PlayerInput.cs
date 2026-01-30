@@ -40,6 +40,21 @@ public class PlayerInput : MonoBehaviour
                 ReadJoystickInput(2);
                 break;
         }
+
+        string[] joystickNames = Input.GetJoystickNames();
+
+        // Muestra todos los mandos conectados
+        for (int i = 0; i < joystickNames.Length; i++)
+        {
+            Debug.Log($"Joystick {i + 1}: {joystickNames[i]}");
+            // Ej: "Xbox Wireless Controller", "Wireless Controller", "PLAYSTATION(R)3 Controller"
+        }
+
+        // ¿Hay al menos 1 mando?
+        if (joystickNames.Length > 0)
+        {
+            Debug.Log($"Mando activo: {joystickNames[0]} (Joystick 1)");
+        }
     }
 
     void ReadKeyboardMouseInput()
