@@ -22,10 +22,20 @@ public class Throwing : MonoBehaviour
     private void Update()
     {
 
-        if (playerInput.Throw && readyToThrow) 
+        if (playerInput.Throw && readyToThrow)
         {
             Throw();
         }
+        else if (playerInput.EasterEgg) 
+        {
+
+        }
+    }
+
+    private void EatPizza() 
+    {
+        GameObject projectile = Instantiate(objectToThrow, attackPoint.position, attackPoint.rotation);
+
     }
 
     private void Throw() 

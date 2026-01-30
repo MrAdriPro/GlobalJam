@@ -26,7 +26,8 @@ public class PlayerInput : MonoBehaviour
     public bool DownwardsRunKey { get; private set; }
     public bool ForwardKey { get; private set; }
     public bool Throw { get; private set; }
-
+    public bool Ability { get; private set; }
+    public bool EasterEgg { get; private set; }
 
     void Update()
     {
@@ -79,10 +80,12 @@ public class PlayerInput : MonoBehaviour
         CrouchButtonUp = Input.GetButtonUp("Crouch");
         RunButton = Input.GetButton("Run");
         Throw = Input.GetButtonDown("Fire1");
+        Ability = Input.GetButtonDown("Fire2");
         // Keys específicas
         UpwardsRunKey = Input.GetKey(KeyCode.LeftShift);
         DownwardsRunKey = Input.GetKey(KeyCode.LeftControl);
         ForwardKey = Input.GetKey(KeyCode.W);
+        EasterEgg = Input.GetButtonDown("Fire3");
     }
 
     void ReadJoystickInput(int joystickNumber)
@@ -115,7 +118,9 @@ public class PlayerInput : MonoBehaviour
         RunButton = Input.GetButton(prefix + "Run Controller");
         float trigger = Input.GetAxis(prefix + "Fire1");
         Throw = trigger > 0.1;
-        
+        float trigger2 = Input.GetAxis(prefix + "Fire2");
+        Ability = trigger2 > 0.1;
+        EasterEgg = Input.GetButtonDown(prefix + "Fire3");
 
         UpwardsRunKey = RunButton;
         DownwardsRunKey = CrouchButton;

@@ -16,4 +16,7 @@ public class Weapons : ScriptableObject
     public float _explosionRadius = 5;
     public float _explosionForce = 500;
     public GameObject _particles;
+
+    [Header("Easter Egg")]
+    public bool isEdible = false;
 }

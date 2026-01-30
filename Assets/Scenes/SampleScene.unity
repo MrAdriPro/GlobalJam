@@ -1757,6 +1757,7 @@ GameObject:
   - component: {fileID: 925173361}
   - component: {fileID: 925173362}
   - component: {fileID: 925173363}
+  - component: {fileID: 925173364}
   m_Layer: 3
   m_Name: Capsule
   m_TagString: Player
@@ -2023,6 +2024,8 @@ MonoBehaviour:
   bobHorizontalAmount: 0.15
   smoothTime: 0.1
   transitionSpeed: 5
+  shakeDefaultIntensity: 0.1
+  shakeDefaultDuration: 0.3
   pm: {fileID: 0}
   cameraTransform: {fileID: 330585546}
 --- !u!114 &925173361
@@ -2184,6 +2187,34 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &925173364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 925173350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba53ef1af260e9c4f94ab303222b555e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WinstonJump
+  verticalJumpForce: 40
+  horizontalJumpForce: 15
+  jumpForce: 1
+  timeToStomp: 1
+  timerToStomp: 0
+  stompForce: 75
+  cooldown: 5
+  cooldownTimer: 0
+  camJumpFov: 70
+  camStompFov: 100
+  camShakeIntensity: 4
+  camShakeDuration: 0.5
+  isExplosive: 1
+  _explosionRadius: 25
+  _explosionForce: 300
+  _particles: {fileID: 3508374827897098203, guid: db86a58fcc1f0144c91c7f3f2778b4f2, type: 3}
 --- !u!1 &968700609
 GameObject:
   m_ObjectHideFlags: 0
@@ -2873,6 +2904,7 @@ GameObject:
   - component: {fileID: 1510506902}
   - component: {fileID: 1510506903}
   - component: {fileID: 1510506904}
+  - component: {fileID: 1510506905}
   m_Layer: 3
   m_Name: Capsule (1)
   m_TagString: Player
@@ -2897,6 +2929,8 @@ MonoBehaviour:
   bobHorizontalAmount: 0.15
   smoothTime: 0.1
   transitionSpeed: 5
+  shakeDefaultIntensity: 0.1
+  shakeDefaultDuration: 0.3
   pm: {fileID: 0}
   cameraTransform: {fileID: 260785238}
 --- !u!114 &1510506893
@@ -3300,6 +3334,34 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &1510506905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510506891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba53ef1af260e9c4f94ab303222b555e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WinstonJump
+  verticalJumpForce: 40
+  horizontalJumpForce: 15
+  jumpForce: 1
+  timeToStomp: 1
+  timerToStomp: 0
+  stompForce: 75
+  cooldown: 5
+  cooldownTimer: 0
+  camJumpFov: 70
+  camStompFov: 100
+  camShakeIntensity: 4
+  camShakeDuration: 0.5
+  isExplosive: 1
+  _explosionRadius: 25
+  _explosionForce: 300
+  _particles: {fileID: 3508374827897098203, guid: db86a58fcc1f0144c91c7f3f2778b4f2, type: 3}
 --- !u!1 &1555031209
 GameObject:
   m_ObjectHideFlags: 0
