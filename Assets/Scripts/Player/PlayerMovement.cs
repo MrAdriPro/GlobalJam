@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -50,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("References")]
     public Climbing climbScript;
+    public WallRunning wallRunningScript;
     public PowerUpManager powerUpManager;
 
     float horizontalInput;
@@ -63,16 +65,7 @@ public class PlayerMovement : MonoBehaviour
     private PlayerInput playerInput;
 
     public TrailRenderer[] wallRunningMarks;
-    public enum MovementState 
-    {
-        walking,
-        sprinting,
-        crouching,
-        sliding,
-        wallRunning,
-        climbing,
-        air
-    }
+    public Action onJump;
 
     private void Start()
     {
@@ -81,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
         readyToJump = true;
         playerInput = GetComponent<PlayerInput>();
         startYScale = transform.localScale.y;
+        wallRunningScript = GetComponent<WallRunning>();
     }
 
     private void FixedUpdate()
@@ -92,6 +86,7 @@ public class PlayerMovement : MonoBehaviour
     {
 
         isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, groundMask);
+
 
         MyInput();
         SpeedControl();
@@ -338,4 +333,14 @@ public class PlayerMovement : MonoBehaviour
 
         speed = desiredMoveSpeed;
     }
+}
+public enum MovementState
+{
+    walking,
+    sprinting,
+    crouching,
+    sliding,
+    wallRunning,
+    climbing,
+    air
 }
