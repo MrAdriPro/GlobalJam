@@ -29,9 +29,9 @@ public class ProjectileAddon : MonoBehaviour
                     rb.AddExplosionForce(weapon._explosionForce, transform.position, weapon._explosionRadius);
                 }
 
-                Instantiate(weapon._particles, transform.position, Quaternion.identity);
+                GameObject particles = Instantiate(weapon._particles, transform.position, Quaternion.identity);
 
-                Destroy(gameObject);
+                Destroy(particles, 2);
             }
 
         }

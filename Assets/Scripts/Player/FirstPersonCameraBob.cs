@@ -12,6 +12,10 @@ public class FirstPersonCameraBob : MonoBehaviour
     [SerializeField] private float smoothTime = 0.1f;
     [SerializeField] private float transitionSpeed = 5f;
 
+    [Header("Camera Shake")]
+    [SerializeField] private float shakeDefaultIntensity = 0.1f;
+    [SerializeField] private float shakeDefaultDuration = 0.3f;
+
     [Header("Referencias")]
     [SerializeField] private PlayerMovement pm;
     [SerializeField] private Transform cameraTransform;
@@ -20,6 +24,7 @@ public class FirstPersonCameraBob : MonoBehaviour
     private float timer = 0f;
     private float currentBobIntensity = 0f;
     private Sequence bobSequence;
+    private Sequence shakeSequence;
 
     private void Awake()
     {
@@ -76,9 +81,48 @@ public class FirstPersonCameraBob : MonoBehaviour
         );
     }
 
+    /// <summary>
+    /// Dispara un camera shake desde cualquier script
+    /// </summary>
+    /// <param name="intensity">Fuerza del shake (0.05f suave, 0.3f fuerte)</param>
+    /// <param name="duration">Duración en segundos</param>
+    public void ShakeCamera(float intensity = 0f, float duration = 0f)
+    {
+        // Usa valores por defecto si no se especifican
+        intensity = intensity <= 0 ? shakeDefaultIntensity : intensity;
+        duration = duration <= 0 ? shakeDefaultDuration : duration;
+
+        // Mata shake anterior
+        shakeSequence?.Kill();
+
+        shakeSequence = DOTween.Sequence();
+
+        shakeSequence.Append(
+            cameraTransform.DOShakePosition(duration, intensity)
+                .SetRelative()
+                .SetEase(Ease.InOutSine)
+        );
+
+        shakeSequence.Append(
+            cameraTransform.DOLocalMove(originalPosition, 0.2f)
+                .SetEase(Ease.OutElastic)
+        );
+    }
+
+    /// <summary>
+    /// Shake rápido para disparos/impactos (preset)
+    /// </summary>
+    public void QuickShake() => ShakeCamera(0.08f, 0.15f);
+
+    /// <summary>
+    /// Shake fuerte para explosiones
+    /// </summary>
+    public void ExplosionShake() => ShakeCamera(0.25f, 0.5f);
+
     private void OnDestroy()
     {
         bobSequence?.Kill();
+        shakeSequence?.Kill();
         cameraTransform?.DOKill();
     }
 }
