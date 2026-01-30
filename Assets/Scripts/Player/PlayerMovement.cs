@@ -50,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("References")]
     public Climbing climbScript;
+    public PowerUpManager powerUpManager;
 
     float horizontalInput;
     float verticalInput;
@@ -110,12 +111,28 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontalInput = playerInput.horizontalInput;
         verticalInput = playerInput.verticalInput;
-
-        if (playerInput.JumpButton && readyToJump && isGrounded)
+        if (isGrounded && powerUpManager.powerUpData != null)
         {
-            readyToJump = false;
-            Jump();
-            Invoke(nameof(ResetJump), jumpCooldown);
+            if (powerUpManager.currentExtraJumps != powerUpManager.powerUpData.extraJumps)
+            {
+                powerUpManager.ResetExtraJumps();
+
+            }
+        }
+        if (playerInput.JumpButtonDown)
+        {
+            if (isGrounded && readyToJump)
+            {
+                readyToJump = false;
+                Jump();
+                Invoke(nameof(ResetJump), jumpCooldown);
+            }
+            else if (!isGrounded && powerUpManager.CanExtraJump())
+            {
+                print("salto");
+                Jump();
+                powerUpManager.DoesJumped();
+            }
         }
 
         if (playerInput.CrouchButtonDown)
@@ -233,7 +250,7 @@ public class PlayerMovement : MonoBehaviour
             state = MovementState.air;
         }
 
-        if (Mathf.Abs(desiredMoveSpeed - lastDesiredMoveSpeed) > 6f && speed != 0)
+        if (Mathf.Abs(desiredMoveSpeed - lastDesiredMoveSpeed) > 12f && speed != 0)
         {
             StopAllCoroutines();
             StartCoroutine(SmoothlyLerpMoveSpeed());
