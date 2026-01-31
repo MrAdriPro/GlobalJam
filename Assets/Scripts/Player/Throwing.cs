@@ -25,6 +25,7 @@ public class Throwing : MonoBehaviour
         if (playerInput.Throw && readyToThrow)
         {
             Throw();
+            GetComponent<PlayerAnimations>().ShootAnim();
         }
         else if (playerInput.EasterEgg) 
         {
