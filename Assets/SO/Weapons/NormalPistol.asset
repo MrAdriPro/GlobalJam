@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8914e1d95ca74ac458793c76cbdb4278, type: 3}
-  m_Name: Granade
+  m_Name: NormalPistol
   m_EditorClassIdentifier: Assembly-CSharp::Weapons
-  throwCooldown: 1
+  throwCooldown: 0.7
   damage: 1
-  throwForce: 50
-  throwUpwardForce: 3
-  isExplosive: 1
+  throwForce: 70
+  throwUpwardForce: 0
+  isExplosive: 0
   _triggerRoce: 0.5
   _explosionRadius: 5
   _explosionForce: 500
-  _particles: {fileID: 3508374827897098203, guid: bfea53eb49975044aa82c4be79f7c675, type: 3}
+  _particles: {fileID: 0}
   isEdible: 0

@@ -27,11 +27,12 @@ public class PowerUpManager : MonoBehaviour
 
         currentPowerUp = data.type;
 
+        GetComponent<Throwing>().weapon = data.referencedWeapon;
+
         if (currentPowerUp == PowerUpType.SpeedAndDoubleJump)
         {
             movement.walkSpeed = data.speedMultiplier;
             movement.runSpeed = data.speedMultiplier;
-            
             currentExtraJumps = data.extraJumps;
 
         }

@@ -21,5 +21,6 @@ public class PowerUpData : ScriptableObject
     public float drainPerSecond = 1f;
     public float regenPerSecond = 0.5f;
     public float minChargeToUse = 1f;
+    public Weapons referencedWeapon;
 
 }
