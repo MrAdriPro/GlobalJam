@@ -1,36 +1,55 @@
+using DG.Tweening;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BlindnessPowerUp : MonoBehaviour
 {
-    public int playerId;
     public PowerUpManager powerUpManager;
     public Renderer playerRenderer;
-    public KeyCode useKey = KeyCode.E;
+    private HealthManager healthManager;
+    private PlayerInput playerInput;
+    private List<TrailRenderer> trailRenderers;
+    private PlayerMovement playerMovement;
+    private int playerId;
 
-    private BlindnessManager ui;
+    [Header("Player UI")]
+    public CanvasGroup pBlack;
+    public Image pCharge;
+
     private PowerUpData data;
     private float charge;
 
     private bool isUsing;
-    private bool isBlind; 
-
+    private bool isBlind;
+    private bool usedBlind;
     private void Start()
     {
-        ui = BlindnessManager.Instance;
+        healthManager = GetComponent<HealthManager>();
+        playerId = healthManager.playerIndex;
+        playerInput = GetComponent<PlayerInput>();
+        playerMovement = GetComponent<PlayerMovement>();
+        trailRenderers = playerMovement.wallRunningMarks.ToList();
+        trailRenderers.Add(GetComponent<TrailRenderer>());
+        StopBlind();
     }
 
     private void Update()
     {
-        if (ui == null) return;
-        if (powerUpManager.powerUpData == null) return;
-        if (powerUpManager.powerUpData.type != PowerUpType.Blindness) return;
+        if (powerUpManager.powerUpData == null || powerUpManager.powerUpData.type != PowerUpType.Blindness)
+        {
+            SetCharge(0);
+            return;
+        }
+
 
         data = powerUpManager.powerUpData;
 
         Regenerate();
         HandleUse();
 
-        ui.SetCharge(playerId, charge / data.maxCharge);
+        SetCharge(charge / data.maxCharge);
     }
 
     private void Regenerate()
@@ -44,19 +63,28 @@ public class BlindnessPowerUp : MonoBehaviour
 
     private void HandleUse()
     {
-        if (Input.GetKey(useKey) && charge >= data.minChargeToUse)
+        if (usedBlind && charge >= data.minChargeToUse) 
         {
-            isUsing = true;
-            charge -= data.drainPerSecond * Time.deltaTime;
+            usedBlind = false;
+        }
 
-            if (!isBlind) 
-                StartBlind();
-
-            if (charge <= 0)
+        if (playerInput.AbilityStay)
+        {
+            if (!usedBlind)
             {
-                charge = 0;
-                StopBlind();
+                isUsing = true;
+                charge -= data.drainPerSecond * Time.deltaTime;
+
+                if (!isBlind)
+                    StartBlind();
+
+                if (charge <= 0)
+                {
+                    charge = 0;
+                    StopBlind();
+                }
             }
+
         }
         else
         {
@@ -68,17 +96,45 @@ public class BlindnessPowerUp : MonoBehaviour
     private void StartBlind()
     {
         isBlind = true;
-
-        ui.SetBlind(playerId, true);
+        SetBlind(true);
         playerRenderer.enabled = false;
+        SetTrails(false);
     }
 
     private void StopBlind()
     {
         isUsing = false;
         isBlind = false;
+        usedBlind = true;
 
-        ui.SetBlind(playerId, false);
+        SetBlind(false);
+        SetTrails(true);
         playerRenderer.enabled = true;
     }
+
+    public void SetBlind(bool active)
+    {
+        if (active)
+        {
+            pBlack.DOFade(1f, 0.5f);
+        }
+        else 
+        {
+            pBlack.DOFade(0f, 0.5f);
+        }
+    }
+
+    public void SetCharge(float normalized)
+    {
+        pCharge.fillAmount = normalized;
+    }
+
+    private void SetTrails(bool set) 
+    {
+        foreach (var trail in trailRenderers)
+        {
+            trail.enabled = set;
+        }
+    }
+
 }

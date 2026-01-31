@@ -8,6 +8,7 @@ public class HealthManager : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth;
     PlayerInput playerInput;
+    public Renderer playerRenderer;
 
     public int playerIndex;
     public CanvasGroup playerDeadCanvas;
@@ -68,6 +69,7 @@ public class HealthManager : MonoBehaviour
             playerDeadCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "Presiona 'A' en tu mando para reaparecer.";
 
         }
+        playerRenderer.enabled = false;
         cam.transform.DOMoveZ(-25, 2);
     }
 }

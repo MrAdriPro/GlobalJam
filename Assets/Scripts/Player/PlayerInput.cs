@@ -29,6 +29,8 @@ public class PlayerInput : MonoBehaviour
     public bool ForwardKey { get; private set; }
     public bool Throw { get; private set; }
     public bool Ability { get; private set; }
+    public bool AbilityStay { get; private set; }
+
     public bool EasterEgg { get; private set; }
 
     void Update()
@@ -104,6 +106,8 @@ public class PlayerInput : MonoBehaviour
         RunButton = Input.GetButton("Run");
         Throw = Input.GetButtonDown("Fire1");
         Ability = Input.GetButtonDown("Fire2");
+        AbilityStay = Input.GetButton("Fire2");
+
         // Keys específicas
         UpwardsRunKey = Input.GetKey(KeyCode.LeftShift);
         DownwardsRunKey = Input.GetKey(KeyCode.LeftControl);
@@ -166,6 +170,7 @@ public class PlayerInput : MonoBehaviour
         Throw = trigger > 0.1;
         float trigger2 = Input.GetAxis(prefix + "Fire2");
         Ability = trigger2 > 0.1;
+        AbilityStay = trigger2 > 0.1f;
         //EasterEgg = Input.GetButtonDown(prefix + "Fire3");
 
         UpwardsRunKey = RunButton;

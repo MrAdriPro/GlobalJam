@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Granade
   m_EditorClassIdentifier: Assembly-CSharp::Weapons
   throwCooldown: 1
-  damage: 2
+  damage: 1
   throwForce: 50
   throwUpwardForce: 3
   isExplosive: 1

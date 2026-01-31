@@ -13,7 +13,7 @@ public class ProjectileAddon : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        HealthManager health = collision.gameObject.GetComponent<HealthManager>();
+        HealthManager health = null;
 
         if (playerBody != collision.gameObject)
         {
@@ -23,6 +23,7 @@ public class ProjectileAddon : MonoBehaviour
 
                 foreach (var obj in surroundingObjects)
                 {
+                    health = obj.GetComponent<HealthManager>();
                     var rb = obj.GetComponent<Rigidbody>();
                     if (rb == null) continue;
 

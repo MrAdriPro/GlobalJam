@@ -99,14 +99,22 @@ public class WinstonJump : MonoBehaviour
     {
         if (isExplosive && canDoExplosion)
         {
+            HealthManager health = null;
+
+
             var surroundingObjects = Physics.OverlapSphere(transform.position, _explosionRadius);
 
             foreach (var obj in surroundingObjects)
             {
+                health = obj.GetComponent<HealthManager>();
                 var r = obj.GetComponent<Rigidbody>();
                 if (r == null) continue;
 
                 r.AddExplosionForce(_explosionForce, transform.position, _explosionRadius);
+                if (health != null && health != GetComponent<HealthManager>())
+                {
+                    health.TakeDamage(2);
+                }
             }
 
             GameObject particles = Instantiate(_particles, transform.position, Quaternion.identity);
