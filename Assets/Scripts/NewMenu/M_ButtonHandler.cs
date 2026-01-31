@@ -24,11 +24,12 @@ public class M_ButtonHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
     private TextMeshProUGUI childText = null;
     private Image childImage = null;
     private MainMenuController mainMenuController;
-
+    private PauseMenu pauseMenu;
     //Functions
     private void Start()
     {
         SetStartingSettings();
+        pauseMenu = GameObject.FindAnyObjectByType<PauseMenu>();
     }
 
     public void OnSelect(BaseEventData eventData)
@@ -53,12 +54,18 @@ public class M_ButtonHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
             if (toggle) mainMenuController.SetCurrentToggle(toggle);
             else mainMenuController.SetCurrentToggle(null
                 );
+
+            if (mainMenuController.audioSource != null && mainMenuController.selectSound != null)
+            {
+                mainMenuController.audioSource.PlayOneShot(mainMenuController.selectSound);
+            }
+        }
+        else if(pauseMenu)
+        {
+            pauseMenu.buttonSoundSource.PlayOneShot(pauseMenu.buttonClip);
         }
 
-        if (mainMenuController.audioSource != null && mainMenuController.selectSound != null)
-        {
-            mainMenuController.audioSource.PlayOneShot(mainMenuController.selectSound);
-        }
+
 
         if (childText) childText.color = b_Settings.hoverColor;
         if (childImage) childImage.color = b_Settings.hoverColor;
