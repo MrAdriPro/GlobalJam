@@ -25,7 +25,7 @@ public class PlayerAnimations : MonoBehaviour
 
     private void Update()
     {
-        if (!playerInputSelector.selectedInput || GameObject.FindAnyObjectByType<PauseMenu>().isPaused) return;
+        if (!playerInputSelector.selectedInput || GameObject.FindAnyObjectByType<PauseMenu>().isPaused || GameObject.FindAnyObjectByType<LeaderboardManager>().endGame) return;
 
         anim.speed = pm.speed / animSpeedCorrector;
 

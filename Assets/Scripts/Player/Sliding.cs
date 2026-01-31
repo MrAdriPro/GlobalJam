@@ -31,7 +31,8 @@ public class Sliding : MonoBehaviour
 
     private void Update()
     {
-        if (!GetComponentInChildren<PlayerInputSelector>().selectedInput || GameObject.FindAnyObjectByType<PauseMenu>().isPaused) return;
+        if (!GetComponentInChildren<PlayerInputSelector>().selectedInput || GameObject.FindAnyObjectByType<PauseMenu>().isPaused
+            || GameObject.FindAnyObjectByType<LeaderboardManager>().endGame) return;
 
         horizontalInput = playerInput.horizontalInput;
         verticalInput = playerInput.verticalInput;

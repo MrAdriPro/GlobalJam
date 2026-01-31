@@ -51,7 +51,8 @@ public class WallRunning : MonoBehaviour
 
     private void Update()
     {
-        if (!GetComponentInChildren<PlayerInputSelector>().selectedInput) return;
+        if (!GetComponentInChildren<PlayerInputSelector>().selectedInput
+            || GameObject.FindAnyObjectByType<LeaderboardManager>().endGame) return;
 
         CheckForWall();
         StateMachine();
@@ -59,7 +60,8 @@ public class WallRunning : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!GetComponentInChildren<PlayerInputSelector>().selectedInput) return;
+        if (!GetComponentInChildren<PlayerInputSelector>().selectedInput
+            || GameObject.FindAnyObjectByType<LeaderboardManager>().endGame) return;
 
         if (pm.wallRunning) WallRunningMovement();
     }

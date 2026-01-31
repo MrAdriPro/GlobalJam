@@ -90,7 +90,11 @@ public class PlayerInputSelector : MonoBehaviour
 
     void Update()
     {
-       
+        if (selectedInput) 
+        {
+            inputSelectorPanel.alpha = 0;
+        }
+
         string[] c = new string[Input.GetJoystickNames().Length + 1];
         string[] j = Input.GetJoystickNames();
         c[0] = "Teclado y raton";

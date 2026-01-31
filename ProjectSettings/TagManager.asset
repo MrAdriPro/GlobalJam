@@ -10,6 +10,10 @@ TagManager:
   - Wood
   - BtnIcon
   - Lava
+  - Player1End
+  - Player2End
+  - Player1Hand
+  - Player2Hand
   layers:
   - Default
   - TransparentFX
