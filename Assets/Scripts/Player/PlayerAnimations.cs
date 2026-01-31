@@ -12,7 +12,8 @@ public class PlayerAnimations : MonoBehaviour
     private float animSpeedCorrector = 10f;
     private Transform otherPlayer;
     public Animator playerBodyAnim;
-
+    public AudioSource gunSource;
+    public AudioClip gunClip;
     private void Start()
     {
         anim = GetComponentsInChildren<Animator>()[1];
@@ -58,6 +59,7 @@ public class PlayerAnimations : MonoBehaviour
     public void ShootAnim() 
     {
         anim.SetTrigger("Shoot");
+        gunSource.PlayOneShot(gunClip);
     }
 
     private void CheckOtherPlayerDirection()

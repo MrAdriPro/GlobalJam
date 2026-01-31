@@ -42,6 +42,7 @@ public class P_Footsteps : MonoBehaviour
     private PlayerInput playerInput;
 
     int lastIndex = 0;
+    private bool wasGrounded = false;
     //Functions
     private void Awake()
     {
@@ -57,8 +58,63 @@ public class P_Footsteps : MonoBehaviour
 
     private void Update()
     {
+
+        CheckStompSound();
+
         SlideSound();
     }
+
+    private void CheckStompSound() 
+    {
+        RaycastHit hit;
+        Vector3 direction = footstepCaster.transform.TransformDirection(Vector3.down);
+        if (p_Movement.wallRunning)
+        {
+            if (p_Movement.wallRunningScript.wallRight)
+            {
+                direction = footstepCaster.transform.TransformDirection(Vector3.right);
+            }
+            else if (p_Movement.wallRunningScript.wallLeft)
+            {
+                direction = footstepCaster.transform.TransformDirection(-Vector3.right);
+
+            }
+        }
+        if (!wasGrounded)
+        {
+            if (p_Movement.isGrounded)
+            {
+                if (Physics.Raycast(footstepCaster.position, direction, out hit, 2f))
+                {
+                    if (hit.collider.name.Contains("Wood"))
+                    {
+
+                        if (footstep.isPlaying)
+                        {
+                            footstep.Stop();
+                            footstep.PlayOneShot(PlayRandomFootstep(wood_Wander));
+
+                        }
+                        else { footstep.PlayOneShot(PlayRandomFootstep(wood_Wander)); }
+                    }
+                    else if (hit.collider.name.Contains("Stone"))
+                    {
+
+                        if (footstep.isPlaying)
+                        {
+                            footstep.Stop();
+                            footstep.PlayOneShot(PlayRandomFootstep(stone_Footsteps_Run));
+
+                        }
+                        else { footstep.PlayOneShot(PlayRandomFootstep(stone_Footsteps_Run)); }
+                    }
+                }
+            }
+        }
+        wasGrounded = p_Movement.isGrounded;
+
+    }
+
 
     private void SlideSound() 
     {

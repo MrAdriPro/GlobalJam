@@ -33,17 +33,19 @@ public class EnvironmentNerfs : MonoBehaviour
         yield return new WaitForSeconds(5);
 
         playerDialogueMessages = GameObject.FindAnyObjectByType<PlayerDialogueMessages>();
-        player1 = GameObject.FindGameObjectWithTag("Player1");
-        player2 = GameObject.FindGameObjectWithTag("Player2");
 
-        startGravityMultiplier = player1.GetComponent<PlayerMovement>().gravityMultiplier;
 
         while (true) 
         {
             yield return new WaitForSeconds(timeToCheckNerf);
             int random = Random.Range(0, 2);
 
-            if(random == 0)
+            player1 = GameObject.FindGameObjectWithTag("Player1");
+            player2 = GameObject.FindGameObjectWithTag("Player2");
+
+            startGravityMultiplier = player1.GetComponent<PlayerMovement>().gravityMultiplier;
+
+            if (random == 0)
                 StartCoroutine(GravityNerf());
             if(random == 1)
                 StartCoroutine(InvertedControllers());
