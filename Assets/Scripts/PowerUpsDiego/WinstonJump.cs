@@ -111,7 +111,7 @@ public class WinstonJump : MonoBehaviour
                 if (r == null) continue;
 
                 r.AddExplosionForce(_explosionForce, transform.position, _explosionRadius);
-                if (health != null && health != GetComponent<HealthManager>())
+                if (health != null && health.playerIndex != GetComponent<HealthManager>().playerIndex)
                 {
                     health.TakeDamage(2);
                 }

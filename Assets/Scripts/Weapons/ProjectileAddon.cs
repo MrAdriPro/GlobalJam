@@ -33,7 +33,7 @@ public class ProjectileAddon : MonoBehaviour
                     if (rb == null) continue;
 
                     rb.AddExplosionForce(weapon._explosionForce, transform.position, weapon._explosionRadius);
-                    if (health != null && health != GetComponent<HealthManager>())
+                    if (health != null && health.playerIndex != playerBody.GetComponent<HealthManager>().playerIndex)
                     {
                         health.TakeDamage(weapon.damage);
                     }
@@ -45,7 +45,7 @@ public class ProjectileAddon : MonoBehaviour
             }
 
         }
-        if (health != null && health != GetComponent<HealthManager>())
+        if (health != null && health.playerIndex != playerBody.GetComponent<HealthManager>().playerIndex)
         {
             health.TakeDamage(weapon.damage);
         }
