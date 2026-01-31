@@ -8,6 +8,8 @@ public class PlayerInput : MonoBehaviour
     public InputDevice inputDevice = InputDevice.KeyboardMouse;
     [SerializeField] private int playerIndex = 0;
 
+    public bool invertAllControllers = false;
+
     // Propiedades públicas - Compatible con tus scripts
     public float horizontalInput { get; private set; }
     public float verticalInput { get; private set; }
@@ -63,14 +65,35 @@ public class PlayerInput : MonoBehaviour
     void ReadKeyboardMouseInput()
     {
         // Movimiento (GetAxisRaw para respuesta instantánea)
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
+        if (!invertAllControllers)
+        {
+            horizontalInput = Input.GetAxisRaw("Horizontal");
+            verticalInput = Input.GetAxisRaw("Vertical");
+        }
+        else 
+        {
+            horizontalInput = -Input.GetAxisRaw("Horizontal");
+            verticalInput = -Input.GetAxisRaw("Vertical");
+        }
 
-        // Ratón
-        LookInput = new Vector2(
-            Input.GetAxis("Mouse X"),
-            Input.GetAxis("Mouse Y")
-        );
+        if (!invertAllControllers)
+        {
+            // Ratón
+            LookInput = new Vector2(
+                Input.GetAxis("Mouse X"),
+                Input.GetAxis("Mouse Y")
+            );
+        }
+        else 
+        {
+            // Ratón
+            LookInput = new Vector2(
+                -Input.GetAxis("Mouse X"),
+                -Input.GetAxis("Mouse Y")
+            );
+        }
+
+
 
         // Botones
         JumpButton = Input.GetButton("Jump");
@@ -92,15 +115,38 @@ public class PlayerInput : MonoBehaviour
     {
         string prefix = $"Joystick{joystickNumber}_";
 
-        // Movimiento (stick izquierdo)
-        horizontalInput = Input.GetAxis(prefix + "Horizontal Controller");
-        verticalInput = Input.GetAxis(prefix + "Vertical Controller");
+        // Movimiento (GetAxisRaw para respuesta instantánea)
+        if (!invertAllControllers)
+        {
+            horizontalInput = Input.GetAxis(prefix + "Horizontal Controller");
+            verticalInput = Input.GetAxis(prefix + "Vertical Controller");
+        }
+        else
+        {
+            horizontalInput = -Input.GetAxis(prefix + "Horizontal Controller");
+            verticalInput = -Input.GetAxis(prefix + "Vertical Controller");
+        }
 
-        // Cámara (stick derecho)
-        LookInput = new Vector2(
-            Input.GetAxis(prefix + "Joystick X"),
-            Input.GetAxis(prefix + "Joystick Y")
-        );
+
+        if (!invertAllControllers)
+        {
+            // Cámara (stick derecho)
+            LookInput = new Vector2(
+                Input.GetAxis(prefix + "Joystick X"),
+                Input.GetAxis(prefix + "Joystick Y")
+            );
+        }
+        else
+        {
+            // Cámara (stick derecho)
+            LookInput = new Vector2(
+                
+                -Input.GetAxis(prefix + "Joystick X"),
+                -Input.GetAxis(prefix + "Joystick Y")
+
+            );
+        }
+
 
         // Aplicar deadzone
         if (Mathf.Abs(horizontalInput) < 0.2f) horizontalInput = 0f;
