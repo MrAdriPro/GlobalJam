@@ -25,8 +25,7 @@ public class Rotator : MonoBehaviour
     }
     private void Rotation()
     {
-        if (!target) return;
-
+        if( middle == null) return;
         angle += speed * Time.deltaTime;
         float radian = angle * Mathf.Deg2Rad;
         float x = Mathf.Cos(radian) * radius;
@@ -35,8 +34,7 @@ public class Rotator : MonoBehaviour
     }
     private void LookAt()
     {
-        if (!target) return;
-
+        if(target == null) return;
         transform.LookAt(target.transform);
     }
 }

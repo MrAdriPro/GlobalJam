@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 721578566487088592}
   - component: {fileID: 524085273729546667}
   m_Layer: 0
-  m_Name: PU_Winston
+  m_Name: PU_RocketLauncher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 980cf7866ea109f4d9824ff8b638fbdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PowerUpPickup
-  data: {fileID: 11400000, guid: eaf92474ec04c654bab1faf438974f22, type: 2}
+  data: {fileID: 11400000, guid: d3c6539ec63413c45be1a2e58953096e, type: 2}
 --- !u!1 &5346247208155227022
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,7 +181,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: aef9ce826cdd9a34885839fc4e885880, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eba3013a06f76944bad3d732a7e02880, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

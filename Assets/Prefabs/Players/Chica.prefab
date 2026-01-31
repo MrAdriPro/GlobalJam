@@ -2173,6 +2173,7 @@ MonoBehaviour:
   attackPoint: {fileID: 156213637677860122}
   objectToThrow: {fileID: 155158014997318406, guid: 10547a2ffb388a94197878977a92bf54, type: 3}
   weapon: {fileID: 11400000, guid: 91b160ac7f85e4a4cbf66d66a8c1f65e, type: 2}
+  defaultWeapon: {fileID: 11400000, guid: 560a63a53c76b2349aeb49c9a27c73c3, type: 2}
   playerInputSelector: {fileID: 5217546414652798649}
   readyToThrow: 0
 --- !u!96 &4658556591456532422
@@ -2623,7 +2624,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -1.146, y: 0}
+  m_AnchoredPosition: {x: -1.1459961, y: 0}
   m_SizeDelta: {x: -116.8898, y: 358.8484}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5752885786984349567
@@ -3110,7 +3111,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &9206871891622943081
 Transform:
   m_ObjectHideFlags: 0

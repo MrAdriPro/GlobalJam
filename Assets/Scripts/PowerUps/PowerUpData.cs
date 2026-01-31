@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum PowerUpType
 {
-    None, SpeedAndDoubleJump, WinstonJump, Blindness
+    None, SpeedAndDoubleJump, WinstonJump, Blindness, Grenade
 
 }
 [CreateAssetMenu(menuName = "PowerUpData/New PowerUp Data", fileName = "New PowerUp Data")]
