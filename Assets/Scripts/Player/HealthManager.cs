@@ -32,7 +32,7 @@ public class HealthManager : MonoBehaviour
 
     private void Update()
     {
-        if (isDead) 
+        if (isDead)
         {
             if (playerInput.JumpButtonDown)
             {
@@ -69,7 +69,7 @@ public class HealthManager : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
     }
 
-    private AudioClip GetRandomBloodClip() 
+    private AudioClip GetRandomBloodClip()
     {
         return bloodHitClips[Random.Range(0, bloodHitClips.Length)];
     }
@@ -84,7 +84,7 @@ public class HealthManager : MonoBehaviour
         {
             playerDeadCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "Presiona espacio en tu teclado para reaparecer.";
         }
-        else 
+        else
         {
             playerDeadCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "Presiona 'A' en tu mando para reaparecer.";
 
@@ -95,7 +95,7 @@ public class HealthManager : MonoBehaviour
         cam.transform.DOMoveZ(-25, 2);
     }
 
-    IEnumerator DamageFlash() 
+    IEnumerator DamageFlash()
     {
         playerDamageIndicator.DOFade(0.5f, 0.1f);
 
@@ -104,5 +104,11 @@ public class HealthManager : MonoBehaviour
         playerDamageIndicator.DOFade(0, 0.1f);
     }
 
-
+    void OnTriggerEnter(Collider collision)
+    {
+        if (collision.CompareTag("Lava"))
+        {
+            TakeDamage(10000);
+        }
+    }
 }
