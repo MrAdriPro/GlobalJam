@@ -97,7 +97,7 @@ public class P_Footsteps : MonoBehaviour
                         }
                         else { footstep.PlayOneShot(PlayRandomFootstep(wood_Wander)); }
                     }
-                    else if (hit.collider.name.Contains("Stone"))
+                    else if (hit.collider.name.Contains("Stone") || hit.collider.tag.Contains("Stone"))
                     {
 
                         if (footstep.isPlaying)
@@ -164,7 +164,7 @@ public class P_Footsteps : MonoBehaviour
                 else { footstep.PlayOneShot(PlayRandomFootstep(wood_Wander)); }
             }
      
-            else if (hit.collider.name.Contains("Stone"))
+            else if (hit.collider.name.Contains("Stone") || hit.collider.tag.Contains("Stone"))
             {
 
                 if (footstep.isPlaying)
@@ -300,7 +300,7 @@ public class P_Footsteps : MonoBehaviour
 
                 }
             }
-            else if (hit.collider.name.Contains("Stone"))
+            else if (hit.collider.name.Contains("Stone") || hit.collider.tag.Contains("Stone"))
             {
 
                 if (footstep.isPlaying)
@@ -506,7 +506,7 @@ public class P_Footsteps : MonoBehaviour
                 }
                 else { footstep.PlayOneShot(PlayRandomFootstep(wood_Wander)); }
             }
-            else if (hit.collider.name.Contains("Stone"))
+            else if (hit.collider.name.Contains("Stone") || hit.collider.tag.Contains("Stone"))
             {
 
                 if (footstep.isPlaying)
