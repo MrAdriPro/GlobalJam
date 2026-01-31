@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
@@ -33,7 +32,7 @@ public class PlayerInput : MonoBehaviour
     public bool AbilityStay { get; private set; }
 
     public bool EasterEgg { get; private set; }
-    public bool Submit { get; private set; }
+
     void Update()
     {
         switch (inputDevice)
@@ -108,7 +107,7 @@ public class PlayerInput : MonoBehaviour
         Throw = Input.GetButton("Fire1");
         Ability = Input.GetButtonDown("Fire2");
         AbilityStay = Input.GetButton("Fire2");
-        Submit = Input.GetButtonDown("Submit");
+
         // Keys específicas
         UpwardsRunKey = Input.GetKey(KeyCode.LeftShift);
         DownwardsRunKey = Input.GetKey(KeyCode.LeftControl);
@@ -173,7 +172,6 @@ public class PlayerInput : MonoBehaviour
         Ability = trigger2 > 0.1;
         AbilityStay = trigger2 > 0.1f;
         //EasterEgg = Input.GetButtonDown(prefix + "Fire3");
-        Submit = Input.GetButtonDown(prefix + "Submit");
 
         UpwardsRunKey = RunButton;
         DownwardsRunKey = CrouchButton;
