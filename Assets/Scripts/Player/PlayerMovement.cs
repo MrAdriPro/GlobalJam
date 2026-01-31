@@ -54,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
     public WallRunning wallRunningScript;
     public PowerUpManager powerUpManager;
     private HealthManager healthManager;
+    public PlayerInputSelector playerInputSelector;
 
     float horizontalInput;
     float verticalInput;
@@ -81,7 +82,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (healthManager.isDead) return;
+        if (healthManager.isDead || !playerInputSelector.selectedInput || GameObject.FindAnyObjectByType<PauseMenu>().isPaused
+            || GameObject.FindAnyObjectByType<LeaderboardManager>().endGame) return;
 
         MovePlayer();
     }
@@ -89,7 +91,8 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
 
-        if (healthManager.isDead) return;
+        if (healthManager.isDead || !playerInputSelector.selectedInput || GameObject.FindAnyObjectByType<PauseMenu>().isPaused
+            || GameObject.FindAnyObjectByType<LeaderboardManager>().endGame) return;
 
         isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, groundMask);
 
