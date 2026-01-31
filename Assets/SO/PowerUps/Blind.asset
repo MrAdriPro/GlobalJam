@@ -20,3 +20,4 @@ MonoBehaviour:
   drainPerSecond: 1
   regenPerSecond: 0.5
   minChargeToUse: 1
+  referencedWeapon: {fileID: 11400000, guid: 560a63a53c76b2349aeb49c9a27c73c3, type: 2}

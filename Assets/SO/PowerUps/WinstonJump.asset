@@ -13,6 +13,11 @@ MonoBehaviour:
   m_Name: WinstonJump
   m_EditorClassIdentifier: Assembly-CSharp::PowerUpData
   type: 2
-  speedMultiplier: 16
+  speedMultiplier: 12
   extraJumps: 0
   winstonJumpMultiplier: 1
+  maxCharge: 5
+  drainPerSecond: 1
+  regenPerSecond: 0.5
+  minChargeToUse: 1
+  referencedWeapon: {fileID: 11400000, guid: 91b160ac7f85e4a4cbf66d66a8c1f65e, type: 2}

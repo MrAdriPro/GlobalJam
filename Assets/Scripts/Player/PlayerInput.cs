@@ -104,7 +104,7 @@ public class PlayerInput : MonoBehaviour
         CrouchButtonDown = Input.GetButtonDown("Crouch");
         CrouchButtonUp = Input.GetButtonUp("Crouch");
         RunButton = Input.GetButton("Run");
-        Throw = Input.GetButtonDown("Fire1");
+        Throw = Input.GetButton("Fire1");
         Ability = Input.GetButtonDown("Fire2");
         AbilityStay = Input.GetButton("Fire2");
 
