@@ -22,7 +22,7 @@ public class Throwing : MonoBehaviour
 
     private void Update()
     {
-        if (!playerInputSelector.selectedInput) return;
+        if (!playerInputSelector.selectedInput || GameObject.FindAnyObjectByType<PauseMenu>().isPaused) return;
 
         if (playerInput.Throw && readyToThrow)
         {

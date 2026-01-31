@@ -33,17 +33,19 @@ public class M_ButtonHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public void OnSelect(BaseEventData eventData)
     {
-        print(rt.name);
-        Vector2 pos = rt.anchoredPosition;
-        pos.x -= rt.rect.width / 2 + 25;
-        Slider isASlider = GetComponent<Slider>();
 
-        if (isASlider) 
+        if (b_Settings.buttonType == ButtonType.MenuButton)
         {
-            pos.x -= offset;
-        }
-        mainMenuController.ChangeMainMenuSelectorPosition(pos);
+            Vector2 pos = rt.anchoredPosition;
+            pos.x -= rt.rect.width / 2 + 25;
+            Slider isASlider = GetComponent<Slider>();
 
+            if (isASlider)
+            {
+                pos.x -= offset;
+            }
+            mainMenuController.ChangeMainMenuSelectorPosition(pos);
+        }
         // Si es un toggle 
         M_ToggleSwitch toggle = GetComponent<M_ToggleSwitch>();
         if (toggle) mainMenuController.SetCurrentToggle(toggle);
@@ -59,7 +61,7 @@ public class M_ButtonHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
         if (b_Settings.hasAnim)
         {
-
+            ButtonSelectImageCreator();
             StartSmoothMove(originalPosition + b_Settings.buttonOffsetAnimation);
         }
 
@@ -110,7 +112,7 @@ public class M_ButtonHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
         if (b_Settings.hasAnim)
         {
-
+            ButtonSelectImageCreator();
             StartSmoothMove(originalPosition + b_Settings.buttonOffsetAnimation);
         }
 
@@ -119,7 +121,6 @@ public class M_ButtonHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
             Vector2 pos = rt.anchoredPosition;
             pos.x -= rt.rect.width / 2 + 25;
             mainMenuController.ChangeMainMenuSelectorPosition(pos);
-            ButtonSelectImageCreator();
         }
 
         if(_audioSource)

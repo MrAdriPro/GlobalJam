@@ -23,7 +23,7 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        if (GetComponentInParent<HealthManager>().isDead || !playerInputSelector.selectedInput) return;
+        if (GetComponentInParent<HealthManager>().isDead || !playerInputSelector.selectedInput || GameObject.FindAnyObjectByType<PauseMenu>().isPaused) return;
 
         float mouseX = playerInput.LookInput.x * Time.deltaTime * mouseSensitivity;
         float mouseY = playerInput.LookInput.y * Time.deltaTime * mouseSensitivity;
