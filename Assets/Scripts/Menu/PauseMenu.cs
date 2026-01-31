@@ -1,4 +1,7 @@
 using DG.Tweening;
+using System;
+using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,6 +23,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.gameObject.SetActive(false);
         isPaused = false;
         musicSource.clip = battleClip;
+        StartCoroutine(RestartTextAnimtion());
     }
 
     private void Update()
@@ -36,6 +40,13 @@ public class PauseMenu : MonoBehaviour
                 pauseMenu.DOFade(1, 0.3f);
                 musicSource.clip = pauseMenuClip;
                 musicSource.Play();
+                GameObject.FindWithTag("Player1Hand").GetComponent<CanvasGroup>().DOFade(0.3f, 0.2f);
+                try
+                {
+                    GameObject.FindWithTag("Player2Hand").GetComponent<CanvasGroup>().DOFade(0.3f, 0.2f);
+                }
+                catch (Exception ex) { }
+
             }
             else
             {
@@ -45,7 +56,13 @@ public class PauseMenu : MonoBehaviour
                 pauseMenu.DOFade(0, 0.3f);
                 musicSource.clip = battleClip;
                 musicSource.Play();
+                GameObject.FindWithTag("Player1Hand").GetComponent<CanvasGroup>().DOFade(1f, 0.2f);
 
+                try
+                {
+                    GameObject.FindWithTag("Player2Hand").GetComponent<CanvasGroup>().DOFade(1f, 0.2f);
+                }
+                catch (Exception ex) { }
             }
         }
     }
@@ -64,6 +81,26 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.DOFade(0, 0.3f);
         musicSource.clip = battleClip;
         musicSource.Play();
+        GameObject.FindWithTag("Player1Hand").GetComponent<CanvasGroup>().DOFade(1, 0.2f);
 
+        try
+        {
+            GameObject.FindWithTag("Player2Hand").GetComponent<CanvasGroup>().DOFade(1, 0.2f);
+        }
+        catch (Exception ex) { }
+    }
+
+    IEnumerator RestartTextAnimtion()
+    {
+        CanvasGroup restartTextCanvas = GameObject.FindAnyObjectByType<PlayerSpawner>().levelCam.GetComponentInChildren<CanvasGroup>();
+        restartTextCanvas.GetComponent<TextMeshProUGUI>().text = "Presiona cualquier tecla para reiniciar";
+
+        while (GameObject.FindAnyObjectByType<PlayerSpawner>().levelCam.activeSelf)
+        {
+            yield return new WaitForSeconds(0.5f);
+            restartTextCanvas.DOFade(1, 0.5f);
+            yield return new WaitForSeconds(0.5f);
+            restartTextCanvas.DOFade(0, 0.5f);
+        }
     }
 }

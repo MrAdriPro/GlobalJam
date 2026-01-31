@@ -837,16 +837,20 @@ PrefabInstance:
       value: ExitGame
       objectReference: {fileID: 0}
     - target: {fileID: 4086480985159592848, guid: a66579c018f66324596dc5bd34e445a3, type: 3}
+      propertyPath: m_Color.a
+      value: 0.9137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086480985159592848, guid: a66579c018f66324596dc5bd34e445a3, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 0.028301895
       objectReference: {fileID: 0}
     - target: {fileID: 4086480985159592848, guid: a66579c018f66324596dc5bd34e445a3, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 0.028301895
       objectReference: {fileID: 0}
     - target: {fileID: 4086480985159592848, guid: a66579c018f66324596dc5bd34e445a3, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 0.028301895
       objectReference: {fileID: 0}
     - target: {fileID: 4146529105672990878, guid: a66579c018f66324596dc5bd34e445a3, type: 3}
       propertyPath: m_Alpha
@@ -1481,6 +1485,7 @@ GameObject:
   - component: {fileID: 1415491643}
   - component: {fileID: 1415491645}
   - component: {fileID: 1415491644}
+  - component: {fileID: 1415491646}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1527,7 +1532,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Espera a que el otro jugador elija opcion
+  m_text: Espera  a que el otro jugador elija opcion
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1607,6 +1612,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1415491642}
   m_CullTransparentMesh: 1
+--- !u!225 &1415491646
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415491642}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1502281629
 GameObject:
   m_ObjectHideFlags: 0
@@ -2684,6 +2701,7 @@ GameObject:
   - component: {fileID: 2033217590}
   - component: {fileID: 2033217589}
   - component: {fileID: 2033217593}
+  - component: {fileID: 2033217594}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2789,6 +2807,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43eabe3c648dc244badc3905a9341c22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlindnessManager
+--- !u!114 &2033217594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033217588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c69edfa8bcd260844ad69c7d4111afaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AlwaysBottomHierarchy
 --- !u!1 &2058498292
 GameObject:
   m_ObjectHideFlags: 0
@@ -2860,7 +2890,7 @@ MonoBehaviour:
   player2Spawned: 0
   player1Device: 0
   player2Device: 0
-  levelCam: {fileID: 0}
+  levelCam: {fileID: 1191918322}
 --- !u!4 &2095461624
 Transform:
   m_ObjectHideFlags: 0
@@ -3010,7 +3040,7 @@ SceneRoots:
   - {fileID: 1817379185}
   - {fileID: 2095461624}
   - {fileID: 927836789}
-  - {fileID: 2033217592}
   - {fileID: 1135518031}
   - {fileID: 1771073597}
   - {fileID: 1191918323}
+  - {fileID: 2033217592}
