@@ -28,6 +28,7 @@ public class MenuButton : ScriptableObject
     [Header("Button type")]
     public ButtonType buttonType = ButtonType.InventoryButton;
     public bool hasAnim = true;
+    public bool doesHoverImageEffect = true;
 
     [BoxGroup("Animation Settings")]
     public Vector3 buttonOffsetAnimation;

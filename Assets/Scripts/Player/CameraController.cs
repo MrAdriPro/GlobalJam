@@ -12,6 +12,7 @@ public class CameraController : MonoBehaviour
     public Transform orientation;
 
     private PlayerInput playerInput;
+    public PlayerInputSelector playerInputSelector;
 
     void Start()
     {
@@ -22,7 +23,8 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        if (GetComponentInParent<HealthManager>().isDead) return;
+        if (GetComponentInParent<HealthManager>().isDead || !playerInputSelector.selectedInput || GameObject.FindAnyObjectByType<PauseMenu>().isPaused
+            || GameObject.FindAnyObjectByType<LeaderboardManager>().endGame) return;
 
         float mouseX = playerInput.LookInput.x * Time.deltaTime * mouseSensitivity;
         float mouseY = playerInput.LookInput.y * Time.deltaTime * mouseSensitivity;

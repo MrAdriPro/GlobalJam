@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -21,6 +22,10 @@ public class HealthManager : MonoBehaviour
     public int playerIndex;
     public CanvasGroup playerDeadCanvas;
 
+    [SerializeField] private bool didDamage = false;
+    [SerializeField] private float timer;
+    [SerializeField] private float time = 5f;
+
     public bool isDead { get; private set; }
 
     private void Awake()
@@ -28,24 +33,43 @@ public class HealthManager : MonoBehaviour
         currentHealth = maxHealth;
         playerInput = GetComponent<PlayerInput>();
         playerDeadCanvas.alpha = 0f;
+        timer = time;
     }
 
     private void Update()
     {
         if (isDead) 
         {
-            if (playerInput.JumpButtonDown)
+            if (playerInput.JumpButtonDown && !GameObject.FindAnyObjectByType<LeaderboardManager>().endGame)
             {
                 playerDeadCanvas.alpha = 0f;
                 GameObject.FindAnyObjectByType<PlayerSpawner>().Spawn(playerIndex);
                 Destroy(gameObject);
             }
+            else if(GameObject.FindAnyObjectByType<LeaderboardManager>().endGame)
+            {
+                playerDeadCanvas.alpha = 0f;
+
+            }
+        }
+
+        if (timer > 0)
+        {
+            timer -= Time.deltaTime;
+        }
+        else if (timer <= 0)
+        {
+            didDamage = false;
+
         }
     }
 
     public void TakeDamage(int amount)
     {
         if (isDead) return;
+
+        didDamage = true;
+        timer = time;
 
         currentHealth -= amount;
         GameObject particle = Instantiate(bloodVfx, transform.position, Quaternion.identity);
@@ -60,7 +84,10 @@ public class HealthManager : MonoBehaviour
 
         StopAllCoroutines();
         StartCoroutine(DamageFlash());
+
     }
+
+
 
     public void Heal(int amount)
     {
@@ -71,28 +98,57 @@ public class HealthManager : MonoBehaviour
 
     private AudioClip GetRandomBloodClip() 
     {
-        return bloodHitClips[Random.Range(0, bloodHitClips.Length)];
+        return bloodHitClips[UnityEngine.Random.Range(0, bloodHitClips.Length)];
     }
 
-    private void Die()
+    public void Die(bool active = true)
     {
+        if (didDamage) 
+        {
+            LeaderboardManager lm = GameObject.FindAnyObjectByType<LeaderboardManager>();
+            if (playerIndex == 0)
+            {
+                lm.player2Kills++;
+                lm.player1Deads++;
+
+            }
+            else 
+            {
+                lm.player2Deads++;
+                lm.player1Kills++;
+
+            }
+        }
+
         deadAudio.Play();
         isDead = true;
-        playerDeadCanvas.alpha = 0.5f;
-        Transform cam = GetComponentsInChildren<Transform>()[1];
-        if (playerInput.inputDevice == PlayerInput.InputDevice.KeyboardMouse)
+        try
         {
-            playerDeadCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "Presiona espacio en tu teclado para reaparecer.";
+            if (playerIndex == 0) GameObject.FindGameObjectWithTag("Player1Hand").SetActive(false);
+            else GameObject.FindGameObjectWithTag("Player2Hand").SetActive(false);
         }
-        else 
-        {
-            playerDeadCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "Presiona 'A' en tu mando para reaparecer.";
+        catch (Exception ex) { }
 
+        if (active)
+        {
+            playerDeadCanvas.alpha = 0.5f;
+            if (playerInput.inputDevice == PlayerInput.InputDevice.KeyboardMouse)
+            {
+                playerDeadCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "Presiona espacio en tu teclado para reaparecer.";
+            }
+            else
+            {
+                playerDeadCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "Presiona 'A' en tu mando para reaparecer.";
+
+            }
         }
+
         GameObject particle = Instantiate(deadBloodVfx, transform.position, Quaternion.identity);
         Destroy(particle, 8);
         playerRenderer.enabled = false;
-        cam.transform.DOMoveZ(-25, 2);
+        Transform cam = GetComponentsInChildren<Transform>()[1];
+
+        //cam.transform.DOMoveZ(-25, 2);
     }
 
     IEnumerator DamageFlash() 

@@ -35,7 +35,7 @@ public class BloodDecalSpawner : MonoBehaviour
             decalProjector.material = decalMaterial;
             decalProjector.size = new Vector3(decalSize, decalSize, 0.5f);
 
-            Destroy(decalObj, 10f);
+            Destroy(decalObj, 2);
         }
     }
 }

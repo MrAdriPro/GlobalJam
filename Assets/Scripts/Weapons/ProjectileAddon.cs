@@ -45,10 +45,6 @@ public class ProjectileAddon : MonoBehaviour
             }
 
         }
-        if (health != null && health.playerIndex != playerBody.GetComponent<HealthManager>().playerIndex)
-        {
-            health.TakeDamage(weapon.damage);
-        }
         Destroy(gameObject);
     }
 }

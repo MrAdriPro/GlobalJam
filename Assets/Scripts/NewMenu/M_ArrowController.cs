@@ -12,14 +12,20 @@ public class M_ArrowController : MonoBehaviour, ISelectHandler, IDeselectHandler
     public bool notSelectedNeeded = false;
     private bool wasPressingLeft = false;
     private bool wasPressingRight = false;
-
+    public bool isMenu = false;
     private float deadzone = 0.5f; // Umbral para detectar el input
     private void Update()
     {
         if (selected || notSelectedNeeded)
         {
-
             float horizontal = 0;
+
+
+            if (isMenu) 
+            {
+                horizontal = Input.GetAxisRaw("Horizontal") + Input.GetAxisRaw("Joystick1_Horizontal Controller") + Input.GetAxisRaw("Joystick2_Horizontal Controller");
+
+            }
 
             if (playerInputSelector != null)
             {

@@ -50,7 +50,7 @@ public class PlayerInputSelector : MonoBehaviour
         }
         controllers = c;
 
-        if (controllers.Length > 1)
+        if (controllers.Length > 1) 
         {
             inputText.text = controllers[playerIndex] + "(" + currentController + ")";
 
@@ -90,6 +90,10 @@ public class PlayerInputSelector : MonoBehaviour
 
     void Update()
     {
+        if (selectedInput) 
+        {
+            inputSelectorPanel.alpha = 0;
+        }
 
         string[] c = new string[Input.GetJoystickNames().Length + 1];
         string[] j = Input.GetJoystickNames();
@@ -101,7 +105,7 @@ public class PlayerInputSelector : MonoBehaviour
         controllers = c;
     }
 
-    public void ChangeSelector(int index)
+    public void ChangeSelector(int index) 
     {
         if (!selectedInput)
         {
@@ -145,7 +149,7 @@ public class PlayerInputSelector : MonoBehaviour
         }
     }
 
-    public void SelectController()
+    public void SelectController() 
     {
         if (!selectedInput)
         {
