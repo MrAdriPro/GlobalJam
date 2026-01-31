@@ -107,7 +107,7 @@ public class PlayerInputSelector : MonoBehaviour
 
     public void ChangeSelector(int index) 
     {
-        if (!selectedInput)
+        if (!selectedInput && !GameObject.FindAnyObjectByType<PauseMenu>().isPaused)
         {
 
             currentController = currentController + index;
@@ -151,7 +151,7 @@ public class PlayerInputSelector : MonoBehaviour
 
     public void SelectController() 
     {
-        if (!selectedInput)
+        if (!selectedInput && !GameObject.FindAnyObjectByType<PauseMenu>().isPaused)
         {
             playerInput.inputDevice = (PlayerInput.InputDevice)currentController;
             inputDevice = (PlayerInput.InputDevice)currentController;
