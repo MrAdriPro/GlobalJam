@@ -82,7 +82,6 @@ public class PauseMenu : MonoBehaviour
         musicSource.clip = battleClip;
         musicSource.Play();
         GameObject.FindWithTag("Player1Hand").GetComponent<CanvasGroup>().DOFade(1, 0.2f);
-
         try
         {
             GameObject.FindWithTag("Player2Hand").GetComponent<CanvasGroup>().DOFade(1, 0.2f);
