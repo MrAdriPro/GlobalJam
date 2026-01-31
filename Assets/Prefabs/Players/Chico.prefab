@@ -317,7 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5956e464fec79e54ca528e9ea056e99c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInput
-  inputDevice: 0
+  inputDevice: 1
   playerIndex: 0
   invertAllControllers: 0
 --- !u!114 &3047229259057284234
