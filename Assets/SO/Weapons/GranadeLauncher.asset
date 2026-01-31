@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8914e1d95ca74ac458793c76cbdb4278, type: 3}
   m_Name: GranadeLauncher
   m_EditorClassIdentifier: Assembly-CSharp::Weapons
-  throwCooldown: 1
+  throwCooldown: 2
   damage: 1
   throwForce: 50
   throwUpwardForce: 3

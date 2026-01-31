@@ -28,8 +28,13 @@ public class PlayerInputSelector : MonoBehaviour
         {
             inputSelectorPanel.DOFade(0, 0f);
             if (playerIndex == 0)
+            {
                 inputDevice = playerSpawner.player1Device;
-            else inputDevice = playerSpawner.player2Device;
+            }
+            else
+            {
+                inputDevice = playerSpawner.player2Device;
+            }
 
             playerInput.inputDevice = inputDevice;
         }
@@ -37,8 +42,12 @@ public class PlayerInputSelector : MonoBehaviour
         else inputSelectorPanel.DOFade(1, 1f);
 
         string[] c = new string[Input.GetJoystickNames().Length + 1];
+        string[] j = Input.GetJoystickNames();
         c[0] = "Teclado y raton";
-        c = Input.GetJoystickNames();
+        for (int i = 0; i < j.Length; i++)
+        {
+            c[i + 1] = j[i];
+        }
         controllers = c;
 
         if (controllers.Length > 1) 

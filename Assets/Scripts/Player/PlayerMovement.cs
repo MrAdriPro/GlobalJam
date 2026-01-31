@@ -82,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (healthManager.isDead) return;
+        if (healthManager.isDead || !playerInputSelector.selectedInput) return;
 
         MovePlayer();
     }
