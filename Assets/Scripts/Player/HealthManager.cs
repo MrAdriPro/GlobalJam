@@ -104,22 +104,26 @@ public class HealthManager : MonoBehaviour
 
     public void Die(bool active = true)
     {
+        LeaderboardManager lm = GameObject.FindAnyObjectByType<LeaderboardManager>();
+
         if (didDamage) 
         {
-            LeaderboardManager lm = GameObject.FindAnyObjectByType<LeaderboardManager>();
             if (playerIndex == 0)
             {
                 lm.player2Kills++;
-                lm.player1Deads++;
 
             }
-            else 
+            else
             {
                 lm.player2Deads++;
-                lm.player1Kills++;
 
             }
         }
+        if (playerIndex == 0)lm.player1Deads++;
+        else  lm.player2Deads++; 
+
+        
+
 
         deadAudio.Play();
         isDead = true;

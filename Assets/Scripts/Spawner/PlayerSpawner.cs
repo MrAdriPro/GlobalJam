@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -33,6 +34,8 @@ public class PlayerSpawner : MonoBehaviour
 
         PlayerInputSelector player1inputSelector = player1.GetComponentInChildren<PlayerInputSelector>();
 
+        GameObject.FindWithTag("Player1Hand").GetComponent<CanvasGroup>().alpha = 0;
+
 
         int frameCount = 0;
 
@@ -45,12 +48,17 @@ public class PlayerSpawner : MonoBehaviour
         player1Spawned = true;
         player1Device = player1inputSelector.inputDevice;
 
+        GameObject.FindWithTag("Player1Hand").GetComponent<CanvasGroup>().DOFade(1, 0.5f);
+
+
         Destroy(levelCam);
 
 
         GameObject player2 = SpawnPlayerStart(1);
 
         PlayerInputSelector player2inputSelector = player2.GetComponentInChildren<PlayerInputSelector>();
+
+        GameObject.FindWithTag("Player2Hand").GetComponent<CanvasGroup>().alpha = 0;
 
 
         while (!player2inputSelector.selectedInput)
@@ -62,6 +70,8 @@ public class PlayerSpawner : MonoBehaviour
 
         player2Spawned = true;
         player2Device = player2inputSelector.inputDevice;
+
+        GameObject.FindWithTag("Player2Hand").GetComponent<CanvasGroup>().DOFade(1, 0.5f);
 
 
         Rotator[] player1Rotators = player1.GetComponentsInChildren<Rotator>();
