@@ -59,8 +59,7 @@ public class MainMenuController : MonoBehaviour
 
     public void PlayGame()
     {
-        Debug.Log("Play Game!");
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Level");
     }
 
     public void OpenOptions() => currentMenu = ChangeMenu(Menus.OptionsMenu);

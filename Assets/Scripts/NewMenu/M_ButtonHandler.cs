@@ -47,10 +47,14 @@ public class M_ButtonHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
             mainMenuController.ChangeMainMenuSelectorPosition(pos);
         }
         // Si es un toggle 
-        M_ToggleSwitch toggle = GetComponent<M_ToggleSwitch>();
-        if (toggle) mainMenuController.SetCurrentToggle(toggle);
-        else mainMenuController.SetCurrentToggle(null
-            );
+        if (mainMenuController)
+        {
+            M_ToggleSwitch toggle = GetComponent<M_ToggleSwitch>();
+            if (toggle) mainMenuController.SetCurrentToggle(toggle);
+            else mainMenuController.SetCurrentToggle(null
+                );
+        }
+
         if (mainMenuController.audioSource != null && mainMenuController.selectSound != null)
         {
             mainMenuController.audioSource.PlayOneShot(mainMenuController.selectSound);
@@ -61,12 +65,12 @@ public class M_ButtonHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
         if (b_Settings.hasAnim)
         {
+            if(b_Settings.doesHoverImageEffect)
             ButtonSelectImageCreator();
+
             StartSmoothMove(originalPosition + b_Settings.buttonOffsetAnimation);
         }
 
-        if (_audioSource)
-            _audioSource.PlayOneShot(b_Settings._OnHoverSound);
     }
 
     public void OnDeselect(BaseEventData eventData) 
@@ -105,7 +109,9 @@ public class M_ButtonHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (!this.GetComponent<Button>().interactable) return;
+        eventData.selectedObject = this.gameObject;
+
+        /*(if (!this.GetComponent<Button>().interactable) return;
 
         if (childText) childText.color = b_Settings.hoverColor;
         if (childImage) childImage.color = b_Settings.hoverColor;
@@ -124,12 +130,12 @@ public class M_ButtonHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
         }
 
         if(_audioSource)
-        _audioSource.PlayOneShot(b_Settings._OnHoverSound);
+        _audioSource.PlayOneShot(mainMenuController.selectSound);*/
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (!this.GetComponent<Button>().interactable) return;
+        /*if (!this.GetComponent<Button>().interactable) return;
 
         if (childText) childText.color = b_Settings.noHoverColor;
         if (childImage) childImage.color = b_Settings.noHoverColor;
@@ -140,7 +146,7 @@ public class M_ButtonHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
         }
 
         if (hoverObject)
-        Destroy(hoverObject);
+        Destroy(hoverObject);*/
 
     }
 
@@ -159,7 +165,6 @@ public class M_ButtonHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
     {
         if (!this.GetComponent<Button>().interactable) return;
 
-        if (_audioSource)_audioSource.PlayOneShot(b_Settings._OnClickSound);
         if (childText) childText.color = b_Settings.noHoverColor;
         if (childImage) childImage.color = b_Settings.noHoverColor;
 
