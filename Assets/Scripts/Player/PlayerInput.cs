@@ -5,7 +5,7 @@ public class PlayerInput : MonoBehaviour
     public enum InputDevice { KeyboardMouse, Joystick1, Joystick2 }
 
     [Header("Configuración del Jugador")]
-    [SerializeField] private InputDevice inputDevice = InputDevice.KeyboardMouse;
+    public InputDevice inputDevice = InputDevice.KeyboardMouse;
     [SerializeField] private int playerIndex = 0;
 
     // Propiedades públicas - Compatible con tus scripts
@@ -120,7 +120,7 @@ public class PlayerInput : MonoBehaviour
         Throw = trigger > 0.1;
         float trigger2 = Input.GetAxis(prefix + "Fire2");
         Ability = trigger2 > 0.1;
-        EasterEgg = Input.GetButtonDown(prefix + "Fire3");
+        //EasterEgg = Input.GetButtonDown(prefix + "Fire3");
 
         UpwardsRunKey = RunButton;
         DownwardsRunKey = CrouchButton;

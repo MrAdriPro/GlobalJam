@@ -53,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
     public Climbing climbScript;
     public WallRunning wallRunningScript;
     public PowerUpManager powerUpManager;
+    private HealthManager healthManager;
 
     float horizontalInput;
     float verticalInput;
@@ -75,15 +76,20 @@ public class PlayerMovement : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         startYScale = transform.localScale.y;
         wallRunningScript = GetComponent<WallRunning>();
+        healthManager = GetComponent<HealthManager>();
     }
 
     private void FixedUpdate()
     {
+        if (healthManager.isDead) return;
+
         MovePlayer();
     }
 
     private void Update()
     {
+
+        if (healthManager.isDead) return;
 
         isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, groundMask);
 

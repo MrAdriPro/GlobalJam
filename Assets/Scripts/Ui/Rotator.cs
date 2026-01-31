@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Rotator : MonoBehaviour
@@ -6,13 +7,17 @@ public class Rotator : MonoBehaviour
     public float speed = 50f;
     public float radius = 2f;
     public float startAngle = 0f;
-    public GameObject target;
+    private GameObject target;
 
     private float angle = 0f;
     private void Start()
     {
         angle = startAngle;
     }
+
+    public void SetRotatorTarget(GameObject _target) => target = _target;
+
+
     void Update()
     {
         Rotation();
@@ -20,6 +25,8 @@ public class Rotator : MonoBehaviour
     }
     private void Rotation()
     {
+        if (!target) return;
+
         angle += speed * Time.deltaTime;
         float radian = angle * Mathf.Deg2Rad;
         float x = Mathf.Cos(radian) * radius;
@@ -28,6 +35,9 @@ public class Rotator : MonoBehaviour
     }
     private void LookAt()
     {
+        if (!target) return;
+
         transform.LookAt(target.transform);
     }
 }
+

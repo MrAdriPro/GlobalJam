@@ -47,7 +47,7 @@ public class P_Footsteps : MonoBehaviour
     {
         if (instance) Destroy(this);
         else instance = this;
-
+        p_Movement = GetComponent<PlayerMovement>();
         playerInput = GetComponent<PlayerInput>();
 
         bob = GetComponent<FirstPersonCameraBob>();
