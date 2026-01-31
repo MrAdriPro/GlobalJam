@@ -160,7 +160,7 @@ MonoBehaviour:
   crouchYScale: 0.5
   groundDrag: 5
   gravityMultiplier: 0.4
-  jumpForce: 18
+  jumpForce: 12
   jumpCooldown: 0.25
   airMultiplier: 0.4
   readyToJump: 0
@@ -239,7 +239,7 @@ MonoBehaviour:
   pm: {fileID: 8290946982032636171}
   wallMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 385
   climbSpeed: 10
   maxClimbTime: 0.75
   climbJumpUpForce: 14
@@ -265,7 +265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WallRunning
   wallMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 385
   groundMask:
     serializedVersion: 2
     m_Bits: 129

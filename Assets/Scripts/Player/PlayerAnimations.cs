@@ -14,7 +14,6 @@ public class PlayerAnimations : MonoBehaviour
     public Animator playerBodyAnim;
     public AudioSource gunSource;
     public AudioClip gunClip;
-    public PlayerInputSelector playerInputSelector;
     private void Start()
     {
         anim = GetComponentsInChildren<Animator>()[1];
@@ -25,7 +24,6 @@ public class PlayerAnimations : MonoBehaviour
 
     private void Update()
     {
-        if (!playerInputSelector.selectedInput || GameObject.FindAnyObjectByType<PauseMenu>().isPaused) return;
 
         anim.speed = pm.speed / animSpeedCorrector;
 
@@ -47,20 +45,9 @@ public class PlayerAnimations : MonoBehaviour
 
         if (!otherPlayer)
         {
-            try
-            {
-                if (GetComponent<HealthManager>().playerIndex == 0)
-                {
-                    otherPlayer = GameObject.FindGameObjectWithTag("Player2").transform;
-                }
-                else
-                {
-                    otherPlayer = GameObject.FindGameObjectWithTag("Player1").transform;
-                }
-            }
-            catch (Exception ex) { }
+            if (GetComponent<HealthManager>().playerIndex == 0) otherPlayer = GameObject.FindGameObjectWithTag("Player2").transform;
+            else otherPlayer = GameObject.FindGameObjectWithTag("Player1").transform;
 
-            if(otherPlayer)
             playerBodyAnim = otherPlayer.GetComponentsInChildren<Animator>()[0];
         }
 

@@ -50,8 +50,6 @@ public class Climbing : MonoBehaviour
 
     private void Update()
     {
-        if (!GetComponentInChildren<PlayerInputSelector>().selectedInput || GameObject.FindAnyObjectByType<PauseMenu>().isPaused) return;
-
         WallCheck();
         StateMachine();
 

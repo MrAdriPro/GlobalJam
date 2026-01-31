@@ -45,8 +45,6 @@ public class FirstPersonCameraBob : MonoBehaviour
 
     private void Update()
     {
-        if (!GetComponentInChildren<PlayerInputSelector>().selectedInput || GameObject.FindAnyObjectByType<PauseMenu>().isPaused) return;
-
         bool isMoving = false;
 
         if (pm.isMoving())

@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
@@ -30,20 +29,16 @@ public class M_SettingsMenu : MonoBehaviour
 
     public void Settings() 
     {
-        try
-        {
-            audioMixer.SetFloat("Master", Mathf.Log10(masterSlider.value) * 20);
-            audioMixer.SetFloat("Sounds", Mathf.Log10(soundSlider.value) * 20);
-            audioMixer.SetFloat("Music", Mathf.Log10(musicSlider.value) * 20);
-            float masterValue = masterSlider.value * 100;
-            float soundsValue = soundSlider.value * 100;
-            float musicValue = musicSlider.value * 100;
+        audioMixer.SetFloat("Master", Mathf.Log10(masterSlider.value) * 20);
+        audioMixer.SetFloat("Sounds", Mathf.Log10(soundSlider.value) * 20);
+        audioMixer.SetFloat("Music", Mathf.Log10(musicSlider.value) * 20);
+        float masterValue = masterSlider.value * 100;
+        float soundsValue = soundSlider.value * 100;
+        float musicValue = musicSlider.value * 100;
 
-            masterSlider.GetComponentInChildren<TextMeshProUGUI>().text = ((int)masterValue).ToString();
-            soundSlider.GetComponentInChildren<TextMeshProUGUI>().text = ((int)soundsValue).ToString();
-            musicSlider.GetComponentInChildren<TextMeshProUGUI>().text = ((int)musicValue).ToString();
-        }
-        catch (Exception ex) { }
+        masterSlider.GetComponentInChildren<TextMeshProUGUI>().text = ((int)masterValue).ToString();
+        soundSlider.GetComponentInChildren<TextMeshProUGUI>().text = ((int)soundsValue).ToString();
+        musicSlider.GetComponentInChildren<TextMeshProUGUI>().text = ((int)musicValue).ToString();
     }
 
 
