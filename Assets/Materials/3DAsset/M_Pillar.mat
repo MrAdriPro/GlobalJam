@@ -112,10 +112,10 @@ Material:
     - _ReceiveShadowsMode: 0
     - _ResolutionLimit: 128
     - _SnapMode: 2
-    - _SnapsPerUnit: 12
+    - _SnapsPerUnit: 16
     m_Floats:
     - _AddPrecomputedVelocity: 0
-    - _AffineTextureStrength: 1
+    - _AffineTextureStrength: 0
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _AmbientLight: 0.02
