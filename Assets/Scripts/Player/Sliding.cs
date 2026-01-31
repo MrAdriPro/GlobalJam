@@ -31,6 +31,8 @@ public class Sliding : MonoBehaviour
 
     private void Update()
     {
+        if (!GetComponentInChildren<PlayerInputSelector>().selectedInput || GameObject.FindAnyObjectByType<PauseMenu>().isPaused) return;
+
         horizontalInput = playerInput.horizontalInput;
         verticalInput = playerInput.verticalInput;
 
@@ -48,6 +50,8 @@ public class Sliding : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!GetComponentInChildren<PlayerInputSelector>().selectedInput || GameObject.FindAnyObjectByType<PauseMenu>().isPaused) return;
+
         if (pm.sliding)
             SlidingMovement();
     }

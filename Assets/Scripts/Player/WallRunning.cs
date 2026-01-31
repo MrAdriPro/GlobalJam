@@ -51,12 +51,16 @@ public class WallRunning : MonoBehaviour
 
     private void Update()
     {
+        if (!GetComponentInChildren<PlayerInputSelector>().selectedInput) return;
+
         CheckForWall();
         StateMachine();
     }
 
     private void FixedUpdate()
     {
+        if (!GetComponentInChildren<PlayerInputSelector>().selectedInput) return;
+
         if (pm.wallRunning) WallRunningMovement();
     }
 

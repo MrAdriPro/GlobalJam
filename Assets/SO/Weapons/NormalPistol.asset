@@ -16,9 +16,9 @@ MonoBehaviour:
   damage: 1
   throwForce: 70
   throwUpwardForce: 0
-  isExplosive: 0
+  isExplosive: 1
   _triggerRoce: 0.5
-  _explosionRadius: 5
-  _explosionForce: 500
-  _particles: {fileID: 0}
+  _explosionRadius: 3
+  _explosionForce: 150
+  _particles: {fileID: 3508374827897098203, guid: d96236342752dcc40baeaa781b949377, type: 3}
   isEdible: 0
