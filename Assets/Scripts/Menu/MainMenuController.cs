@@ -1,4 +1,6 @@
 using DG.Tweening;
+using NaughtyAttributes;
+using System.Collections;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
@@ -22,6 +24,13 @@ public class MainMenuController : MonoBehaviour
     public EventSystem eventSystem;
     private Menus currentMenu;
     private Vector2 startPos;
+
+    [BoxGroup("Loading configs")]
+    [SerializeField] private GameObject LoadingScreen;
+    [BoxGroup("Loading configs")]
+    [SerializeField] private GameObject LoadingIcon;
+    [BoxGroup("Loading configs")]
+    [SerializeField] private Vector3 RotateAmount;
 
     M_ToggleSwitch currentToggle = null;
     private void Start()
@@ -133,6 +142,30 @@ public class MainMenuController : MonoBehaviour
         }
 
         return menu;
+    }
+
+    IEnumerator LoadSceneAsync(int sceneId)
+    {
+        LoadingScreen.SetActive(true);
+        int i = 0;
+        while (i < 400)
+        {
+            i++;
+            yield return new WaitForSeconds(0.001f);
+            LoadingIcon.transform.Rotate(RotateAmount * Time.deltaTime);
+
+        }
+
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneId);
+
+
+        while (!operation.isDone)
+        {
+            LoadingIcon.transform.Rotate(RotateAmount * Time.deltaTime);
+
+            yield return null;
+        }
+
     }
 
     public void SetCurrentToggle(M_ToggleSwitch toggle) => currentToggle = toggle;

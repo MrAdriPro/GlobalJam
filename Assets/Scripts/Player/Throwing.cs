@@ -8,6 +8,7 @@ public class Throwing : MonoBehaviour
     public GameObject objectToThrow;
     public Weapons weapon;
 
+    public PlayerInputSelector playerInputSelector;
 
     [SerializeField] bool readyToThrow;
 
@@ -21,6 +22,7 @@ public class Throwing : MonoBehaviour
 
     private void Update()
     {
+        if (!playerInputSelector.selectedInput) return;
 
         if (playerInput.Throw && readyToThrow)
         {

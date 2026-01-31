@@ -8,13 +8,13 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 
-public class M_ButtonHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, ISelectHandler
+public class M_ButtonHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, ISelectHandler, IDeselectHandler
 {
     //Variables
 
     [SerializeField] private MenuButton b_Settings;
     [SerializeField] private AudioSource _audioSource;
-    [SerializeField] private bool useXPos = false;
+    [SerializeField] private float offset = 450;
     private GameObject hoverObject;
     private RectTransform rt;
 
@@ -40,7 +40,7 @@ public class M_ButtonHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
         if (isASlider) 
         {
-            pos.x -= 450;
+            pos.x -= offset;
         }
         mainMenuController.ChangeMainMenuSelectorPosition(pos);
 
@@ -53,6 +53,32 @@ public class M_ButtonHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
         {
             mainMenuController.audioSource.PlayOneShot(mainMenuController.selectSound);
         }
+
+        if (childText) childText.color = b_Settings.hoverColor;
+        if (childImage) childImage.color = b_Settings.hoverColor;
+
+        if (b_Settings.hasAnim)
+        {
+
+            StartSmoothMove(originalPosition + b_Settings.buttonOffsetAnimation);
+        }
+
+        if (_audioSource)
+            _audioSource.PlayOneShot(b_Settings._OnHoverSound);
+    }
+
+    public void OnDeselect(BaseEventData eventData) 
+    {
+        if (childText) childText.color = b_Settings.noHoverColor;
+        if (childImage) childImage.color = b_Settings.noHoverColor;
+
+        if (b_Settings.hasAnim)
+        {
+            StartSmoothMove(originalPosition);
+        }
+
+        if (hoverObject)
+            Destroy(hoverObject);
     }
 
     /// <summary>
