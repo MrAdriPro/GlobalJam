@@ -251,7 +251,7 @@ public class PlayerMovement : MonoBehaviour
             state = MovementState.air;
         }
 
-        if (Mathf.Abs(desiredMoveSpeed - lastDesiredMoveSpeed) > 12f && speed != 0)
+        if (Mathf.Abs(desiredMoveSpeed - lastDesiredMoveSpeed) > 12f && speed != 0 && !sliding && !wallRunning && !climbing)
         {
             StopAllCoroutines();
             StartCoroutine(SmoothlyLerpMoveSpeed());
