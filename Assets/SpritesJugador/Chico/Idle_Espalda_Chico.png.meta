@@ -113,10 +113,10 @@ TextureImporter:
       name: Idle_Espalda_Chico_0
       rect:
         serializedVersion: 2
-        x: 140
-        y: 12
-        width: 312
-        height: 483
+        x: 0
+        y: 0
+        width: 500
+        height: 500
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,8 +125,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 167fc9b3c3639f3428e7dc39dc8c0535
-      internalID: 381798110
+      spriteID: bcc152416674fc14eae07c8fe68f6a82
+      internalID: -694189423
       vertices: []
       indices: 
       edges: []
@@ -135,10 +135,10 @@ TextureImporter:
       name: Idle_Espalda_Chico_1
       rect:
         serializedVersion: 2
-        x: 640
-        y: 13
-        width: 311
-        height: 485
+        x: 500
+        y: 0
+        width: 500
+        height: 500
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,8 +147,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91592278784b48f4e9b0175c6ffaea8c
-      internalID: 1906790914
+      spriteID: fb299b44e6d08f74e8d3f48d09fd13fe
+      internalID: 1174830683
       vertices: []
       indices: 
       edges: []
@@ -157,10 +157,10 @@ TextureImporter:
       name: Idle_Espalda_Chico_2
       rect:
         serializedVersion: 2
-        x: 1122
-        y: 14
-        width: 320
-        height: 483
+        x: 1000
+        y: 0
+        width: 500
+        height: 500
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,8 +169,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 999d4ec5bb484df4c86fdeaf23036a63
-      internalID: 1962234192
+      spriteID: 1aaa668865c91154a9f60aa9ea7593e1
+      internalID: 1185551695
       vertices: []
       indices: 
       edges: []
@@ -179,7 +179,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d8fca68a761f00849a626f482cceabdf
+    spriteID: 7258530a5978a76409c952094d6ee1e6
     internalID: 0
     vertices: []
     indices: 
@@ -189,11 +189,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":500.0,"y":500.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Idle_Espalda_Chico_0: 381798110
-      Idle_Espalda_Chico_1: 1906790914
-      Idle_Espalda_Chico_2: 1962234192
+      Idle_Espalda_Chico_0: -694189423
+      Idle_Espalda_Chico_1: 1174830683
+      Idle_Espalda_Chico_2: 1185551695
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

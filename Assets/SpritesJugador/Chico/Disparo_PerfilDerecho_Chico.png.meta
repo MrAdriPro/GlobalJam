@@ -113,10 +113,10 @@ TextureImporter:
       name: Disparo_PerfilDerecho_Chico_0
       rect:
         serializedVersion: 2
-        x: 52
-        y: 218
-        width: 10
-        height: 22
+        x: 0
+        y: 0
+        width: 500
+        height: 500
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,8 +125,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87a9b4ad25618244c84250dbe21e31e2
-      internalID: 2045688280
+      spriteID: 85b6a8508fbe36d499caf12ebebd958c
+      internalID: 1932359470
       vertices: []
       indices: 
       edges: []
@@ -135,10 +135,10 @@ TextureImporter:
       name: Disparo_PerfilDerecho_Chico_1
       rect:
         serializedVersion: 2
-        x: 65
-        y: 11
-        width: 307
-        height: 485
+        x: 500
+        y: 0
+        width: 500
+        height: 500
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,8 +147,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d59089667d12374481e58f3751d52ec
-      internalID: 2348255
+      spriteID: 12d2f76fed85dbf46890751ddee7dc0a
+      internalID: 907116656
       vertices: []
       indices: 
       edges: []
@@ -157,10 +157,10 @@ TextureImporter:
       name: Disparo_PerfilDerecho_Chico_2
       rect:
         serializedVersion: 2
-        x: 569
-        y: 9
-        width: 321
-        height: 488
+        x: 1000
+        y: 0
+        width: 500
+        height: 500
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,8 +169,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c88b3e020966c540a561ea01fe144ab
-      internalID: -2017921853
+      spriteID: 3b79d8b5fa7bf814391f2f701588e806
+      internalID: -1273672674
       vertices: []
       indices: 
       edges: []
@@ -179,10 +179,10 @@ TextureImporter:
       name: Disparo_PerfilDerecho_Chico_3
       rect:
         serializedVersion: 2
-        x: 1052
-        y: 11
-        width: 308
-        height: 485
+        x: 1500
+        y: 0
+        width: 500
+        height: 500
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,52 +191,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3ddb4f10e0743546af2d123d09d1547
-      internalID: 1648148177
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Disparo_PerfilDerecho_Chico_4
-      rect:
-        serializedVersion: 2
-        x: 1553
-        y: 231
-        width: 10
-        height: 11
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 567e10dfa20dad444b93118fe393d6e4
-      internalID: -80096447
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Disparo_PerfilDerecho_Chico_5
-      rect:
-        serializedVersion: 2
-        x: 1557
-        y: 9
-        width: 313
-        height: 489
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2523d7151894d7d4a9fa6dac884e1c78
-      internalID: -507239879
+      spriteID: 56ffb2114712bf34890c83745bb00c3d
+      internalID: -2117723136
       vertices: []
       indices: 
       edges: []
@@ -245,7 +201,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 01c127764bfcb944badf008a69b0187e
+    spriteID: c2111cc96197210449c35a4d2b31bf7a
     internalID: 0
     vertices: []
     indices: 
@@ -255,14 +211,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":500.0,"y":500.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Disparo_PerfilDerecho_Chico_0: 2045688280
-      Disparo_PerfilDerecho_Chico_1: 2348255
-      Disparo_PerfilDerecho_Chico_2: -2017921853
-      Disparo_PerfilDerecho_Chico_3: 1648148177
-      Disparo_PerfilDerecho_Chico_4: -80096447
-      Disparo_PerfilDerecho_Chico_5: -507239879
+      Disparo_PerfilDerecho_Chico_0: 1932359470
+      Disparo_PerfilDerecho_Chico_1: 907116656
+      Disparo_PerfilDerecho_Chico_2: -1273672674
+      Disparo_PerfilDerecho_Chico_3: -2117723136
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

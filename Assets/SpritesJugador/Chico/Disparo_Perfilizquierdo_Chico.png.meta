@@ -113,10 +113,10 @@ TextureImporter:
       name: Disparo_Perfilizquierdo_Chico_0
       rect:
         serializedVersion: 2
-        x: 52
-        y: 11
-        width: 320
-        height: 485
+        x: 0
+        y: 0
+        width: 500
+        height: 500
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,8 +125,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 980d716edd667e949bfc0b53ff0799c5
-      internalID: 736106498
+      spriteID: ae938cd3ae363ab4bb299bfcb13b2b7e
+      internalID: 1473735212
       vertices: []
       indices: 
       edges: []
@@ -135,10 +135,10 @@ TextureImporter:
       name: Disparo_Perfilizquierdo_Chico_1
       rect:
         serializedVersion: 2
-        x: 569
-        y: 9
-        width: 320
-        height: 488
+        x: 500
+        y: 0
+        width: 500
+        height: 500
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,8 +147,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20aec982444bb00408960b5268acdb87
-      internalID: -705409784
+      spriteID: 188ae90728a5f7e4ca347b70270037ba
+      internalID: 526391377
       vertices: []
       indices: 
       edges: []
@@ -157,10 +157,10 @@ TextureImporter:
       name: Disparo_Perfilizquierdo_Chico_2
       rect:
         serializedVersion: 2
-        x: 1053
-        y: 9
-        width: 317
-        height: 489
+        x: 1000
+        y: 0
+        width: 500
+        height: 500
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,8 +169,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 565b1722507736f438b83dcc3d54e6ee
-      internalID: -1839838792
+      spriteID: cd6b41bfbe6b0404285fabd145486c0f
+      internalID: -1540980079
       vertices: []
       indices: 
       edges: []
@@ -179,10 +179,10 @@ TextureImporter:
       name: Disparo_Perfilizquierdo_Chico_3
       rect:
         serializedVersion: 2
-        x: 1552
-        y: 11
-        width: 308
-        height: 485
+        x: 1500
+        y: 0
+        width: 500
+        height: 500
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,8 +191,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e605330d7518cc74788ce7e87111bd7d
-      internalID: 309142101
+      spriteID: a1e3abc1e52a2c94b9a102ef86a31246
+      internalID: -1417399117
       vertices: []
       indices: 
       edges: []
@@ -201,7 +201,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a5a7dfb035b56c94bb9063a5c81de3f1
+    spriteID: 432dbbedddf852b4298d97a69a527640
     internalID: 0
     vertices: []
     indices: 
@@ -211,12 +211,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":500.0,"y":500.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Disparo_Perfilizquierdo_Chico_0: 736106498
-      Disparo_Perfilizquierdo_Chico_1: -705409784
-      Disparo_Perfilizquierdo_Chico_2: -1839838792
-      Disparo_Perfilizquierdo_Chico_3: 309142101
+      Disparo_Perfilizquierdo_Chico_0: 1473735212
+      Disparo_Perfilizquierdo_Chico_1: 526391377
+      Disparo_Perfilizquierdo_Chico_2: -1540980079
+      Disparo_Perfilizquierdo_Chico_3: -1417399117
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
