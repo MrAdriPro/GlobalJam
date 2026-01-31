@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - BtnIcon
-  - Stone
+  - Player1
+  - Player2
   layers:
   - Default
   - TransparentFX
@@ -16,8 +16,8 @@ TagManager:
   - Environment
   - Ground
   - Walls
-  - 
-  - 
+  - NoCamaraX
+  - NoCamaraV
   - 
   - 
   - 

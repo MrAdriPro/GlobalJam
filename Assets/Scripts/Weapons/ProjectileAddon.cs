@@ -13,7 +13,12 @@ public class ProjectileAddon : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        HealthManager health = collision.gameObject.GetComponent<HealthManager>();
+        HealthManager health = null;
+
+        if (!weapon.isExplosive)
+        {
+            health = collision.gameObject.GetComponent<HealthManager>();
+        }
 
         if (playerBody != collision.gameObject)
         {
@@ -23,11 +28,12 @@ public class ProjectileAddon : MonoBehaviour
 
                 foreach (var obj in surroundingObjects)
                 {
+                    health = obj.GetComponent<HealthManager>();
                     var rb = obj.GetComponent<Rigidbody>();
                     if (rb == null) continue;
 
                     rb.AddExplosionForce(weapon._explosionForce, transform.position, weapon._explosionRadius);
-                    if (health != null)
+                    if (health != null && health.playerIndex != playerBody.GetComponent<HealthManager>().playerIndex)
                     {
                         health.TakeDamage(weapon.damage);
                     }
@@ -39,7 +45,7 @@ public class ProjectileAddon : MonoBehaviour
             }
 
         }
-        if (health != null)
+        if (health != null && health.playerIndex != playerBody.GetComponent<HealthManager>().playerIndex)
         {
             health.TakeDamage(weapon.damage);
         }

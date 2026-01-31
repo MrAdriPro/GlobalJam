@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class WinstonJump : MonoBehaviour
 {
-    [Header("Jump")]
     public float verticalJumpForce;
     public float horizontalJumpForce;
     public float jumpForce;
@@ -12,13 +11,11 @@ public class WinstonJump : MonoBehaviour
     public float cooldown;
     [SerializeField] private float cooldownTimer;
 
-    [Header("Cam effects")]
     public float camJumpFov = 70f;
     public float camStompFov = 100f;
     public float camShakeIntensity = 1f;
     public float camShakeDuration = 0.5f;
 
-    [Header("Explosive")]
     public bool isExplosive;
     public float _explosionRadius = 5;
     public float _explosionForce = 500;
@@ -33,6 +30,7 @@ public class WinstonJump : MonoBehaviour
     private bool canDoAbility = true;
     private bool didJump = false;
     private bool canDoExplosion = false;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -47,11 +45,13 @@ public class WinstonJump : MonoBehaviour
 
     private void Update()
     {
-        if (playerInput.Ability && (pm.isGrounded || pm.wallRunning || pm.climbing) && canDoAbility)
+        bool hasPower = pm != null && pm.powerUpManager != null && pm.powerUpManager.powerUpData != null && pm.powerUpManager.powerUpData.type == PowerUpType.WinstonJump;
+
+        if (playerInput.Ability && (pm.isGrounded || pm.wallRunning || pm.climbing) && canDoAbility && hasPower)
         {
             StartJump();
         }
-        else if (didJump) 
+        else if (didJump)
         {
             DoStomp();
         }
@@ -62,7 +62,7 @@ public class WinstonJump : MonoBehaviour
         }
     }
 
-    private void StartJump() 
+    private void StartJump()
     {
         cam.DoFov(camJumpFov);
         canDoAbility = false;
@@ -70,18 +70,26 @@ public class WinstonJump : MonoBehaviour
         cooldownTimer = cooldown;
         timerToStomp = timeToStomp;
 
-        Vector3 jumpDirection = transform.forward * horizontalJumpForce + transform.up * verticalJumpForce;
-        rb.AddForce((jumpDirection * jumpForce), ForceMode.Impulse);
+        float mult = 1f;
+        if (pm != null && pm.powerUpManager != null && pm.powerUpManager.powerUpData != null)
+            mult = pm.powerUpManager.powerUpData.winstonJumpMultiplier;
+
+        Vector3 jumpDirection = transform.forward * (horizontalJumpForce * mult) + transform.up * (verticalJumpForce * mult);
+        rb.AddForce((jumpDirection * (jumpForce * mult)), ForceMode.Impulse);
     }
 
-    private void DoStomp() 
+    private void DoStomp()
     {
         timerToStomp -= Time.deltaTime;
         if (timerToStomp < 0)
         {
             cam.DoFov(camStompFov);
-            Vector3 stompDirection = transform.forward * horizontalJumpForce + -transform.up * stompForce;
-            rb.AddForce((stompDirection * jumpForce), ForceMode.Impulse);
+            float mult = 1f;
+            if (pm != null && pm.powerUpManager != null && pm.powerUpManager.powerUpData != null)
+                mult = pm.powerUpManager.powerUpData.winstonJumpMultiplier;
+
+            Vector3 stompDirection = transform.forward * (horizontalJumpForce * mult) + -transform.up * (stompForce * mult);
+            rb.AddForce((stompDirection * (jumpForce * mult)), ForceMode.Impulse);
             didJump = false;
             canDoExplosion = true;
         }
@@ -89,17 +97,24 @@ public class WinstonJump : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-
         if (isExplosive && canDoExplosion)
         {
+            HealthManager health = null;
+
+
             var surroundingObjects = Physics.OverlapSphere(transform.position, _explosionRadius);
 
             foreach (var obj in surroundingObjects)
             {
-                var rb = obj.GetComponent<Rigidbody>();
-                if (rb == null) continue;
+                health = obj.GetComponent<HealthManager>();
+                var r = obj.GetComponent<Rigidbody>();
+                if (r == null) continue;
 
-                rb.AddExplosionForce(_explosionForce, transform.position, _explosionRadius);
+                r.AddExplosionForce(_explosionForce, transform.position, _explosionRadius);
+                if (health != null && health.playerIndex != GetComponent<HealthManager>().playerIndex)
+                {
+                    health.TakeDamage(2);
+                }
             }
 
             GameObject particles = Instantiate(_particles, transform.position, Quaternion.identity);
@@ -109,8 +124,5 @@ public class WinstonJump : MonoBehaviour
             camBob.ShakeCamera(camShakeIntensity, camShakeDuration);
             Destroy(particles, 1);
         }
-
-        
     }
-
 }

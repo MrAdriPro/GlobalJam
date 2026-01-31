@@ -22,6 +22,8 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
+        if (GetComponentInParent<HealthManager>().isDead) return;
+
         float mouseX = playerInput.LookInput.x * Time.deltaTime * mouseSensitivity;
         float mouseY = playerInput.LookInput.y * Time.deltaTime * mouseSensitivity;
 

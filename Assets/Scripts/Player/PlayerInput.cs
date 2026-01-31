@@ -5,8 +5,10 @@ public class PlayerInput : MonoBehaviour
     public enum InputDevice { KeyboardMouse, Joystick1, Joystick2 }
 
     [Header("Configuración del Jugador")]
-    [SerializeField] private InputDevice inputDevice = InputDevice.KeyboardMouse;
+    public InputDevice inputDevice = InputDevice.KeyboardMouse;
     [SerializeField] private int playerIndex = 0;
+
+    public bool invertAllControllers = false;
 
     // Propiedades públicas - Compatible con tus scripts
     public float horizontalInput { get; private set; }
@@ -27,6 +29,8 @@ public class PlayerInput : MonoBehaviour
     public bool ForwardKey { get; private set; }
     public bool Throw { get; private set; }
     public bool Ability { get; private set; }
+    public bool AbilityStay { get; private set; }
+
     public bool EasterEgg { get; private set; }
 
     void Update()
@@ -63,14 +67,35 @@ public class PlayerInput : MonoBehaviour
     void ReadKeyboardMouseInput()
     {
         // Movimiento (GetAxisRaw para respuesta instantánea)
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
+        if (!invertAllControllers)
+        {
+            horizontalInput = Input.GetAxisRaw("Horizontal");
+            verticalInput = Input.GetAxisRaw("Vertical");
+        }
+        else 
+        {
+            horizontalInput = -Input.GetAxisRaw("Horizontal");
+            verticalInput = -Input.GetAxisRaw("Vertical");
+        }
 
-        // Ratón
-        LookInput = new Vector2(
-            Input.GetAxis("Mouse X"),
-            Input.GetAxis("Mouse Y")
-        );
+        if (!invertAllControllers)
+        {
+            // Ratón
+            LookInput = new Vector2(
+                Input.GetAxis("Mouse X"),
+                Input.GetAxis("Mouse Y")
+            );
+        }
+        else 
+        {
+            // Ratón
+            LookInput = new Vector2(
+                -Input.GetAxis("Mouse X"),
+                -Input.GetAxis("Mouse Y")
+            );
+        }
+
+
 
         // Botones
         JumpButton = Input.GetButton("Jump");
@@ -81,6 +106,8 @@ public class PlayerInput : MonoBehaviour
         RunButton = Input.GetButton("Run");
         Throw = Input.GetButtonDown("Fire1");
         Ability = Input.GetButtonDown("Fire2");
+        AbilityStay = Input.GetButton("Fire2");
+
         // Keys específicas
         UpwardsRunKey = Input.GetKey(KeyCode.LeftShift);
         DownwardsRunKey = Input.GetKey(KeyCode.LeftControl);
@@ -92,15 +119,38 @@ public class PlayerInput : MonoBehaviour
     {
         string prefix = $"Joystick{joystickNumber}_";
 
-        // Movimiento (stick izquierdo)
-        horizontalInput = Input.GetAxis(prefix + "Horizontal Controller");
-        verticalInput = Input.GetAxis(prefix + "Vertical Controller");
+        // Movimiento (GetAxisRaw para respuesta instantánea)
+        if (!invertAllControllers)
+        {
+            horizontalInput = Input.GetAxis(prefix + "Horizontal Controller");
+            verticalInput = Input.GetAxis(prefix + "Vertical Controller");
+        }
+        else
+        {
+            horizontalInput = -Input.GetAxis(prefix + "Horizontal Controller");
+            verticalInput = -Input.GetAxis(prefix + "Vertical Controller");
+        }
 
-        // Cámara (stick derecho)
-        LookInput = new Vector2(
-            Input.GetAxis(prefix + "Joystick X"),
-            Input.GetAxis(prefix + "Joystick Y")
-        );
+
+        if (!invertAllControllers)
+        {
+            // Cámara (stick derecho)
+            LookInput = new Vector2(
+                Input.GetAxis(prefix + "Joystick X"),
+                Input.GetAxis(prefix + "Joystick Y")
+            );
+        }
+        else
+        {
+            // Cámara (stick derecho)
+            LookInput = new Vector2(
+                
+                -Input.GetAxis(prefix + "Joystick X"),
+                -Input.GetAxis(prefix + "Joystick Y")
+
+            );
+        }
+
 
         // Aplicar deadzone
         if (Mathf.Abs(horizontalInput) < 0.2f) horizontalInput = 0f;
@@ -120,7 +170,8 @@ public class PlayerInput : MonoBehaviour
         Throw = trigger > 0.1;
         float trigger2 = Input.GetAxis(prefix + "Fire2");
         Ability = trigger2 > 0.1;
-        EasterEgg = Input.GetButtonDown(prefix + "Fire3");
+        AbilityStay = trigger2 > 0.1f;
+        //EasterEgg = Input.GetButtonDown(prefix + "Fire3");
 
         UpwardsRunKey = RunButton;
         DownwardsRunKey = CrouchButton;
