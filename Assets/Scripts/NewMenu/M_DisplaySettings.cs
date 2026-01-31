@@ -243,8 +243,8 @@ public class M_DisplaySettings : MonoBehaviour
         Screen.SetResolution(resolution.width, resolution.height, isFullscreen);
         string resolutionOption = filteredResolutions[resolutionIndex].width + "x" + filteredResolutions[resolutionIndex].height + " " + filteredResolutions[resolutionIndex].refreshRateRatio + "Hz";
         resolutionText.text = resolutionOption;
-        M_MainMenu m_MainMenu = GetComponentInParent<M_MainMenu>();
-        m_MainMenu.ChangeMainMenuSelectorPosition(m_MainMenu.GetFirstMenuButton(M_MainMenu.Menus.DisplaySettings));
+        MainMenuController m_MainMenu = GetComponentInParent<MainMenuController>();
+        m_MainMenu.OpenOptions();
     }
 
 }
