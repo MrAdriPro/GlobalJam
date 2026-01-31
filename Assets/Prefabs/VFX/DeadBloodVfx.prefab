@@ -9849,5 +9849,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd86292f14e0e634cb5292afbf701b54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BloodDecalSpawner
-  decalMaterial: {fileID: 2100000, guid: a3b5d1a370140434b8ce8e0362cc1eae, type: 2}
+  decalMaterial: {fileID: 2100000, guid: a6a20487ed90bed4a865feb121bbfc81, type: 2}
   decalSize: 1

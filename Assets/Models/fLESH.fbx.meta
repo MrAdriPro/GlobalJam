@@ -13,32 +13,32 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: DefaultMaterial_Alpha
-    second: {fileID: 2800000, guid: 2e37e4fabfd98bc47b57b4f52fe2e525, type: 3}
+    second: {fileID: 2800000, guid: bf96c8b8a80b10548989d668b2457ce3, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: DefaultMaterial_BaseColor
-    second: {fileID: 2800000, guid: 0fefcd361f3f0b245a0f42d0411de39e, type: 3}
+    second: {fileID: 2800000, guid: 7bc36aa1bf2c950438aafa4496338f3a, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: DefaultMaterial_Emission
-    second: {fileID: 2800000, guid: 4c47f7305c815b541bbddf34378dafd4, type: 3}
+    second: {fileID: 2800000, guid: cb4c8678dc434344ca89d9668251cabc, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: DefaultMaterial_Metallic
-    second: {fileID: 2800000, guid: 4209ac8e80fbb124a9b1b07ddd9c0e7f, type: 3}
+    second: {fileID: 2800000, guid: a7b3c9cf06f31c642bcc267985e22371, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: DefaultMaterial_Normal
-    second: {fileID: 2800000, guid: e28ff9f388cf74d4abaa02a801219b76, type: 3}
+    second: {fileID: 2800000, guid: 4ba4fd8f498a49f4e9f79bb75c7ce8ca, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: DefaultMaterial_Roughness
-    second: {fileID: 2800000, guid: 79fe18e8c087f934aa26ba07af80bb0f, type: 3}
+    second: {fileID: 2800000, guid: 5d697ca253c6cd24e9db50bf099a49cd, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
