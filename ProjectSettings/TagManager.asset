@@ -8,6 +8,8 @@ TagManager:
   - Player2
   - Stone
   - Wood
+  - BtnIcon
+  - Lava
   layers:
   - Default
   - TransparentFX
