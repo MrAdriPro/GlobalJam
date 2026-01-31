@@ -1,5 +1,6 @@
 using DG.Tweening;
 using NaughtyAttributes;
+using System;
 using System.Collections;
 using TMPro;
 using UnityEditor;
@@ -36,7 +37,8 @@ public class MainMenuController : MonoBehaviour
     private void Start()
     {
         currentMenu = ChangeMenu(Menus.MainMenu);
-        startPos = mainMenuSelector.anchoredPosition;
+        if (mainMenuSelector)
+            startPos = mainMenuSelector.anchoredPosition;
     }
 
     private void Update()
@@ -84,8 +86,10 @@ public class MainMenuController : MonoBehaviour
 
     private Menus ChangeMenu(Menus menu)
     {
-        // Oculta todos
-        CanvasGroup[] allGroups = new[] {
+        try
+        {
+            // Oculta todos
+            CanvasGroup[] allGroups = new[] {
         mainMenuPanel.GetComponent<CanvasGroup>(),
         optionsPanel.GetComponent<CanvasGroup>(),
         displayPanel.GetComponent<CanvasGroup>(),
@@ -93,54 +97,56 @@ public class MainMenuController : MonoBehaviour
         inputsPanel.GetComponent<CanvasGroup>()
     };
 
-        foreach (var group in allGroups)
-        {
-            group.alpha = 0f;
-            group.interactable = false;
-            group.blocksRaycasts = false;
+            foreach (var group in allGroups)
+            {
+                group.alpha = 0f;
+                group.interactable = false;
+                group.blocksRaycasts = false;
+            }
+
+            // Muestra el activo
+            CanvasGroup activeGroup;
+            Button firstButton = null;
+            Slider firstSlider = null;
+            switch (menu)
+            {
+                case Menus.MainMenu:
+                    activeGroup = mainMenuPanel.GetComponent<CanvasGroup>();
+                    firstButton = mainMenuPanel.GetComponentsInChildren<Button>()[0];
+                    break;
+                case Menus.OptionsMenu:
+                    activeGroup = optionsPanel.GetComponent<CanvasGroup>();
+                    firstButton = optionsPanel.GetComponentsInChildren<Button>()[0];
+                    break;
+                case Menus.DisplayMenu:
+                    activeGroup = displayPanel.GetComponent<CanvasGroup>();
+                    firstSlider = displayPanel.GetComponentsInChildren<Slider>()[0];
+                    break;
+                case Menus.AudioMenu:
+                    activeGroup = audioPanel.GetComponent<CanvasGroup>();
+                    firstSlider = audioPanel.GetComponentsInChildren<Slider>()[0];
+                    break;
+                case Menus.InputsMenu:
+                    activeGroup = inputsPanel.GetComponent<CanvasGroup>();
+                    firstButton = inputsPanel.GetComponentsInChildren<Button>()[0];
+                    break;
+                default: return menu;
+            }
+
+            activeGroup.alpha = 1f;
+            activeGroup.interactable = true;
+            activeGroup.blocksRaycasts = true;
+
+            if (firstButton)
+                eventSystem.SetSelectedGameObject(firstButton.gameObject);
+            else if (firstSlider)
+            {
+                eventSystem.SetSelectedGameObject(firstSlider.gameObject);
+            }
+
+            return menu;
         }
-
-        // Muestra el activo
-        CanvasGroup activeGroup;
-        Button firstButton = null;
-        Slider firstSlider = null;
-        switch (menu)
-        {
-            case Menus.MainMenu:
-                activeGroup = mainMenuPanel.GetComponent<CanvasGroup>();
-                firstButton = mainMenuPanel.GetComponentsInChildren<Button>()[0];
-                break;
-            case Menus.OptionsMenu:
-                activeGroup = optionsPanel.GetComponent<CanvasGroup>();
-                firstButton = optionsPanel.GetComponentsInChildren<Button>()[0];
-                break;
-            case Menus.DisplayMenu:
-                activeGroup = displayPanel.GetComponent<CanvasGroup>();
-                firstSlider = displayPanel.GetComponentsInChildren<Slider>()[0];
-                break;
-            case Menus.AudioMenu:
-                activeGroup = audioPanel.GetComponent<CanvasGroup>();
-                firstSlider = audioPanel.GetComponentsInChildren<Slider>()[0];
-                break;
-            case Menus.InputsMenu:
-                activeGroup = inputsPanel.GetComponent<CanvasGroup>();
-                firstButton = inputsPanel.GetComponentsInChildren<Button>()[0];
-                break;
-            default: return menu;
-        }
-
-        activeGroup.alpha = 1f;
-        activeGroup.interactable = true;
-        activeGroup.blocksRaycasts = true;
-
-        if (firstButton)
-            eventSystem.SetSelectedGameObject(firstButton.gameObject);
-        else if (firstSlider)
-        {
-            eventSystem.SetSelectedGameObject(firstSlider.gameObject);
-        }
-
-        return menu;
+        catch (Exception ex) { return Menus.MainMenu; }
     }
 
     IEnumerator LoadSceneAsync(int sceneId)
@@ -171,7 +177,7 @@ public class MainMenuController : MonoBehaviour
 
     public void ChangeMainMenuSelectorPosition(Vector2 newPosition) 
     {
-
+        if(mainMenuSelector)
         mainMenuSelector.DOAnchorPos(newPosition, selectorVelocity);
     }
 

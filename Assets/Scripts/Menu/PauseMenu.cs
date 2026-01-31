@@ -7,10 +7,19 @@ public class PauseMenu : MonoBehaviour
     public CanvasGroup pauseMenu;
 
     public bool isPaused = false;
+    public AudioSource buttonSoundSource;
+    public AudioClip buttonClip;
+
+    public AudioSource musicSource;
+    public AudioClip pauseMenuClip;
+    public AudioClip battleClip;
 
     private void Start()
     {
+        pauseMenu.alpha = 0;
+        pauseMenu.gameObject.SetActive(false);
         isPaused = false;
+        musicSource.clip = battleClip;
     }
 
     private void Update()
@@ -23,13 +32,20 @@ public class PauseMenu : MonoBehaviour
             {
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
+                pauseMenu.gameObject.SetActive(true);
                 pauseMenu.DOFade(1, 0.3f);
+                musicSource.clip = pauseMenuClip;
+                musicSource.Play();
             }
             else
             {
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
+                pauseMenu.gameObject.SetActive(false);
                 pauseMenu.DOFade(0, 0.3f);
+                musicSource.clip = battleClip;
+                musicSource.Play();
+
             }
         }
     }
@@ -44,7 +60,10 @@ public class PauseMenu : MonoBehaviour
         isPaused = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        pauseMenu.gameObject.SetActive(false);
         pauseMenu.DOFade(0, 0.3f);
-        
+        musicSource.clip = battleClip;
+        musicSource.Play();
+
     }
 }

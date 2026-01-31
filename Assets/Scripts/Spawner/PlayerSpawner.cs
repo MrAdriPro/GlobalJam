@@ -16,6 +16,7 @@ public class PlayerSpawner : MonoBehaviour
     public PlayerInput.InputDevice player1Device;
     public PlayerInput.InputDevice player2Device;
 
+    public Camera levelCam;
 
 
     private void Start()
@@ -44,6 +45,8 @@ public class PlayerSpawner : MonoBehaviour
         player1Spawned = true;
         player1Device = player1inputSelector.inputDevice;
 
+
+
         GameObject player2 = SpawnPlayerStart(1);
 
         PlayerInputSelector player2inputSelector = player2.GetComponentInChildren<PlayerInputSelector>();
@@ -55,6 +58,7 @@ public class PlayerSpawner : MonoBehaviour
             Debug.Log($"Frame {frameCount}: selectedInput = {player1inputSelector.selectedInput}");
             yield return null;
         }
+        Destroy(levelCam.gameObject);
 
         player2Spawned = true;
         player2Device = player2inputSelector.inputDevice;

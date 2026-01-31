@@ -3330,7 +3330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuController
   mainMenuSelector: {fileID: 300475337}
-  selectSound: {fileID: 8300000, guid: 245965889d0a183438ef3478b27122c0, type: 3}
+  selectSound: {fileID: 8300000, guid: 523924e8918aa8e47a8e695ff5b7a463, type: 3}
   audioSource: {fileID: 477447880}
   selectorVelocity: 0.25
   mainMenuPanel: {fileID: 282948075}
