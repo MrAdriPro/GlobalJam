@@ -95,12 +95,78 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: "CiclodeCa\xEDda_Espalda_Chica_0"
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 95
+        width: 203
+        height: 378
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a05a29e3a9a0d9a4aa70078bd0f791fa
+      internalID: 1383533927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "CiclodeCa\xEDda_Espalda_Chica_1"
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 100
+        width: 203
+        height: 373
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e5a9a96c84511a43a49e853f1508b9a
+      internalID: -1635851558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "CiclodeCa\xEDda_Espalda_Chica_3"
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 94
+        width: 192
+        height: 379
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a008907b9845606439a493134bcfa367
+      internalID: 460283736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 29e27bd8019eb3f4cb1a2f72980413a4
     internalID: 0
     vertices: []
     indices: 
@@ -108,8 +174,26 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
-    nameFileIdTable: {}
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      "CiclodeCa\xEDda_Espalda_Chica_0": 1383533927
+      "CiclodeCa\xEDda_Espalda_Chica_1": -1635851558
+      "CiclodeCa\xEDda_Espalda_Chica_10": -633317657
+      "CiclodeCa\xEDda_Espalda_Chica_11": -5092700
+      "CiclodeCa\xEDda_Espalda_Chica_12": 2051032449
+      "CiclodeCa\xEDda_Espalda_Chica_13": -665564258
+      "CiclodeCa\xEDda_Espalda_Chica_14": 2071259932
+      "CiclodeCa\xEDda_Espalda_Chica_15": -558603951
+      "CiclodeCa\xEDda_Espalda_Chica_2": 1917221575
+      "CiclodeCa\xEDda_Espalda_Chica_3": 460283736
+      "CiclodeCa\xEDda_Espalda_Chica_4": 48974512
+      "CiclodeCa\xEDda_Espalda_Chica_5": -1726186009
+      "CiclodeCa\xEDda_Espalda_Chica_6": 256960760
+      "CiclodeCa\xEDda_Espalda_Chica_7": 479692771
+      "CiclodeCa\xEDda_Espalda_Chica_8": -1169887200
+      "CiclodeCa\xEDda_Espalda_Chica_9": 1909153309
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

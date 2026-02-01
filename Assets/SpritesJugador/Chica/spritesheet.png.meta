@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 056750c2b34c65b41a8f1e6e8a0ea233
+guid: b599919a74748a94ba0479c885bff052
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Run_Frente_Chica_0
+      name: spritesheet_0
       rect:
         serializedVersion: 2
-        x: 141
-        y: 18
-        width: 186
-        height: 472
+        x: 140
+        y: 14
+        width: 312
+        height: 483
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,20 +112,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3ead0865cf804e4684827d976d3cb82
-      internalID: -1307760534
+      spriteID: 9251997b77e2351408f328d0f51e054a
+      internalID: 1658823661
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run_Frente_Chica_1
+      name: spritesheet_1
       rect:
         serializedVersion: 2
-        x: 667
-        y: 15
-        width: 161
-        height: 464
+        x: 622
+        y: 13
+        width: 318
+        height: 482
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,20 +134,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d47565178e38e640bd20f58b3f90229
-      internalID: 1494661348
+      spriteID: fa6e6bdf1478049438a8fc8229ea5068
+      internalID: -1377518857
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run_Frente_Chica_2
+      name: spritesheet_2
       rect:
         serializedVersion: 2
-        x: 1165
+        x: 1140
         y: 12
-        width: 189
-        height: 476
+        width: 311
+        height: 484
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,74 +156,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb73f25a6b3d3a949b1aa4a2c9b73fdc
-      internalID: -1089505276
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Run_Frente_Chica_3
-      rect:
-        serializedVersion: 2
-        x: 1666
-        y: 12
-        width: 197
-        height: 478
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4a36d8f58aabeb242961ff40f04fa358
-      internalID: -318078775
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Run_Frente_Chica_4
-      rect:
-        serializedVersion: 2
-        x: 2162
-        y: 10
-        width: 182
-        height: 475
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 23293e018e61e7748b1a0c1488288c11
-      internalID: -1102314030
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Run_Frente_Chica_5
-      rect:
-        serializedVersion: 2
-        x: 2650
-        y: 15
-        width: 199
-        height: 479
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1782316d919ad98449fe3a628253be92
-      internalID: -1753499544
+      spriteID: 322793dca1a2e214ca6ab5862d523b28
+      internalID: -2033529149
       vertices: []
       indices: 
       edges: []
@@ -232,7 +166,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c87fe62b640238f4b80bac960fcda576
+    spriteID: 0408cd599c7ee564f979f3bb7df4bd96
     internalID: 0
     vertices: []
     indices: 
@@ -244,12 +178,9 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Run_Frente_Chica_0: -1307760534
-      Run_Frente_Chica_1: 1494661348
-      Run_Frente_Chica_2: -1089505276
-      Run_Frente_Chica_3: -318078775
-      Run_Frente_Chica_4: -1102314030
-      Run_Frente_Chica_5: -1753499544
+      spritesheet_0: 1658823661
+      spritesheet_1: -1377518857
+      spritesheet_2: -2033529149
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

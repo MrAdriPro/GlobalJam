@@ -95,12 +95,100 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Disparo_Perfilizquierdo_Chica_0
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 11
+        width: 308
+        height: 486
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d79334030dff1d44eb9d2129959bcc0e
+      internalID: -286557674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Disparo_Perfilizquierdo_Chica_1
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 10
+        width: 316
+        height: 488
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72844f1cf1db6ce44adfa5667aebf557
+      internalID: -536742057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Disparo_Perfilizquierdo_Chica_2
+      rect:
+        serializedVersion: 2
+        x: 1054
+        y: 13
+        width: 309
+        height: 485
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ed95ddcccd412240a04b9c8a4f6ba85
+      internalID: 1655747807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Disparo_Perfilizquierdo_Chica_3
+      rect:
+        serializedVersion: 2
+        x: 1552
+        y: 12
+        width: 308
+        height: 487
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cc1d1dd244cf46408212cfb5a26e5b4
+      internalID: 727416031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 6aa67650104e2e74f9269d8486dc2119
     internalID: 0
     vertices: []
     indices: 
@@ -108,8 +196,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
-    nameFileIdTable: {}
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Disparo_Perfilizquierdo_Chica_0: -286557674
+      Disparo_Perfilizquierdo_Chica_1: -536742057
+      Disparo_Perfilizquierdo_Chica_2: 1655747807
+      Disparo_Perfilizquierdo_Chica_3: 727416031
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
