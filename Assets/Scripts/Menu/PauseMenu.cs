@@ -48,19 +48,19 @@ public class PauseMenu : MonoBehaviour
 
             if (isPaused)
             {
-
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-                pauseMenu.gameObject.SetActive(true);
-                pauseMenu.DOFade(1, 0.3f);
-                musicSource.clip = pauseMenuClip;
-                musicSource.Play();
-                GameObject p = pauseMenu.GetComponentInChildren<Button>().gameObject;
-                eventSystem.SetSelectedGameObject(p);
-                p.GetComponent<M_ButtonHandler>().SetSelectManual();
-                GameObject.FindWithTag("Player1Hand").GetComponent<CanvasGroup>().DOFade(0.3f, 0.2f);
                 try
                 {
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+                    pauseMenu.gameObject.SetActive(true);
+                    pauseMenu.DOFade(1, 0.3f);
+                    musicSource.clip = pauseMenuClip;
+                    musicSource.Play();
+                    GameObject p = pauseMenu.GetComponentInChildren<Button>().gameObject;
+                    eventSystem.SetSelectedGameObject(p);
+                    p.GetComponent<M_ButtonHandler>().SetSelectManual();
+                    GameObject.FindWithTag("Player1Hand").GetComponent<CanvasGroup>().DOFade(0.3f, 0.2f);
+
                     GameObject.FindWithTag("Player2Hand").GetComponent<CanvasGroup>().DOFade(0.3f, 0.2f);
                 }
                 catch (Exception ex) { }
@@ -68,17 +68,18 @@ public class PauseMenu : MonoBehaviour
             }
             else
             {
-                Back();
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-                pauseMenu.gameObject.SetActive(false);
-                pauseMenu.DOFade(0, 0.3f);
-                musicSource.clip = battleClip;
-                musicSource.Play();
-                GameObject.FindWithTag("Player1Hand").GetComponent<CanvasGroup>().DOFade(1f, 0.2f);
-
                 try
                 {
+                    Back();
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
+                    pauseMenu.gameObject.SetActive(false);
+                    pauseMenu.DOFade(0, 0.3f);
+                    musicSource.clip = battleClip;
+                    musicSource.Play();
+                    GameObject.FindWithTag("Player1Hand").GetComponent<CanvasGroup>().DOFade(1f, 0.2f);
+
+
                     GameObject.FindWithTag("Player2Hand").GetComponent<CanvasGroup>().DOFade(1f, 0.2f);
                 }
                 catch (Exception ex) { }
