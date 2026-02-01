@@ -95,12 +95,166 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Run_Frente_Chico_0
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 16
+        width: 219
+        height: 484
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7400c45456a133b4da46e61643f983b6
+      internalID: 162283259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_Frente_Chico_2
+      rect:
+        serializedVersion: 2
+        x: 669
+        y: 9
+        width: 154
+        height: 473
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9d1fa787d12466498238b572398eaa3
+      internalID: 865263542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_Frente_Chico_3
+      rect:
+        serializedVersion: 2
+        x: 1167
+        y: 10
+        width: 187
+        height: 484
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6ee369010c3146419949eb536a24053
+      internalID: 2026348102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_Frente_Chico_4
+      rect:
+        serializedVersion: 2
+        x: 1667
+        y: 10
+        width: 198
+        height: 480
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4bb344ae2e052a498b1863fc018cc7e
+      internalID: -2001487509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_Frente_Chico_5
+      rect:
+        serializedVersion: 2
+        x: 2137
+        y: 4
+        width: 205
+        height: 483
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b0294ee1c90f3449a31a4dbe1cad598
+      internalID: 843787234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_Frente_Chico_6
+      rect:
+        serializedVersion: 2
+        x: 2635
+        y: 16
+        width: 217
+        height: 480
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c616e82421c8064e9b0f871bed9eb74
+      internalID: -1000900840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_Frente_Chico_8
+      rect:
+        serializedVersion: 2
+        x: 1165
+        y: 378
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f6e4573dfdcc344f866140a8dcf1e55
+      internalID: 392883024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 80d0b6206edbda54eb0cfdbb200cef56
     internalID: 0
     vertices: []
     indices: 
@@ -108,8 +262,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
-    nameFileIdTable: {}
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Run_Frente_Chico_0: 162283259
+      Run_Frente_Chico_1: -1126392723
+      Run_Frente_Chico_10: 620374647
+      Run_Frente_Chico_2: 865263542
+      Run_Frente_Chico_3: 2026348102
+      Run_Frente_Chico_4: -2001487509
+      Run_Frente_Chico_5: 843787234
+      Run_Frente_Chico_6: -1000900840
+      Run_Frente_Chico_7: 1950572592
+      Run_Frente_Chico_8: 392883024
+      Run_Frente_Chico_9: -778523306
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

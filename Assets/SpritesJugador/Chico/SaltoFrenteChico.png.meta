@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: 95df4ed61a350d94092ceb7d93e63233
+guid: 83ca815789f8a2447963dc9c48b0ed2a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -52,7 +52,7 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Run_Perfilizquierdo_Chico_0
+      name: SaltoFrenteChico_0
       rect:
         serializedVersion: 2
-        x: 117
-        y: 32
-        width: 285
-        height: 453
+        x: 129
+        y: 13
+        width: 208
+        height: 483
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,20 +112,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c65b221111181c4fad6b413cdf22cc5
-      internalID: 1260845121
+      spriteID: f66729e10dff10e4fac221dffb5dca33
+      internalID: 1447333543
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run_Perfilizquierdo_Chico_1
+      name: SaltoFrenteChico_1
       rect:
         serializedVersion: 2
-        x: 609
+        x: 652
         y: 15
-        width: 327
-        height: 464
+        width: 184
+        height: 481
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,20 +134,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 935d603111bcd5e498343c01a4ea1466
-      internalID: -759033533
+      spriteID: 564ea07fc4dd6f241996e8130b0ad4cf
+      internalID: 1021878920
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run_Perfilizquierdo_Chico_2
+      name: SaltoFrenteChico_2
       rect:
         serializedVersion: 2
-        x: 1096
-        y: 12
-        width: 220
-        height: 471
+        x: 1146
+        y: 67
+        width: 178
+        height: 428
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,20 +156,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 421cf15f0cd64e1448570a7c53c64827
-      internalID: 1042628533
+      spriteID: 4f8b97d0e98cdbf41b103f0b424b23d5
+      internalID: 1336310915
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run_Perfilizquierdo_Chico_3
+      name: SaltoFrenteChico_3
       rect:
         serializedVersion: 2
-        x: 1586
-        y: 4
-        width: 245
-        height: 480
+        x: 1650
+        y: 82
+        width: 182
+        height: 395
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,20 +178,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d9b1cca28085c04c9ee36e7ff89358d
-      internalID: -575100956
+      spriteID: dad4e40cc5d027d4797582e6edb36b06
+      internalID: 483661712
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run_Perfilizquierdo_Chico_4
+      name: SaltoFrenteChico_4
       rect:
         serializedVersion: 2
-        x: 2091
-        y: 22
-        width: 282
-        height: 465
+        x: 2144
+        y: 82
+        width: 195
+        height: 386
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0f508aa32b0bbd4d8b0a4804ea9658e
-      internalID: 837307714
+      spriteID: c8929b93c5dc1bd4a95b682725005387
+      internalID: 417850688
       vertices: []
       indices: 
       edges: []
@@ -210,7 +210,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 44e470aee68406c43bc24676cff498a7
+    spriteID: a8fc3565c6bffc04aa0c11952c30e91b
     internalID: 0
     vertices: []
     indices: 
@@ -222,11 +222,11 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Run_Perfilizquierdo_Chico_0: 1260845121
-      Run_Perfilizquierdo_Chico_1: -759033533
-      Run_Perfilizquierdo_Chico_2: 1042628533
-      Run_Perfilizquierdo_Chico_3: -575100956
-      Run_Perfilizquierdo_Chico_4: 837307714
+      SaltoFrenteChico_0: 1447333543
+      SaltoFrenteChico_1: 1021878920
+      SaltoFrenteChico_2: 1336310915
+      SaltoFrenteChico_3: 483661712
+      SaltoFrenteChico_4: 417850688
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

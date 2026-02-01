@@ -95,12 +95,188 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Salto_PerfilDerecho_Chico_0
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 11
+        width: 209
+        height: 480
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8eea689b2f3c6c74b89735a32039e901
+      internalID: -842933593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Salto_PerfilDerecho_Chico_1
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 12
+        width: 195
+        height: 476
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3198d6a2761a82d4ba21a63076c07cbe
+      internalID: -1656333352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Salto_PerfilDerecho_Chico_2
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 39
+        width: 191
+        height: 449
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea7584140ed135a46bcb174d6bd2217d
+      internalID: -965862946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Salto_PerfilDerecho_Chico_3
+      rect:
+        serializedVersion: 2
+        x: 1677
+        y: 283
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a11f450dc3d3744c9d6dfa998cff80e
+      internalID: -850402107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Salto_PerfilDerecho_Chico_4
+      rect:
+        serializedVersion: 2
+        x: 1678
+        y: 93
+        width: 237
+        height: 389
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7d1eb9a03206df4ea6b414d3096cb7a
+      internalID: -1334712310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Salto_PerfilDerecho_Chico_5
+      rect:
+        serializedVersion: 2
+        x: 2178
+        y: 94
+        width: 237
+        height: 380
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b84a070325f41845aafa675a7e23a02
+      internalID: -1154033835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Salto_PerfilDerecho_Chico_7
+      rect:
+        serializedVersion: 2
+        x: 1174
+        y: 233
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed4e5d3b4da0d0943bb74a21c32b32ac
+      internalID: -604828231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Salto_PerfilDerecho_Chico_11
+      rect:
+        serializedVersion: 2
+        x: 1217
+        y: 33
+        width: 4
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c0807fb3131ea44090661fe86555940
+      internalID: -1624707186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: fb874b3becd313e458493fac2267a2de
     internalID: 0
     vertices: []
     indices: 
@@ -108,8 +284,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
-    nameFileIdTable: {}
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Salto_PerfilDerecho_Chico_0: -842933593
+      Salto_PerfilDerecho_Chico_1: -1656333352
+      Salto_PerfilDerecho_Chico_10: 1058148759
+      Salto_PerfilDerecho_Chico_11: -1624707186
+      Salto_PerfilDerecho_Chico_2: -965862946
+      Salto_PerfilDerecho_Chico_3: -850402107
+      Salto_PerfilDerecho_Chico_4: -1334712310
+      Salto_PerfilDerecho_Chico_5: -1154033835
+      Salto_PerfilDerecho_Chico_6: -120184207
+      Salto_PerfilDerecho_Chico_7: -604828231
+      Salto_PerfilDerecho_Chico_8: -1354032646
+      Salto_PerfilDerecho_Chico_9: 624498638
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
