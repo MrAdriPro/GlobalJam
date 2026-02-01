@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4a0a10b9a2e2934d80d7108901d6127, type: 3}
-  m_Name: SpeedDoubleJump
+  m_Name: Grenade
   m_EditorClassIdentifier: Assembly-CSharp::PowerUpData
-  type: 1
-  speedMultiplier: 22
-  extraJumps: 1
+  type: 4
+  speedMultiplier: 16
+  extraJumps: 0
   winstonJumpMultiplier: 0
-  maxCharge: 5
-  drainPerSecond: 1
-  regenPerSecond: 0.5
-  minChargeToUse: 1
-  referencedWeapon: {fileID: 11400000, guid: 91384d92ef9346544b30dae6dffd7da9, type: 2}
-  maskSprite: {fileID: 21300000, guid: 0c846507894995b4c86f767a28e0262e, type: 3}
+  maxCharge: 0
+  drainPerSecond: 0
+  regenPerSecond: 0
+  minChargeToUse: 0
+  referencedWeapon: {fileID: 11400000, guid: 91b160ac7f85e4a4cbf66d66a8c1f65e, type: 2}
+  maskSprite: {fileID: 21300000, guid: eba3013a06f76944bad3d732a7e02880, type: 3}

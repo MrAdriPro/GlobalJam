@@ -14,6 +14,7 @@ TagManager:
   - Player2End
   - Player1Hand
   - Player2Hand
+  - SettingsMenu
   layers:
   - Default
   - TransparentFX

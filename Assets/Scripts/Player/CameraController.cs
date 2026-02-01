@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public float mouseSensitivity = 2f; 
+    private float mouseSensitivity = 2f; 
 
     private float xRotation = 0f;
     private float yRotation = 0f;
@@ -12,6 +12,7 @@ public class CameraController : MonoBehaviour
     public Transform orientation;
 
     private PlayerInput playerInput;
+    private M_SettingsMenu m_SettingsMenu;
     public PlayerInputSelector playerInputSelector;
 
     void Start()
@@ -19,10 +20,36 @@ public class CameraController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked; 
         Cursor.visible = false;
         playerInput = GetComponentInParent<PlayerInput>();
+        m_SettingsMenu = GameObject.FindAnyObjectByType<M_SettingsMenu>();
     }
 
     void Update()
     {
+        if (!playerInput)
+        {
+            playerInput = GetComponentInParent<PlayerInput>();
+            return;
+        }
+
+        if (!m_SettingsMenu)
+        {
+            m_SettingsMenu = GameObject.FindAnyObjectByType<M_SettingsMenu>();
+            return;
+        }
+
+        if (playerInput.inputDevice == PlayerInput.InputDevice.KeyboardMouse)
+        {
+            mouseSensitivity = m_SettingsMenu.mouseSensSlider.value * 20;
+        }
+        else if (playerInput.inputDevice == PlayerInput.InputDevice.Joystick1)
+        {
+            mouseSensitivity = m_SettingsMenu.joystick1SensSlider.value * 20;
+        }
+        else if (playerInput.inputDevice == PlayerInput.InputDevice.Joystick2)
+        {
+            mouseSensitivity = m_SettingsMenu.joystick2SensSlider.value * 20;
+        }
+
         if (GetComponentInParent<HealthManager>().isDead || !playerInputSelector.selectedInput || GameObject.FindAnyObjectByType<PauseMenu>().isPaused
             || GameObject.FindAnyObjectByType<LeaderboardManager>().endGame) return;
 

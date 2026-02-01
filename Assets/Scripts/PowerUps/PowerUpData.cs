@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum PowerUpType
 {
-    None, SpeedAndDoubleJump, WinstonJump, Blindness
+    None, SpeedAndDoubleJump, WinstonJump, Blindness, Grenade
 
 }
 [CreateAssetMenu(menuName = "PowerUpData/New PowerUp Data", fileName = "New PowerUp Data")]
@@ -22,5 +22,6 @@ public class PowerUpData : ScriptableObject
     public float regenPerSecond = 0.5f;
     public float minChargeToUse = 1f;
     public Weapons referencedWeapon;
+    public Sprite maskSprite;
 
 }

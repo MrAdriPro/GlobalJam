@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 721578566487088592}
   - component: {fileID: 524085273729546667}
   m_Layer: 0
-  m_Name: PU_SpeedDoubleJump
+  m_Name: PU_RocketLauncher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 980cf7866ea109f4d9824ff8b638fbdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PowerUpPickup
-  data: {fileID: 11400000, guid: a266f4c9edc111c4aad5561c076d49be, type: 2}
+  data: {fileID: 11400000, guid: d3c6539ec63413c45be1a2e58953096e, type: 2}
 --- !u!1 &5346247208155227022
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,7 +109,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2461210715607546635}
-  - component: {fileID: 6109863868034328360}
+  - component: {fileID: 2182447183061525452}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -132,7 +132,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 837081209219682733}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &6109863868034328360
+--- !u!212 &2182447183061525452
 SpriteRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
@@ -181,7 +181,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 0c846507894995b4c86f767a28e0262e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eba3013a06f76944bad3d732a7e02880, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -28,12 +28,16 @@ public class HealthManager : MonoBehaviour
 
     public bool isDead { get; private set; }
 
+    [Header("masks")]
+    public SpriteRenderer[] masks;
+
     private void Awake()
     {
         currentHealth = maxHealth;
         playerInput = GetComponent<PlayerInput>();
         playerDeadCanvas.alpha = 0f;
         timer = time;
+        didDamage = false;
     }
 
     private void Update()
@@ -62,13 +66,14 @@ public class HealthManager : MonoBehaviour
             didDamage = false;
 
         }
+        UpdateMasks();
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(int amount, bool _didDamage = false)
     {
         if (isDead) return;
 
-        didDamage = true;
+        didDamage = _didDamage;
         timer = time;
 
         currentHealth -= amount;
@@ -103,22 +108,26 @@ public class HealthManager : MonoBehaviour
 
     public void Die(bool active = true)
     {
+        LeaderboardManager lm = GameObject.FindAnyObjectByType<LeaderboardManager>();
+
         if (didDamage) 
         {
-            LeaderboardManager lm = GameObject.FindAnyObjectByType<LeaderboardManager>();
             if (playerIndex == 0)
             {
                 lm.player2Kills++;
-                lm.player1Deads++;
 
             }
-            else 
+            else
             {
                 lm.player2Deads++;
-                lm.player1Kills++;
 
             }
         }
+        if (playerIndex == 0)lm.player1Deads++;
+        else  lm.player2Deads++; 
+
+        
+
 
         deadAudio.Play();
         isDead = true;
@@ -160,5 +169,19 @@ public class HealthManager : MonoBehaviour
         playerDamageIndicator.DOFade(0, 0.1f);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Lava")
+        {
+            TakeDamage(1000);
+        }
+    }
+    private void UpdateMasks()
+    {
+        for (int i = 0; i < masks.Length; i++)
+        {
+            masks[i].enabled = i < currentHealth;
+        }
+    }
 
 }

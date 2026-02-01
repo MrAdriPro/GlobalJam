@@ -21,3 +21,4 @@ MonoBehaviour:
   regenPerSecond: 0.5
   minChargeToUse: 1
   referencedWeapon: {fileID: 11400000, guid: 560a63a53c76b2349aeb49c9a27c73c3, type: 2}
+  maskSprite: {fileID: 21300000, guid: c9051106078e7fd4eaa42e5ccfc1fc14, type: 3}
