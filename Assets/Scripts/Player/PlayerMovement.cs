@@ -69,6 +69,8 @@ public class PlayerMovement : MonoBehaviour
     public TrailRenderer[] wallRunningMarks;
     public Action onJump;
 
+    public bool didJump = false;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -96,6 +98,10 @@ public class PlayerMovement : MonoBehaviour
 
         isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, groundMask);
 
+        if (didJump && isGrounded) 
+        {
+            didJump = false;
+        }
 
         MyInput();
         SpeedControl();
@@ -133,7 +139,6 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (!isGrounded && powerUpManager.CanExtraJump())
             {
-                print("salto");
                 Jump();
                 powerUpManager.DoesJumped();
             }
@@ -244,14 +249,18 @@ public class PlayerMovement : MonoBehaviour
             state = MovementState.sprinting;
             desiredMoveSpeed = runSpeed;
         }
-        else if (isGrounded)
+        else if (isGrounded && isMoving())
         {
             state = MovementState.walking;
             desiredMoveSpeed = walkSpeed;
         }
-        else
+        else if (!isGrounded)
         {
             state = MovementState.air;
+        }
+        else 
+        {
+            state = MovementState.none;
         }
 
         if (Mathf.Abs(desiredMoveSpeed - lastDesiredMoveSpeed) > 12f && speed != 0 && !sliding && !wallRunning && !climbing)
@@ -259,7 +268,7 @@ public class PlayerMovement : MonoBehaviour
             StopAllCoroutines();
             StartCoroutine(SmoothlyLerpMoveSpeed());
         }
-        else 
+        else
         {
             speed = desiredMoveSpeed;
         }
@@ -291,6 +300,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump() 
     {
+        didJump = true;
         exitingSlope = true;
         rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
 
@@ -351,5 +361,6 @@ public enum MovementState
     sliding,
     wallRunning,
     climbing,
-    air
+    air,
+    none
 }

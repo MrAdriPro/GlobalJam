@@ -93,6 +93,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -100,10 +113,10 @@ TextureImporter:
       name: Salto_PerfilDerecho_Chico_0
       rect:
         serializedVersion: 2
-        x: 176
-        y: 11
-        width: 209
-        height: 480
+        x: 0
+        y: 0
+        width: 500
+        height: 500
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -122,10 +135,10 @@ TextureImporter:
       name: Salto_PerfilDerecho_Chico_1
       rect:
         serializedVersion: 2
-        x: 679
-        y: 12
-        width: 195
-        height: 476
+        x: 500
+        y: 0
+        width: 500
+        height: 500
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,10 +157,10 @@ TextureImporter:
       name: Salto_PerfilDerecho_Chico_2
       rect:
         serializedVersion: 2
-        x: 1182
-        y: 39
-        width: 191
-        height: 449
+        x: 1000
+        y: 0
+        width: 500
+        height: 500
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,10 +179,10 @@ TextureImporter:
       name: Salto_PerfilDerecho_Chico_3
       rect:
         serializedVersion: 2
-        x: 1677
-        y: 283
-        width: 5
-        height: 4
+        x: 1500
+        y: 0
+        width: 500
+        height: 500
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,10 +201,10 @@ TextureImporter:
       name: Salto_PerfilDerecho_Chico_4
       rect:
         serializedVersion: 2
-        x: 1678
-        y: 93
-        width: 237
-        height: 389
+        x: 2000
+        y: 0
+        width: 500
+        height: 500
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,72 +215,6 @@ TextureImporter:
       bones: []
       spriteID: b7d1eb9a03206df4ea6b414d3096cb7a
       internalID: -1334712310
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Salto_PerfilDerecho_Chico_5
-      rect:
-        serializedVersion: 2
-        x: 2178
-        y: 94
-        width: 237
-        height: 380
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9b84a070325f41845aafa675a7e23a02
-      internalID: -1154033835
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Salto_PerfilDerecho_Chico_7
-      rect:
-        serializedVersion: 2
-        x: 1174
-        y: 233
-        width: 5
-        height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ed4e5d3b4da0d0943bb74a21c32b32ac
-      internalID: -604828231
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Salto_PerfilDerecho_Chico_11
-      rect:
-        serializedVersion: 2
-        x: 1217
-        y: 33
-        width: 4
-        height: 12
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9c0807fb3131ea44090661fe86555940
-      internalID: -1624707186
       vertices: []
       indices: 
       edges: []
@@ -286,20 +233,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":500.0,"y":500.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Salto_PerfilDerecho_Chico_0: -842933593
       Salto_PerfilDerecho_Chico_1: -1656333352
-      Salto_PerfilDerecho_Chico_10: 1058148759
-      Salto_PerfilDerecho_Chico_11: -1624707186
       Salto_PerfilDerecho_Chico_2: -965862946
       Salto_PerfilDerecho_Chico_3: -850402107
       Salto_PerfilDerecho_Chico_4: -1334712310
-      Salto_PerfilDerecho_Chico_5: -1154033835
-      Salto_PerfilDerecho_Chico_6: -120184207
-      Salto_PerfilDerecho_Chico_7: -604828231
-      Salto_PerfilDerecho_Chico_8: -1354032646
-      Salto_PerfilDerecho_Chico_9: 624498638
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

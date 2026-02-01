@@ -1,5 +1,6 @@
 using DG.Tweening;
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -76,8 +77,38 @@ public class PlayerAnimations : MonoBehaviour
         gunSource.PlayOneShot(gunClip);
     }
 
+
     private void CheckOtherPlayerDirection()
     {
+        if (!otherPlayer.GetComponent<Throwing>().readyToThrow)
+        {
+            playerBodyAnim.SetLayerWeight(1, 1);
+            playerBodyAnim.SetLayerWeight(2, 0);
+            playerBodyAnim.SetLayerWeight(3, 0);
+
+        }
+        else if (otherPlayer.GetComponent<PlayerMovement>().state == MovementState.sprinting || otherPlayer.GetComponent<PlayerMovement>().state == MovementState.wallRunning
+            || otherPlayer.GetComponent<PlayerMovement>().state == MovementState.climbing || otherPlayer.GetComponent<PlayerMovement>().state == MovementState.walking)
+        {
+            playerBodyAnim.SetLayerWeight(1, 0);
+            playerBodyAnim.SetLayerWeight(2, 1);
+            playerBodyAnim.SetLayerWeight(3, 0);
+
+        }
+        else if (otherPlayer.GetComponent<PlayerMovement>().didJump) 
+        {
+            playerBodyAnim.SetLayerWeight(1, 0);
+            playerBodyAnim.SetLayerWeight(2, 0);
+            playerBodyAnim.SetLayerWeight(3, 1);
+        }
+        else
+        {
+            playerBodyAnim.SetLayerWeight(1, 0);
+            playerBodyAnim.SetLayerWeight(2, 0);
+            playerBodyAnim.SetLayerWeight(3, 0);
+
+        }
+
         playerBodyAnim.transform.LookAt(transform.position);
 
 

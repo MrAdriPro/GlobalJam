@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Throwing : MonoBehaviour
 {
@@ -11,8 +12,8 @@ public class Throwing : MonoBehaviour
 
     public PlayerInputSelector playerInputSelector;
 
-    [SerializeField] bool readyToThrow;
-
+    public bool readyToThrow;
+    public Action onShoot;
     private PlayerInput playerInput;
 
     private void Start()
@@ -47,7 +48,7 @@ public class Throwing : MonoBehaviour
     private void Throw() 
     {
         readyToThrow = false;
-
+        onShoot?.Invoke();
         GameObject projectile = Instantiate(objectToThrow, attackPoint.position, attackPoint.rotation);
 
         ProjectileAddon pa = projectile.GetComponent<ProjectileAddon>();
