@@ -3,7 +3,9 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -17,17 +19,29 @@ public class PauseMenu : MonoBehaviour
     public AudioClip pauseMenuClip;
     public AudioClip battleClip;
 
+    public EventSystem eventSystem;
+
+    public CanvasGroup optionsCanvas;
+    private M_SettingsMenu m_SettingsMenu;
     private void Start()
     {
         pauseMenu.alpha = 0;
         pauseMenu.gameObject.SetActive(false);
+        m_SettingsMenu = GetComponent<M_SettingsMenu>();
+        m_SettingsMenu.AudioSettingsPanel.SetActive(false);
         isPaused = false;
         musicSource.clip = battleClip;
         StartCoroutine(RestartTextAnimtion());
+        Back();
     }
 
     private void Update()
     {
+        if (Input.GetButtonDown("Cancel") && optionsCanvas.alpha == 1) 
+        {
+            Back();
+        }
+
         if (Input.GetButtonDown("Exit")) 
         {
             isPaused = !isPaused;
@@ -50,6 +64,7 @@ public class PauseMenu : MonoBehaviour
             }
             else
             {
+                Back();
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
                 pauseMenu.gameObject.SetActive(false);
@@ -70,6 +85,24 @@ public class PauseMenu : MonoBehaviour
     public void ExitGame()
     {
         SceneManager.LoadScene("MainMenuScene");
+    }
+
+    public void Options()
+    {
+        pauseMenu.DOFade(0, 0.3f);
+        m_SettingsMenu.AudioSettingsPanel.SetActive(true);
+        eventSystem.SetSelectedGameObject(optionsCanvas.GetComponentInChildren<Slider>().gameObject);
+        optionsCanvas.DOFade(1, 0.3f);
+    }
+
+
+    public void Back()
+    {
+        pauseMenu.DOFade(1, 0.3f);
+        eventSystem.SetSelectedGameObject(pauseMenu.GetComponentInChildren<Button>().gameObject);
+        optionsCanvas.DOFade(0, 0.3f);
+        m_SettingsMenu.AudioSettingsPanel.SetActive(false);
+
     }
 
     public void Continue() 
@@ -94,7 +127,7 @@ public class PauseMenu : MonoBehaviour
         CanvasGroup restartTextCanvas = GameObject.FindAnyObjectByType<PlayerSpawner>().levelCam.GetComponentInChildren<CanvasGroup>();
         restartTextCanvas.GetComponent<TextMeshProUGUI>().text = "Presiona cualquier tecla para reiniciar";
 
-        while (GameObject.FindAnyObjectByType<PlayerSpawner>().levelCam.activeSelf)
+        while (GameObject.FindAnyObjectByType<PlayerSpawner>().levelCam)
         {
             yield return new WaitForSeconds(0.5f);
             restartTextCanvas.DOFade(1, 0.5f);
