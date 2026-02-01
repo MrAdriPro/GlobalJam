@@ -1,13 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class M_DisplaySettings : MonoBehaviour
 {
+    public PersistentData data;
+
     [Header("Display")]
     private bool isFullscreen = true;
     private bool auxIsFullScreen;
@@ -37,15 +42,33 @@ public class M_DisplaySettings : MonoBehaviour
 
     private void Awake()
     {
-        print("Se inicia");
+        GetResolutions();
+        OnStart();
         OnSettingsOn();
         VsyncToggle(true);
-        GetResolutions();
         
     }
     private void Update()
     {
     }
+
+    private void OnStart() 
+    {
+        if (data) 
+        {
+            QualitySettings.vSyncCount = data.vSync ? 1 : 0;
+            Screen.fullScreen = data.fullScreen;
+            var pipelineAsset = GraphicsSettings.currentRenderPipeline as UniversalRenderPipelineAsset;
+            pipelineAsset.msaaSampleCount = data.antialiasing;
+            antialiasingValue = data.antialiasing;
+            auxIsVsyncOn = data.vSync;
+            auxIsFullScreen = data.fullScreen;
+            int resIndex = GetResolutionIndex(data.resolution);
+            if(resIndex != -1)
+            SetResolution(resIndex);
+        }
+    }
+    
 
 
     private void OnSettingsOn()
@@ -57,7 +80,6 @@ public class M_DisplaySettings : MonoBehaviour
         fullscreenSlider.value = (Screen.fullScreen) ? 1 : 0;
         FullscreenToggle(Screen.fullScreen);
         auxIsFullScreen = isFullscreen;
-        //antialiasingValue = (int)hdac.antialiasing;
         Antialiasing(antialiasingValue);
     }
 
@@ -66,6 +88,14 @@ public class M_DisplaySettings : MonoBehaviour
         SetResolution(auxResolutionIndex);
         SetTogglesOnApply();
         SetAntialiasing(antialiasingValue);
+
+        Vector2Int resolution = new Vector2Int(filteredResolutions[currentResolutionIndex].width, filteredResolutions[currentResolutionIndex].height);
+
+        data.resolution = new CustomRes(filteredResolutions[currentResolutionIndex].width, filteredResolutions[currentResolutionIndex].height, filteredResolutions[currentResolutionIndex].refreshRateRatio.value);
+        data.vSync = isVsyncOn;
+        data.fullScreen = isFullscreen;
+        data.antialiasing = antialiasingValue;
+
     }
 
     public void OnBackButton()
@@ -158,27 +188,31 @@ public class M_DisplaySettings : MonoBehaviour
 
     private void SetAntialiasing(int index)
     {
+        var pipelineAsset = GraphicsSettings.currentRenderPipeline as UniversalRenderPipelineAsset;
+
         switch (index)
         {
             case 0:
                 antialiasingText.text = "OFF";
-                //hdac.antialiasing = HDAdditionalCameraData.AntialiasingMode.None;
+                pipelineAsset.msaaSampleCount = 0;
                 break;
             case 1:
                 antialiasingText.text = "FXAA";
-                //hdac.antialiasing = HDAdditionalCameraData.AntialiasingMode.FastApproximateAntialiasing;
+                pipelineAsset.msaaSampleCount = 1;
+
                 break;
             case 2:
                 antialiasingText.text = "TXAA";
-                //hdac.antialiasing = HDAdditionalCameraData.AntialiasingMode.TemporalAntialiasing;
+                pipelineAsset.msaaSampleCount = 2;
+
                 break;
             case 3:
                 antialiasingText.text = "SMAA";
-                //hdac.antialiasing = HDAdditionalCameraData.AntialiasingMode.SubpixelMorphologicalAntiAliasing;
+                pipelineAsset.msaaSampleCount = 3;
                 break;
             default:
                 antialiasingText.text = "OFF";
-                //hdac.antialiasing = HDAdditionalCameraData.AntialiasingMode.None;
+                pipelineAsset.msaaSampleCount = 0;
                 break;
         }
     }
@@ -227,6 +261,29 @@ public class M_DisplaySettings : MonoBehaviour
             }
         }
     }
+
+    private int GetResolutionIndex(CustomRes resolution) 
+    {
+        int index = -1;
+        try
+        {
+            for (int i = 0; i < filteredResolutions.Count; i++)
+            {
+                var res = filteredResolutions[i];
+
+                if (res.width == resolution.width &&
+                    res.height == resolution.height &&
+                    (int)res.refreshRateRatio.value == (int)resolution.hz)
+                {
+                    return index = i;
+                }
+            }
+        }
+        catch (Exception ex) { return -1; }
+
+        return -1;
+    }
+
 
     private void ChangeResolutionIndex(int resolutionIndex)
     {

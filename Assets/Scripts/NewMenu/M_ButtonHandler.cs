@@ -80,8 +80,14 @@ public class M_ButtonHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     }
 
-    public void OnDeselect(BaseEventData eventData) 
+    public void OnDeselect(BaseEventData eventData)
     {
+        if (mainMenuController)
+        {
+            mainMenuController.SetCurrentToggle(null);
+        }
+
+
         if (childText) childText.color = b_Settings.noHoverColor;
         if (childImage) childImage.color = b_Settings.noHoverColor;
 

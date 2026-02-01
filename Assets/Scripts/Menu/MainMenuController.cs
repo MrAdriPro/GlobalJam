@@ -50,7 +50,7 @@ public class MainMenuController : MonoBehaviour
             if (currentMenu == Menus.DisplayMenu) currentMenu = ChangeMenu(Menus.OptionsMenu);
             if (currentMenu == Menus.AudioMenu) currentMenu = ChangeMenu(Menus.OptionsMenu);
         }
-        else if (Input.GetButtonDown("Submit")) 
+        else if (Input.GetButtonDown("Submit") || Input.GetButtonDown("Joystick1_Submit") || Input.GetButtonDown("Joystick2_Submit")) 
         {
             if (currentToggle) 
             {
@@ -61,7 +61,7 @@ public class MainMenuController : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("Level");
+        StartCoroutine(LoadSceneAsync(1));
     }
 
     public void OpenOptions() => currentMenu = ChangeMenu(Menus.OptionsMenu);

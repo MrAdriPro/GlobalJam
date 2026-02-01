@@ -52,7 +52,7 @@ public class PlayerInputSelector : MonoBehaviour
 
         if (controllers.Length > 1) 
         {
-            inputText.text = controllers[playerIndex] + "(" + currentController + ")";
+            inputText.text = $"{currentController + 1} - {controllers[playerIndex]}";
 
         }
 
@@ -83,7 +83,7 @@ public class PlayerInputSelector : MonoBehaviour
                 else currentController = 0;
             }
 
-            inputText.text = controllers[currentController] + "(" + currentController + ")";
+            inputText.text = $"{currentController + 1} - {controllers[currentController]}";
         }
 
     }
@@ -145,7 +145,7 @@ public class PlayerInputSelector : MonoBehaviour
 
             }
 
-            inputText.text = controllers[currentController] + "(" + currentController + ")";
+            inputText.text = $"{currentController + 1} - {controllers[currentController]}";
         }
     }
 
