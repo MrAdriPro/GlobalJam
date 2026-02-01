@@ -223,19 +223,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   speed: 7
-  walkSpeed: 11
-  runSpeed: 16
+  walkSpeed: 8
+  runSpeed: 12
   slideSpeed: 30
   wallRunSpeed: 8.5
   climbSpeed: 3
   sliding: 0
   wallRunning: 0
   climbing: 0
+  isRunning: 0
   crouchSpeed: 3
   crouchYScale: 0.5
   groundDrag: 5
   gravityMultiplier: 0.4
-  jumpForce: 12
+  jumpForce: 16
   jumpCooldown: 0.25
   airMultiplier: 0.4
   readyToJump: 0
@@ -447,7 +448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba53ef1af260e9c4f94ab303222b555e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WinstonJump
-  verticalJumpForce: 40
+  verticalJumpForce: 30
   horizontalJumpForce: 15
   jumpForce: 1
   timeToStomp: 1
@@ -460,7 +461,7 @@ MonoBehaviour:
   camShakeIntensity: 4
   camShakeDuration: 0.5
   isExplosive: 1
-  _explosionRadius: 10
+  _explosionRadius: 7
   _explosionForce: 300
   _particles: {fileID: 3508374827897098203, guid: db86a58fcc1f0144c91c7f3f2778b4f2, type: 3}
 --- !u!114 &7676031278069855030

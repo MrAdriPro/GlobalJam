@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SpeedDoubleJump
   m_EditorClassIdentifier: Assembly-CSharp::PowerUpData
   type: 1
-  speedMultiplier: 22
+  speedMultiplier: 16
   extraJumps: 1
   winstonJumpMultiplier: 0
   maxCharge: 5

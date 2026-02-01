@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public bool sliding;
     public bool wallRunning;
     public bool climbing;
+    public bool isRunning;
     private bool wasClimbing;
     [Header("Crouching")]
     public float crouchSpeed;

@@ -63,7 +63,7 @@ public class WallRunning : MonoBehaviour
         if (!GetComponentInChildren<PlayerInputSelector>().selectedInput
             || GameObject.FindAnyObjectByType<LeaderboardManager>().endGame) return;
 
-        if (pm.wallRunning) WallRunningMovement();
+        if (pm.wallRunning && playerInput.RunButton) WallRunningMovement();
     }
 
     private void CheckForWall()
