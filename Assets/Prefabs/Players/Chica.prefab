@@ -2244,7 +2244,7 @@ MonoBehaviour:
   crouchYScale: 0.5
   groundDrag: 5
   gravityMultiplier: 0.4
-  jumpForce: 16
+  jumpForce: 12
   jumpCooldown: 0.25
   airMultiplier: 0.4
   readyToJump: 0

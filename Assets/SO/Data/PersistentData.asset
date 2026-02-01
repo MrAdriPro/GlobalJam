@@ -12,12 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776d01a1554e0754180948a1c7f52a42, type: 3}
   m_Name: PersistentData
   m_EditorClassIdentifier: Assembly-CSharp::PersistentData
-  vSync: 0
-  fullScreen: 0
-  antialiasing: 0
+  resolution:
+    width: 1920
+    height: 1080
+    hz: 60
+  vSync: 1
+  fullScreen: 1
+  antialiasing: 1
   master: 0
   sounds: 0
   music: 0
-  mouseSens: 0
-  joystick1Sens: 0
-  joystick2Sens: 0
+  mouseSens: 6
+  joystick1Sens: 6
+  joystick2Sens: 6
