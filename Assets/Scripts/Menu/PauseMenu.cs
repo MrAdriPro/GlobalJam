@@ -48,12 +48,16 @@ public class PauseMenu : MonoBehaviour
 
             if (isPaused)
             {
+
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 pauseMenu.gameObject.SetActive(true);
                 pauseMenu.DOFade(1, 0.3f);
                 musicSource.clip = pauseMenuClip;
                 musicSource.Play();
+                GameObject p = pauseMenu.GetComponentInChildren<Button>().gameObject;
+                eventSystem.SetSelectedGameObject(p);
+                p.GetComponent<M_ButtonHandler>().SetSelectManual();
                 GameObject.FindWithTag("Player1Hand").GetComponent<CanvasGroup>().DOFade(0.3f, 0.2f);
                 try
                 {

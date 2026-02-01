@@ -80,6 +80,52 @@ public class M_ButtonHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     }
 
+    public void SetSelectManual() 
+    {
+        if (b_Settings.buttonType == ButtonType.MenuButton)
+        {
+            Vector2 pos = rt.anchoredPosition;
+            pos.x -= rt.rect.width / 2 + 25;
+            Slider isASlider = GetComponent<Slider>();
+
+            if (isASlider)
+            {
+                pos.x -= offset;
+            }
+            mainMenuController.ChangeMainMenuSelectorPosition(pos);
+        }
+        // Si es un toggle 
+        if (mainMenuController)
+        {
+            M_ToggleSwitch toggle = GetComponent<M_ToggleSwitch>();
+            if (toggle) mainMenuController.SetCurrentToggle(toggle);
+            else mainMenuController.SetCurrentToggle(null
+                );
+
+            if (mainMenuController.audioSource != null && mainMenuController.selectSound != null)
+            {
+                mainMenuController.audioSource.PlayOneShot(mainMenuController.selectSound);
+            }
+        }
+        else if (pauseMenu)
+        {
+            pauseMenu.buttonSoundSource.PlayOneShot(pauseMenu.buttonClip);
+        }
+
+
+
+        if (childText) childText.color = b_Settings.hoverColor;
+        if (childImage) childImage.color = b_Settings.hoverColor;
+
+        if (b_Settings.hasAnim)
+        {
+            if (b_Settings.doesHoverImageEffect)
+                ButtonSelectImageCreator();
+
+            StartSmoothMove(originalPosition + b_Settings.buttonOffsetAnimation);
+        }
+    }
+
     public void OnDeselect(BaseEventData eventData)
     {
         if (mainMenuController)
