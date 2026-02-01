@@ -2444,6 +2444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b7c35822048414d86c554fdced1145, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::M_SettingsMenu
+  data: {fileID: 11400000, guid: cbb9857ca80c8044b96fb75361fa7cab, type: 2}
   AudioSettingsPanel: {fileID: 6642648925633331403}
   masterSlider: {fileID: 2292002073533122617}
   soundSlider: {fileID: 4385053687455405823}
