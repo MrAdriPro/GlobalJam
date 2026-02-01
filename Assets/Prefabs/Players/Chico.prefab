@@ -557,6 +557,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PowerUpManager
   movement: {fileID: 8290946982032636171}
   powerUpData: {fileID: 0}
+  powerMasks:
+  - {fileID: 3970176482898228030}
+  - {fileID: 8850262911513428796}
+  - {fileID: 3432970583456982571}
   currentExtraJumps: 0
 --- !u!114 &6814219886161951043
 MonoBehaviour:
@@ -720,6 +724,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BlindnessPowerUp
   powerUpManager: {fileID: 6004466674626745684}
   playerRenderer: {fileID: 4769004438239942845}
+  powerUpMasks: {fileID: 4062805367250064825}
   pBlack: {fileID: 1944134016616634646}
   pCharge: {fileID: 8740127240623582472}
 --- !u!1 &631193573491001493
@@ -1638,6 +1643,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3374153402857758286}
+  - component: {fileID: 3014923679744250641}
   m_Layer: 3
   m_Name: MiddleOrbitator
   m_TagString: Untagged
@@ -1663,6 +1669,25 @@ Transform:
   - {fileID: 5854003394406486555}
   m_Father: {fileID: 768627319402960527}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3014923679744250641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4062805367250064825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f3ed70580ec38b44b20af9960b953da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChangePowerMask
+  childrenSprites:
+  - {fileID: 3970176482898228030}
+  - {fileID: 8850262911513428796}
+  - {fileID: 3432970583456982571}
+  originalSprites:
+  - {fileID: 21300000, guid: 11918ee6d63083f41a9041992c790619, type: 3}
+  powerUpManager: {fileID: 6004466674626745684}
 --- !u!1 &4271445176724847762
 GameObject:
   m_ObjectHideFlags: 0
@@ -2772,7 +2797,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe19c1e4983e9e34686b7229e0329a80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
-  mouseSensitivity: 200
   camHolder: {fileID: 3711492790805038857}
   orientation: {fileID: 768627319402960527}
   playerInputSelector: {fileID: 7305626037583332762}

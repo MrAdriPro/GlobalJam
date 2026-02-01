@@ -8,6 +8,7 @@ public class BlindnessPowerUp : MonoBehaviour
 {
     public PowerUpManager powerUpManager;
     public Renderer playerRenderer;
+    public GameObject powerUpMasks;
     private HealthManager healthManager;
     private PlayerInput playerInput;
     private List<TrailRenderer> trailRenderers;
@@ -98,6 +99,7 @@ public class BlindnessPowerUp : MonoBehaviour
         isBlind = true;
         SetBlind(true);
         playerRenderer.enabled = false;
+        powerUpMasks.SetActive(false);
         SetTrails(false);
     }
 
@@ -110,6 +112,8 @@ public class BlindnessPowerUp : MonoBehaviour
         SetBlind(false);
         SetTrails(true);
         playerRenderer.enabled = true;
+        powerUpMasks.SetActive(true);
+
     }
 
     public void SetBlind(bool active)
