@@ -65,6 +65,11 @@ public class M_ButtonHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
             pauseMenu.buttonSoundSource.PlayOneShot(pauseMenu.buttonClip);
         }
 
+        ChangeControllerInputsImage ccii = GetComponent<ChangeControllerInputsImage>();
+        if (ccii) 
+        {
+            ccii.Change();
+        }
 
 
         if (childText) childText.color = b_Settings.hoverColor;
