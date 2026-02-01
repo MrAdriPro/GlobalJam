@@ -7,6 +7,7 @@ public class Throwing : MonoBehaviour
     public Transform attackPoint;
     public GameObject objectToThrow;
     public Weapons weapon;
+    public Weapons defaultWeapon;
 
     public PlayerInputSelector playerInputSelector;
 
@@ -16,6 +17,7 @@ public class Throwing : MonoBehaviour
 
     private void Start()
     {
+        weapon = defaultWeapon;
         readyToThrow = true;
         playerInput = GetComponent<PlayerInput>();
     }

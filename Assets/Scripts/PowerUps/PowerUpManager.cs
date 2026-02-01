@@ -10,8 +10,10 @@ public class PowerUpManager : MonoBehaviour
     private float baseRunSpeed;
     private int baseExtraJumps;
     public PowerUpData powerUpData;
+    public SpriteRenderer[] powerMasks;
 
     public int currentExtraJumps;
+
 
     private void Start()
     {
@@ -27,7 +29,10 @@ public class PowerUpManager : MonoBehaviour
 
         currentPowerUp = data.type;
 
-        GetComponent<Throwing>().weapon = data.referencedWeapon;
+        if (data.referencedWeapon != null)
+        {
+            GetComponent<Throwing>().weapon = data.referencedWeapon;
+        }
 
         if (currentPowerUp == PowerUpType.SpeedAndDoubleJump)
         {
@@ -44,6 +49,8 @@ public class PowerUpManager : MonoBehaviour
         movement.walkSpeed = baseWalkSpeed;
         movement.runSpeed = baseRunSpeed;
         currentExtraJumps = baseExtraJumps;
+
+        GetComponent<Throwing>().weapon = GetComponent<Throwing>().defaultWeapon;
         currentPowerUp = PowerUpType.None;
 
     }

@@ -28,7 +28,7 @@ public class PlayerSpawner : MonoBehaviour
         StartCoroutine(SpawnPlayers());
     }
 
-    IEnumerator SpawnPlayers() 
+    IEnumerator SpawnPlayers()
     {
         GameObject player1 = SpawnPlayerStart(0);
 
@@ -64,7 +64,7 @@ public class PlayerSpawner : MonoBehaviour
         while (!player2inputSelector.selectedInput)
         {
             frameCount++;
-            Debug.Log($"Frame {frameCount}: selectedInput = {player1inputSelector.selectedInput}");
+            //Debug.Log($"Frame {frameCount}: selectedInput = {player1inputSelector.selectedInput}");
             yield return null;
         }
 
@@ -88,14 +88,14 @@ public class PlayerSpawner : MonoBehaviour
         }
     }
 
-    public void Spawn(int index) 
+    public void Spawn(int index)
     {
         if (index == 0) Instantiate(player1Prefab, RandomPosition(), Quaternion.identity);
         else if (index > 0) Instantiate(player2Prefab, RandomPosition(), Quaternion.identity);
 
     }
 
-    public GameObject SpawnPlayerStart(int index) 
+    public GameObject SpawnPlayerStart(int index)
     {
         GameObject player = null;
 
@@ -105,7 +105,7 @@ public class PlayerSpawner : MonoBehaviour
         return player;
     }
 
-    private Vector3 RandomPosition() 
+    private Vector3 RandomPosition()
     {
         return spawnPositions[UnityEngine.Random.Range(0, spawnPositions.Length)].position;
     }

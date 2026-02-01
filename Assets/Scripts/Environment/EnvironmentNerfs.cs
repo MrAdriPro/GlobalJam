@@ -28,14 +28,14 @@ public class EnvironmentNerfs : MonoBehaviour
         StartCoroutine(RandomNerfs());
     }
 
-    IEnumerator RandomNerfs() 
+    IEnumerator RandomNerfs()
     {
         yield return new WaitForSeconds(5);
 
         playerDialogueMessages = GameObject.FindAnyObjectByType<PlayerDialogueMessages>();
 
 
-        while (true) 
+        while (true)
         {
             yield return new WaitForSeconds(timeToCheckNerf);
             int random = Random.Range(0, 2);
@@ -47,14 +47,14 @@ public class EnvironmentNerfs : MonoBehaviour
 
             if (random == 0)
                 StartCoroutine(GravityNerf());
-            if(random == 1)
+            if (random == 1)
                 StartCoroutine(InvertedControllers());
 
         }
 
     }
 
-    IEnumerator GravityNerf() 
+    IEnumerator GravityNerf()
     {
         playerDialogueMessages.FadeInOutInvoke("Se ha iniciado gravedad alterada.", fadeInDuration, fadeOutDuration, stayDuration, letterSpeed, new List<ColorWords>());
 
@@ -70,7 +70,7 @@ public class EnvironmentNerfs : MonoBehaviour
         pm2.gravityMultiplier = startGravityMultiplier;
     }
 
-    IEnumerator InvertedControllers() 
+    IEnumerator InvertedControllers()
     {
         playerDialogueMessages.FadeInOutInvoke("Se ha iniciado controles alterados.", fadeInDuration, fadeOutDuration, stayDuration, letterSpeed, new List<ColorWords>());
 

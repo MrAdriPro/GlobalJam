@@ -45,7 +45,7 @@ public class M_ArrowController : MonoBehaviour, ISelectHandler, IDeselectHandler
 
                         if (Input.GetButtonDown("Joystick2_Submit"))
                         {
-                            if (joystickNames.Length > 2)
+                            if (joystickNames.Length > 1)
                             {
 
                                 if (GetComponent<Button>())
@@ -64,7 +64,7 @@ public class M_ArrowController : MonoBehaviour, ISelectHandler, IDeselectHandler
 
                         if (Input.GetButtonDown("Joystick2_Submit"))
                         {
-                            if (joystickNames.Length > 2)
+                            if (joystickNames.Length > 1)
                             {
 
                                 if (GetComponent<Button>())
@@ -88,7 +88,7 @@ public class M_ArrowController : MonoBehaviour, ISelectHandler, IDeselectHandler
                         }
                     }
                 }
-                else 
+                else
                 {
                     horizontal = Input.GetAxisRaw("Horizontal") + Input.GetAxisRaw("Joystick2_Horizontal Controller") + Input.GetAxisRaw("Joystick1_Horizontal Controller");
                     if ((Input.GetButtonDown("Joystick1_Submit") || Input.GetButtonDown("Joystick2_Submit") || Input.GetButtonDown("Submit")) && GetComponent<Button>())
@@ -98,13 +98,13 @@ public class M_ArrowController : MonoBehaviour, ISelectHandler, IDeselectHandler
                 }
             }
 
-            // Detectar primera pulsación izquierda
+            // Detectar primera pulsaciï¿½n izquierda
             if (horizontal < -deadzone && !wasPressingLeft)
             {
                 leftArrow.onClick.Invoke();
                 wasPressingLeft = true;
             }
-            // Detectar primera pulsación derecha
+            // Detectar primera pulsaciï¿½n derecha
             else if (horizontal > deadzone && !wasPressingRight)
             {
                 rightArrow.onClick.Invoke();
