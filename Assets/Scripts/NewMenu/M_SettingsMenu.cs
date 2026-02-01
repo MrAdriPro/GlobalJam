@@ -10,12 +10,16 @@ public class M_SettingsMenu : MonoBehaviour
 {
     //Variables
 
+    public GameObject AudioSettingsPanel;
 
     [Header("Audio")]
     [SerializeField] private Slider masterSlider;
     [SerializeField] private Slider soundSlider;
     [SerializeField] private Slider musicSlider;
     [SerializeField] private AudioMixer audioMixer;
+    public Slider mouseSensSlider;
+    public Slider joystick1SensSlider;
+    public Slider joystick2SensSlider;
 
     //Functions
 
@@ -42,6 +46,10 @@ public class M_SettingsMenu : MonoBehaviour
             masterSlider.GetComponentInChildren<TextMeshProUGUI>().text = ((int)masterValue).ToString();
             soundSlider.GetComponentInChildren<TextMeshProUGUI>().text = ((int)soundsValue).ToString();
             musicSlider.GetComponentInChildren<TextMeshProUGUI>().text = ((int)musicValue).ToString();
+
+            mouseSensSlider.GetComponentInChildren<TextMeshProUGUI>().text = ((int)mouseSensSlider.value).ToString();
+            joystick1SensSlider.GetComponentInChildren<TextMeshProUGUI>().text = ((int)joystick1SensSlider.value).ToString();
+            joystick2SensSlider.GetComponentInChildren<TextMeshProUGUI>().text = ((int)joystick2SensSlider.value).ToString();
         }
         catch (Exception ex) { }
     }
