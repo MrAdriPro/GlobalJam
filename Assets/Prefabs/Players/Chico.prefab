@@ -460,7 +460,7 @@ MonoBehaviour:
   camShakeIntensity: 4
   camShakeDuration: 0.5
   isExplosive: 1
-  _explosionRadius: 25
+  _explosionRadius: 10
   _explosionForce: 300
   _particles: {fileID: 3508374827897098203, guid: db86a58fcc1f0144c91c7f3f2778b4f2, type: 3}
 --- !u!114 &7676031278069855030

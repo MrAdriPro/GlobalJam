@@ -2261,6 +2261,7 @@ MonoBehaviour:
   state: 0
   wallRunningMarks:
   - {fileID: 1309977523320281998}
+  didJump: 0
 --- !u!54 &3222302211840643603
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2467,7 +2468,7 @@ MonoBehaviour:
   camShakeIntensity: 4
   camShakeDuration: 0.5
   isExplosive: 1
-  _explosionRadius: 25
+  _explosionRadius: 10
   _explosionForce: 300
   _particles: {fileID: 3508374827897098203, guid: db86a58fcc1f0144c91c7f3f2778b4f2, type: 3}
 --- !u!114 &6596497040486734670

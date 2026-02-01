@@ -140,7 +140,7 @@ public class HealthManager : MonoBehaviour
 
         if (active)
         {
-            playerDeadCanvas.alpha = 0.5f;
+            playerDeadCanvas.DOFade(0.5f, 0.2f);
             if (playerInput.inputDevice == PlayerInput.InputDevice.KeyboardMouse)
             {
                 playerDeadCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "Presiona espacio en tu teclado para reaparecer.";

@@ -59,9 +59,18 @@ public class PauseMenu : MonoBehaviour
                     GameObject p = pauseMenu.GetComponentInChildren<Button>().gameObject;
                     eventSystem.SetSelectedGameObject(p);
                     p.GetComponent<M_ButtonHandler>().SetSelectManual();
-                    GameObject.FindWithTag("Player1Hand").GetComponent<CanvasGroup>().DOFade(0.3f, 0.2f);
+                    CanvasGroup c1 = GameObject.FindWithTag("Player1Hand").GetComponent<CanvasGroup>();
+                    if (c1.alpha != 0) 
+                    {
+                        c1.DOFade(0.3f, 0.2f);
+                    }
 
-                    GameObject.FindWithTag("Player2Hand").GetComponent<CanvasGroup>().DOFade(0.3f, 0.2f);
+                    CanvasGroup c2 = GameObject.FindWithTag("Player2Hand").GetComponent<CanvasGroup>();
+
+                    if (c1.alpha != 0)
+                    {
+                        c2.DOFade(0.3f, 0.2f);
+                    }
                 }
                 catch (Exception ex) { }
 
@@ -77,10 +86,18 @@ public class PauseMenu : MonoBehaviour
                     pauseMenu.DOFade(0, 0.3f);
                     musicSource.clip = battleClip;
                     musicSource.Play();
-                    GameObject.FindWithTag("Player1Hand").GetComponent<CanvasGroup>().DOFade(1f, 0.2f);
+                    CanvasGroup c1 = GameObject.FindWithTag("Player1Hand").GetComponent<CanvasGroup>();
+                    if (c1.alpha != 0)
+                    {
+                        c1.DOFade(1, 0.2f);
+                    }
 
+                    CanvasGroup c2 = GameObject.FindWithTag("Player2Hand").GetComponent<CanvasGroup>();
 
-                    GameObject.FindWithTag("Player2Hand").GetComponent<CanvasGroup>().DOFade(1f, 0.2f);
+                    if (c1.alpha != 0)
+                    {
+                        c2.DOFade(1, 0.2f);
+                    }
                 }
                 catch (Exception ex) { }
             }
@@ -119,12 +136,18 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.DOFade(0, 0.3f);
         musicSource.clip = battleClip;
         musicSource.Play();
-        GameObject.FindWithTag("Player1Hand").GetComponent<CanvasGroup>().DOFade(1, 0.2f);
-        try
+        CanvasGroup c1 = GameObject.FindWithTag("Player1Hand").GetComponent<CanvasGroup>();
+        if (c1.alpha != 0)
         {
-            GameObject.FindWithTag("Player2Hand").GetComponent<CanvasGroup>().DOFade(1, 0.2f);
+            c1.DOFade(1, 0.2f);
         }
-        catch (Exception ex) { }
+
+        CanvasGroup c2 = GameObject.FindWithTag("Player2Hand").GetComponent<CanvasGroup>();
+
+        if (c1.alpha != 0)
+        {
+            c2.DOFade(1, 0.2f);
+        }
     }
 
     IEnumerator RestartTextAnimtion()
