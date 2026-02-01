@@ -18,13 +18,14 @@ public class PlayerSpawner : MonoBehaviour
     public PlayerInput.InputDevice player2Device;
 
     public GameObject levelCam;
+    public GameObject levelCam2;
 
 
     private void Start()
     {
         player1Spawned = false;
         player2Spawned = false;
-
+        levelCam2.SetActive(false);
         StartCoroutine(SpawnPlayers());
     }
 
@@ -49,8 +50,8 @@ public class PlayerSpawner : MonoBehaviour
         player1Device = player1inputSelector.inputDevice;
 
         GameObject.FindWithTag("Player1Hand").GetComponent<CanvasGroup>().DOFade(1, 0.5f);
-
-
+        levelCam2.SetActive(true);
+        StartCoroutine(GameObject.FindAnyObjectByType<PauseMenu>().RestartTextAnimtion2());
         Destroy(levelCam);
 
 
@@ -67,7 +68,7 @@ public class PlayerSpawner : MonoBehaviour
             //Debug.Log($"Frame {frameCount}: selectedInput = {player1inputSelector.selectedInput}");
             yield return null;
         }
-
+        Destroy(levelCam2);
         player2Spawned = true;
         player2Device = player2inputSelector.inputDevice;
 

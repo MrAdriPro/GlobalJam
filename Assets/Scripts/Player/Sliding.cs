@@ -32,7 +32,7 @@ public class Sliding : MonoBehaviour
     private void Update()
     {
         if (!GetComponentInChildren<PlayerInputSelector>().selectedInput || GameObject.FindAnyObjectByType<PauseMenu>().isPaused
-            || GameObject.FindAnyObjectByType<LeaderboardManager>().endGame) return;
+            || GameObject.FindAnyObjectByType<LeaderboardManager>().endGame || !GameObject.FindAnyObjectByType<PlayerSpawner>().player2Spawned) return;
 
         horizontalInput = playerInput.horizontalInput;
         verticalInput = playerInput.verticalInput;
@@ -51,7 +51,7 @@ public class Sliding : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!GetComponentInChildren<PlayerInputSelector>().selectedInput || GameObject.FindAnyObjectByType<PauseMenu>().isPaused) return;
+        if (!GetComponentInChildren<PlayerInputSelector>().selectedInput || GameObject.FindAnyObjectByType<PauseMenu>().isPaused || !GameObject.FindAnyObjectByType<PlayerSpawner>().player2Spawned) return;
 
         if (pm.sliding)
             SlidingMovement();

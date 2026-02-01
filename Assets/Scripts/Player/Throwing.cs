@@ -25,7 +25,7 @@ public class Throwing : MonoBehaviour
     private void Update()
     {
         if (!playerInputSelector.selectedInput || GameObject.FindAnyObjectByType<PauseMenu>().isPaused
-            || GameObject.FindAnyObjectByType<LeaderboardManager>().endGame) return;
+            || GameObject.FindAnyObjectByType<LeaderboardManager>().endGame || !GameObject.FindAnyObjectByType<PlayerSpawner>().player2Spawned) return;
 
         if (playerInput.Throw && readyToThrow)
         {

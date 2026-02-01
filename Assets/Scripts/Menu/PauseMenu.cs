@@ -129,9 +129,23 @@ public class PauseMenu : MonoBehaviour
     IEnumerator RestartTextAnimtion()
     {
         CanvasGroup restartTextCanvas = GameObject.FindAnyObjectByType<PlayerSpawner>().levelCam.GetComponentInChildren<CanvasGroup>();
-        restartTextCanvas.GetComponent<TextMeshProUGUI>().text = "Presiona cualquier tecla para reiniciar";
+        restartTextCanvas.GetComponent<TextMeshProUGUI>().text = "Espera a que el otro jugador elija opcion";
 
         while (GameObject.FindAnyObjectByType<PlayerSpawner>().levelCam)
+        {
+            yield return new WaitForSeconds(0.5f);
+            restartTextCanvas.DOFade(1, 0.5f);
+            yield return new WaitForSeconds(0.5f);
+            restartTextCanvas.DOFade(0, 0.5f);
+        }
+    }
+
+    public IEnumerator RestartTextAnimtion2()
+    {
+        CanvasGroup restartTextCanvas = GameObject.FindAnyObjectByType<PlayerSpawner>().levelCam2.GetComponentInChildren<CanvasGroup>();
+        restartTextCanvas.GetComponent<TextMeshProUGUI>().text = "Espera a que el otro jugador elija opcion";
+
+        while (GameObject.FindAnyObjectByType<PlayerSpawner>().levelCam2)
         {
             yield return new WaitForSeconds(0.5f);
             restartTextCanvas.DOFade(1, 0.5f);

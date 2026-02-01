@@ -32,7 +32,7 @@ public class BlindnessPowerUp : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         playerMovement = GetComponent<PlayerMovement>();
         trailRenderers = playerMovement.wallRunningMarks.ToList();
-        trailRenderers.Add(GetComponent<TrailRenderer>());
+        trailRenderers.Add(GetComponentInChildren<TrailRenderer>());
         StopBlind();
     }
 

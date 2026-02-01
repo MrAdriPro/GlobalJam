@@ -25,7 +25,8 @@ public class PlayerAnimations : MonoBehaviour
 
     private void Update()
     {
-        if (!playerInputSelector.selectedInput || GameObject.FindAnyObjectByType<PauseMenu>().isPaused || GameObject.FindAnyObjectByType<LeaderboardManager>().endGame) return;
+        if (!playerInputSelector.selectedInput || GameObject.FindAnyObjectByType<PauseMenu>().isPaused || GameObject.FindAnyObjectByType<LeaderboardManager>().endGame
+            || !GameObject.FindAnyObjectByType<PlayerSpawner>().player2Spawned) return;
 
         anim.speed = pm.speed / animSpeedCorrector;
 
@@ -77,7 +78,6 @@ public class PlayerAnimations : MonoBehaviour
 
     private void CheckOtherPlayerDirection()
     {
-
         playerBodyAnim.transform.LookAt(transform.position);
 
 
