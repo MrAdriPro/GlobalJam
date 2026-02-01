@@ -244,10 +244,14 @@ public class M_ButtonHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
     /// <param name="targetPosition"></param>
     private void StartSmoothMove(Vector3 targetPosition)
     {
-        if (currentCoroutine != null)
-            StopCoroutine(currentCoroutine);
+        try
+        {
+            if (currentCoroutine != null)
+                StopCoroutine(currentCoroutine);
 
-        currentCoroutine = StartCoroutine(MoveToPosition(targetPosition));
+            currentCoroutine = StartCoroutine(MoveToPosition(targetPosition));
+        }
+        catch (Exception ex) { }
     }
 
     /// <summary>

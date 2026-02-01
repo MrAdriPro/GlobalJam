@@ -20,6 +20,9 @@ public class PlayerSpawner : MonoBehaviour
     public GameObject levelCam;
     public GameObject levelCam2;
 
+    private int lastSpawnPosP1 = -1;
+    private int lastSpawnPosP2 = -1;
+
 
     private void Start()
     {
@@ -43,7 +46,6 @@ public class PlayerSpawner : MonoBehaviour
         while (player1inputSelector.selectedInput == false)
         {
             frameCount++;
-            Debug.Log($"Frame {frameCount}: selectedInput = {player1inputSelector.selectedInput}");
             yield return null;
         }
         player1Spawned = true;
@@ -65,7 +67,6 @@ public class PlayerSpawner : MonoBehaviour
         while (!player2inputSelector.selectedInput)
         {
             frameCount++;
-            //Debug.Log($"Frame {frameCount}: selectedInput = {player1inputSelector.selectedInput}");
             yield return null;
         }
         Destroy(levelCam2);
@@ -91,8 +92,8 @@ public class PlayerSpawner : MonoBehaviour
 
     public void Spawn(int index)
     {
-        if (index == 0) Instantiate(player1Prefab, RandomPosition(), Quaternion.identity);
-        else if (index > 0) Instantiate(player2Prefab, RandomPosition(), Quaternion.identity);
+        if (index == 0) Instantiate(player1Prefab, RandomPosition(index), Quaternion.identity);
+        else if (index > 0) Instantiate(player2Prefab, RandomPosition(index), Quaternion.identity);
 
     }
 
@@ -100,14 +101,36 @@ public class PlayerSpawner : MonoBehaviour
     {
         GameObject player = null;
 
-        if (index == 0) player = Instantiate(player1Prefab, RandomPosition(), Quaternion.identity);
-        else if (index > 0) player = Instantiate(player2Prefab, RandomPosition(), Quaternion.identity);
+        if (index == 0) player = Instantiate(player1Prefab, RandomPosition(index), Quaternion.identity);
+        else if (index > 0) player = Instantiate(player2Prefab, RandomPosition(index), Quaternion.identity);
 
         return player;
     }
 
-    private Vector3 RandomPosition()
+    private Vector3 RandomPosition(int index)
     {
-        return spawnPositions[UnityEngine.Random.Range(0, spawnPositions.Length)].position;
+
+        while (true)
+        {
+            int random = UnityEngine.Random.Range(0, spawnPositions.Length);
+
+            if (index == 0)
+            {
+                if (random != lastSpawnPosP2)
+                {
+                    lastSpawnPosP1 = random;
+                    return spawnPositions[random].position;
+                }
+            }
+            else
+            {
+                if (random != lastSpawnPosP1)
+                {
+                    lastSpawnPosP2 = random;
+                    return spawnPositions[random].position;
+                }
+            }
+        }
+        
     }
 }

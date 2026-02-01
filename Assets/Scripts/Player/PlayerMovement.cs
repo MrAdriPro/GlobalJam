@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public bool sliding;
     public bool wallRunning;
     public bool climbing;
-
+    private bool wasClimbing;
     [Header("Crouching")]
     public float crouchSpeed;
     public float crouchYScale;
@@ -263,7 +263,7 @@ public class PlayerMovement : MonoBehaviour
             state = MovementState.none;
         }
 
-        if (Mathf.Abs(desiredMoveSpeed - lastDesiredMoveSpeed) > 12f && speed != 0 && !sliding && !wallRunning && !climbing)
+        if (Mathf.Abs(desiredMoveSpeed - lastDesiredMoveSpeed) > 12f && speed != 0 && !sliding && !wallRunning && !climbing && !wasClimbing)
         {
             StopAllCoroutines();
             StartCoroutine(SmoothlyLerpMoveSpeed());
@@ -272,6 +272,9 @@ public class PlayerMovement : MonoBehaviour
         {
             speed = desiredMoveSpeed;
         }
+
+        if (climbing) wasClimbing = true;
+        if (wasClimbing && isGrounded) wasClimbing = false;
 
         lastDesiredMoveSpeed = desiredMoveSpeed;
     }
