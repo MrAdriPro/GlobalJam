@@ -64,7 +64,7 @@ public class PlayerSpawner : MonoBehaviour
         while (!player2inputSelector.selectedInput)
         {
             frameCount++;
-            Debug.Log($"Frame {frameCount}: selectedInput = {player1inputSelector.selectedInput}");
+            //Debug.Log($"Frame {frameCount}: selectedInput = {player1inputSelector.selectedInput}");
             yield return null;
         }
 

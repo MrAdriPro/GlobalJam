@@ -10,6 +10,7 @@ public class PowerUpManager : MonoBehaviour
     private float baseRunSpeed;
     private int baseExtraJumps;
     public PowerUpData powerUpData;
+    public SpriteRenderer[] powerMasks;
 
     public int currentExtraJumps;
 

@@ -28,6 +28,9 @@ public class HealthManager : MonoBehaviour
 
     public bool isDead { get; private set; }
 
+    [Header("masks")]
+    public SpriteRenderer[] masks;
+
     private void Awake()
     {
         currentHealth = maxHealth;
@@ -63,6 +66,7 @@ public class HealthManager : MonoBehaviour
             didDamage = false;
 
         }
+        UpdateMasks();
     }
 
     public void TakeDamage(int amount, bool _didDamage = false)
@@ -170,6 +174,13 @@ public class HealthManager : MonoBehaviour
         if (other.gameObject.tag == "Lava")
         {
             TakeDamage(1000);
+        }
+    }
+    private void UpdateMasks()
+    {
+        for (int i = 0; i < masks.Length; i++)
+        {
+            masks[i].enabled = i < currentHealth;
         }
     }
 

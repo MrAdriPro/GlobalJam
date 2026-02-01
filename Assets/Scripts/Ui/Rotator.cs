@@ -36,6 +36,7 @@ public class Rotator : MonoBehaviour
     {
         if(target == null) return;
         transform.LookAt(target.transform);
+        print("Looking at target" + target);
     }
 }
 
