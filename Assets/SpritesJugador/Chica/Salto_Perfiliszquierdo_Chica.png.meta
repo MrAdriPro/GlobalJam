@@ -95,12 +95,122 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Salto_Perfiliszquierdo_Chica_0
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 12
+        width: 193
+        height: 479
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e3b76a61750326429d67eed4c313759
+      internalID: -2126955331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Salto_Perfiliszquierdo_Chica_1
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 12
+        width: 195
+        height: 479
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 793db4d3229bd754e814cd7a5fbd0ca6
+      internalID: 2129307978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Salto_Perfiliszquierdo_Chica_2
+      rect:
+        serializedVersion: 2
+        x: 1127
+        y: 17
+        width: 191
+        height: 468
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 465e63172ac0b254ca78d5284c759646
+      internalID: 972676270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Salto_Perfiliszquierdo_Chica_3
+      rect:
+        serializedVersion: 2
+        x: 1624
+        y: 99
+        width: 189
+        height: 378
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 188b1f3ba6cd90b4783a6d010fd691af
+      internalID: 308865276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Salto_Perfiliszquierdo_Chica_4
+      rect:
+        serializedVersion: 2
+        x: 2115
+        y: 105
+        width: 198
+        height: 365
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e75236964879d194abc545e06703e7fc
+      internalID: 962268854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 016ac727ca77412489ea7da68bb085fe
     internalID: 0
     vertices: []
     indices: 
@@ -108,8 +218,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
-    nameFileIdTable: {}
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Salto_Perfiliszquierdo_Chica_0: -2126955331
+      Salto_Perfiliszquierdo_Chica_1: 2129307978
+      Salto_Perfiliszquierdo_Chica_2: 972676270
+      Salto_Perfiliszquierdo_Chica_3: 308865276
+      Salto_Perfiliszquierdo_Chica_4: 962268854
+      Salto_Perfiliszquierdo_Chica_5: -452727352
+      Salto_Perfiliszquierdo_Chica_6: -1280692054
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

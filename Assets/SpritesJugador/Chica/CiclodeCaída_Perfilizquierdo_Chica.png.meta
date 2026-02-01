@@ -95,12 +95,78 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: "CiclodeCa\xEDda_Perfilizquierdo_Chica_0"
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 103
+        width: 187
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3378a59a7eb0e44e80ac0b19118f8e8
+      internalID: 2107451191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "CiclodeCa\xEDda_Perfilizquierdo_Chica_1"
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 108
+        width: 185
+        height: 361
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a851d517934cc944285f2c985b6b5bb4
+      internalID: -1833548308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "CiclodeCa\xEDda_Perfilizquierdo_Chica_2"
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 107
+        width: 186
+        height: 362
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d4fa1e671ff51d4bb5d9dfb37ea8520
+      internalID: -243554184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 0291753ca933a5441bb8ece0e45340c1
     internalID: 0
     vertices: []
     indices: 
@@ -108,8 +174,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
-    nameFileIdTable: {}
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      "CiclodeCa\xEDda_Perfilizquierdo_Chica_0": 2107451191
+      "CiclodeCa\xEDda_Perfilizquierdo_Chica_1": -1833548308
+      "CiclodeCa\xEDda_Perfilizquierdo_Chica_2": -243554184
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -95,12 +95,122 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Run_Perfilizquierdo_Chica_0
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 12
+        width: 282
+        height: 486
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7282380dafd54a8429e58caff4f654aa
+      internalID: 915489500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_Perfilizquierdo_Chica_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 15
+        width: 267
+        height: 465
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 429118b4a606c18478360fd10edd24aa
+      internalID: -488657459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_Perfilizquierdo_Chica_2
+      rect:
+        serializedVersion: 2
+        x: 1106
+        y: 11
+        width: 223
+        height: 478
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd1849e36e849264494795876f1a16ed
+      internalID: -1387612405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_Perfilizquierdo_Chica_3
+      rect:
+        serializedVersion: 2
+        x: 1597
+        y: 9
+        width: 258
+        height: 476
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68eecea206bd54a43acf1cd9bfce0b3a
+      internalID: -428256118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_Perfilizquierdo_Chica_4
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 32
+        width: 280
+        height: 455
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e9a0025c0ac3a74ebc55b2cdfbb7c17
+      internalID: 1333383170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: efb0dfa762a511f4d9057b3af0f4b685
     internalID: 0
     vertices: []
     indices: 
@@ -108,8 +218,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
-    nameFileIdTable: {}
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Run_Perfilizquierdo_Chica_0: 915489500
+      Run_Perfilizquierdo_Chica_1: -488657459
+      Run_Perfilizquierdo_Chica_2: -1387612405
+      Run_Perfilizquierdo_Chica_3: -428256118
+      Run_Perfilizquierdo_Chica_4: 1333383170
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
