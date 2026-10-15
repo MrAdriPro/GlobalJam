@@ -116,22 +116,17 @@ namespace RetroShadersPro.URP
             }
 #endif
 
-#if UNITY_6000_0_OR_NEWER
-            [System.Obsolete]
-#endif
+#if !UNITY_6000_0_OR_NEWER
             public override void Configure(CommandBuffer cmd, RenderTextureDescriptor cameraTextureDescriptor)
             {
                 ResetTarget();
 
-#if UNITY_6000_0_OR_NEWER
-                RenderingUtils.ReAllocateHandleIfNeeded(ref tempTexHandle, GetCopyPassDescriptor(cameraTextureDescriptor), name: "_CRTColorCopy");
-                RenderingUtils.ReAllocateHandleIfNeeded(ref interlaceTexHandle, GetInterlaceDescriptor(cameraTextureDescriptor), name: "_CRTInterlacingTexture");
-#endif
                 RenderingUtils.ReAllocateIfNeeded(ref tempTexHandle, GetCopyPassDescriptor(cameraTextureDescriptor), name: "_CRTColorCopy");
                 RenderingUtils.ReAllocateIfNeeded(ref interlaceTexHandle, GetInterlaceDescriptor(cameraTextureDescriptor), name: "_CRTInterlacingTexture");
 
                 base.Configure(cmd, cameraTextureDescriptor);
             }
+#endif
 
             private void SetMaterialProperties(RTHandle interlacingTexture, int targetHeight, Material material)
             {
@@ -272,9 +267,7 @@ namespace RetroShadersPro.URP
                 Shader.SetGlobalInteger("_RetroPixelSize", settings.pixelSize.value);
             }
 
-#if UNITY_6000_0_OR_NEWER
-            [System.Obsolete]
-#endif
+#if !UNITY_6000_0_OR_NEWER
             public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
             {
                 if (material == null)
@@ -319,6 +312,7 @@ namespace RetroShadersPro.URP
                 cmd.Clear();
                 CommandBufferPool.Release(cmd);
             }
+#endif
 
             public void Dispose()
             {
