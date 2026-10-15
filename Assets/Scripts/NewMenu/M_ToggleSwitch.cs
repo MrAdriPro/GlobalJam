@@ -19,8 +19,7 @@ public class M_ToggleSwitch : MonoBehaviour, IPointerClickHandler
     [Header("Animation")]
     [SerializeField, Range(0, 1f)] private float animationDuration = 0.5f;
     [SerializeField]
-    private AnimationCurve slideEase =
-        AnimationCurve.EaseInOut(0, 0, 1, 1);
+    private AnimationCurve slideEase = AnimationCurve.EaseInOut(0, 0, 1, 1);
 
     private Coroutine _animateSliderCoroutine;
 
@@ -35,8 +34,8 @@ public class M_ToggleSwitch : MonoBehaviour, IPointerClickHandler
     protected virtual void OnValidate()
     {
         SetupToggleComponents();
-
-        _slider.value = sliderValue;
+        if (_slider != null)
+            _slider.value = sliderValue;
     }
 
     private void SetupToggleComponents()
@@ -69,23 +68,33 @@ public class M_ToggleSwitch : MonoBehaviour, IPointerClickHandler
         _toggleSwitchGroupManager = manager;
     }
 
-
     protected virtual void Awake()
     {
         SetupSliderComponent();
     }
 
+    // CORREGIDO: Ahora actualiza visualmente la posición de la esfera del Slider de inmediato
     public void UpdateCurrentValue(bool value)
     {
-        sliderValue = value ? 1 : 0;
+        sliderValue = value ? 1f : 0f;
         CurrentValue = value;
+
+        if (_slider == null)
+            SetupSliderComponent();
+
+        if (_slider != null)
+        {
+            if (_animateSliderCoroutine != null)
+                StopCoroutine(_animateSliderCoroutine);
+
+            _slider.value = sliderValue; // Mueve la bola al extremo correspondiente (0 u 1)
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
         Toggle();
     }
-
 
     public void Toggle()
     {
@@ -100,14 +109,10 @@ public class M_ToggleSwitch : MonoBehaviour, IPointerClickHandler
         SetStateAndStartAnimation(valueToSetTo);
     }
 
-
     private void SetStateAndStartAnimation(bool state)
     {
         _previousValue = CurrentValue;
         CurrentValue = state;
-
-        print("Previous Value" + _previousValue);
-        print("Current Value" + CurrentValue);
 
         if (_previousValue != CurrentValue)
         {
@@ -123,11 +128,10 @@ public class M_ToggleSwitch : MonoBehaviour, IPointerClickHandler
         _animateSliderCoroutine = StartCoroutine(AnimateSlider());
     }
 
-
     private IEnumerator AnimateSlider()
     {
         float startValue = _slider.value;
-        float endValue = CurrentValue ? 1 : 0;
+        float endValue = CurrentValue ? 1f : 0f;
 
         float time = 0;
         if (animationDuration > 0)
@@ -145,6 +149,6 @@ public class M_ToggleSwitch : MonoBehaviour, IPointerClickHandler
             }
         }
 
-        _slider.value = endValue;
+        _slider.value = sliderValue = endValue;
     }
 }
