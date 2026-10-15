@@ -1,6 +1,7 @@
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class PlayerInputSelector : MonoBehaviour
 {
@@ -8,153 +9,141 @@ public class PlayerInputSelector : MonoBehaviour
     public CanvasGroup inputSelectorPanel;
     public TextMeshProUGUI inputText;
     public int playerIndex;
-    public PlayerInput playerInput;
-    string[] controllers;
+    public PlayerInput playerInput; // ¡Tu script personalizado!
+
+    // Listas para emparejar el texto del UI con el dispositivo real
+    private List<string> displayNames = new List<string>();
+    private List<PlayerInput.InputDevice> realDevices = new List<PlayerInput.InputDevice>();
+
     private PlayerSpawner playerSpawner;
     public PlayerInput.InputDevice inputDevice;
 
     int currentController = 0;
     public bool selectedInput = false;
+
     private void Start()
     {
         GetComponentInChildren<M_ArrowController>().notSelectedNeeded = true;
         playerSpawner = GameObject.FindAnyObjectByType<PlayerSpawner>();
 
-        if (playerIndex == 0)
-            selectedInput = playerSpawner.player1Spawned;
+        if (playerIndex == 0) selectedInput = playerSpawner.player1Spawned;
         else selectedInput = playerSpawner.player2Spawned;
 
         if (selectedInput)
         {
             inputSelectorPanel.DOFade(0, 0f);
-            if (playerIndex == 0)
-            {
-                inputDevice = playerSpawner.player1Device;
-            }
-            else
-            {
-                inputDevice = playerSpawner.player2Device;
-            }
-
+            inputDevice = playerIndex == 0 ? playerSpawner.player1Device : playerSpawner.player2Device;
             playerInput.inputDevice = inputDevice;
         }
-
-        else inputSelectorPanel.DOFade(1, 1f);
-
-        string[] c = new string[Input.GetJoystickNames().Length + 1];
-        string[] j = Input.GetJoystickNames();
-        c[0] = "Teclado y raton";
-        for (int i = 0; i < j.Length; i++)
+        else
         {
-            c[i + 1] = j[i];
-        }
-        controllers = c;
-
-        if (controllers.Length > 1) 
-        {
-            inputText.text = $"{currentController + 1} - {controllers[playerIndex]}";
-
+            inputSelectorPanel.DOFade(1, 1f);
         }
 
-        GameObject player = null;
-        if (playerIndex == 1) player = GameObject.FindGameObjectWithTag("Player1");
+        UpdateControllersList();
 
-        if (player)
+        GameObject player1 = null;
+        if (playerIndex == 1)
         {
-            PlayerInputSelector otherPlayerInputSelector = player.GetComponentInChildren<PlayerInputSelector>();
-
-
-            if ((int)otherPlayerInputSelector.inputDevice == 0)
+            player1 = GameObject.FindGameObjectWithTag("Player1");
+            if (player1 != null)
             {
-                if (controllers.Length > 1)
-                    currentController = 1;
-                else currentController = 0;
+                PlayerInputSelector p1Selector = player1.GetComponentInChildren<PlayerInputSelector>();
+                
+                // Buscamos en qué posición de nuestra lista está el mando que eligió P1
+                int p1Index = realDevices.IndexOf(p1Selector.inputDevice);
+                if (p1Index != -1 && currentController == p1Index)
+                {
+                    currentController++;
+                    WrapIndex();
+                }
             }
-            else if ((int)otherPlayerInputSelector.inputDevice == 1)
-            {
-                if (controllers.Length > 2)
-                    currentController = 2;
-                else currentController = 0;
-            }
-            else if ((int)otherPlayerInputSelector.inputDevice == 2)
-            {
-                if (controllers.Length > 2)
-                    currentController = 1;
-                else currentController = 0;
-            }
-
-            inputText.text = $"{currentController + 1} - {controllers[currentController]}";
         }
 
+        UpdateUI();
     }
 
     void Update()
     {
-        if (selectedInput) 
-        {
-            inputSelectorPanel.alpha = 0;
-        }
-
-        string[] c = new string[Input.GetJoystickNames().Length + 1];
-        string[] j = Input.GetJoystickNames();
-        c[0] = "Teclado y raton";
-        for (int i = 0; i < j.Length; i++)
-        {
-            c[i + 1] = j[i];
-        }
-        controllers = c;
+        if (selectedInput) inputSelectorPanel.alpha = 0;
+        
+        UpdateControllersList(); // Actualizamos por si se desconecta un mando
     }
 
-    public void ChangeSelector(int index) 
+    private void UpdateControllersList()
     {
-        if (!selectedInput && !GameObject.FindAnyObjectByType<PauseMenu>().isPaused)
+        displayNames.Clear();
+        realDevices.Clear();
+
+        // 0 = Teclado y ratón (asumiendo que en tu Enum el 0 es el teclado)
+        displayNames.Add("Teclado y raton");
+        realDevices.Add((PlayerInput.InputDevice)0);
+
+        string[] joysticks = Input.GetJoystickNames();
+        for (int i = 0; i < joysticks.Length; i++)
         {
-
-            currentController = currentController + index;
-
-
-            if (currentController < 0) currentController = controllers.Length - 1;
-            else if (currentController > controllers.Length - 1) currentController = 0;
-
-            GameObject player = null;
-            if (playerIndex == 1) player = GameObject.FindGameObjectWithTag("Player1");
-
-            if (player)
+            if (!string.IsNullOrWhiteSpace(joysticks[i]))
             {
-                PlayerInputSelector otherPlayerInputSelector = player.GetComponentInChildren<PlayerInputSelector>();
-
-
-                if ((int)otherPlayerInputSelector.inputDevice == 0)
-                {
-                    if (controllers.Length > 1)
-                        currentController = 1;
-                    else currentController = 0;
-                }
-                else if ((int)otherPlayerInputSelector.inputDevice == 1)
-                {
-                    if (controllers.Length > 2)
-                        currentController = 2;
-                    else currentController = 0;
-                }
-                else if ((int)otherPlayerInputSelector.inputDevice == 2)
-                {
-                    if (controllers.Length > 2)
-                        currentController = 1;
-                    else currentController = 0;
-                }
-
+                displayNames.Add(joysticks[i]);
+                // La variable 'i' es 0, pero para Unity es Joystick 1.
+                // Sumamos i + 1 para que el índice coincida exactamente con tu Enum
+                realDevices.Add((PlayerInput.InputDevice)(i + 1));
             }
-
-            inputText.text = $"{currentController + 1} - {controllers[currentController]}";
         }
+
+        // Si se desconecta un mando y el cursor se queda fuera de rango, lo reiniciamos
+        if (currentController >= displayNames.Count) currentController = 0;
     }
 
-    public void SelectController() 
+    private void WrapIndex()
+    {
+        if (currentController < 0) currentController = displayNames.Count - 1;
+        else if (currentController >= displayNames.Count) currentController = 0;
+    }
+
+    public void ChangeSelector(int index)
     {
         if (!selectedInput && !GameObject.FindAnyObjectByType<PauseMenu>().isPaused)
         {
-            playerInput.inputDevice = (PlayerInput.InputDevice)currentController;
-            inputDevice = (PlayerInput.InputDevice)currentController;
+            currentController += index;
+            WrapIndex();
+
+            if (playerIndex == 1)
+            {
+                GameObject player1 = GameObject.FindGameObjectWithTag("Player1");
+                if (player1 != null)
+                {
+                    PlayerInputSelector p1Selector = player1.GetComponentInChildren<PlayerInputSelector>();
+                    int p1Index = realDevices.IndexOf(p1Selector.inputDevice);
+
+                    // Si el J2 elige el mismo mando físico que el J1, saltamos uno más
+                    if (p1Index != -1 && currentController == p1Index)
+                    {
+                        currentController += index;
+                        WrapIndex();
+                    }
+                }
+            }
+            UpdateUI();
+        }
+    }
+
+    private void UpdateUI()
+    {
+        if (displayNames.Count > 0)
+        {
+            inputText.text = $"{currentController + 1}\n{displayNames[currentController]}";
+        }
+    }
+
+    public void SelectController()
+    {
+        if (!selectedInput && !GameObject.FindAnyObjectByType<PauseMenu>().isPaused)
+        {
+            // ASIGNACIÓN CLAVE: Le pasamos a tu script el puerto real, no la posición del UI
+            playerInput.SetInputDevice(realDevices[currentController]);
+            inputDevice = realDevices[currentController];
+            
             inputSelectorPanel.DOFade(0, 0.5f);
             selectedInput = true;
         }

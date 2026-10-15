@@ -5,9 +5,9 @@ using UnityEngine.UIElements;
 namespace CartoonFX
 {
     [InitializeOnLoad]
-    public class CFXR_WelcomeScreen : EditorWindow
+    public class CfxrWelcomeScreen : EditorWindow
     {
-        static CFXR_WelcomeScreen()
+        static CfxrWelcomeScreen()
         {
             EditorApplication.delayCall += () =>
             {
@@ -30,7 +30,7 @@ namespace CartoonFX
         [MenuItem("Tools/Cartoon FX Remaster FREE - Welcome Screen")]
         static void Open()
         {
-            var window = GetWindow<CFXR_WelcomeScreen>(true, "Cartoon FX Remaster FREE", true);
+            var window = GetWindow<CfxrWelcomeScreen>(true, "Cartoon FX Remaster FREE", true);
             window.minSize = new Vector2(516, 370);
             window.maxSize = new Vector2(516, 370);
         }

@@ -57,15 +57,19 @@ public class M_DisplaySettings : MonoBehaviour
         if (data) 
         {
             QualitySettings.vSyncCount = data.vSync ? 1 : 0;
-            Screen.fullScreen = data.fullScreen;
+            
+            
+            isFullscreen = data.fullScreen; 
+            auxIsFullScreen = data.fullScreen;
+            auxIsVsyncOn = data.vSync;
+            antialiasingValue = data.antialiasing;
+
             var pipelineAsset = GraphicsSettings.currentRenderPipeline as UniversalRenderPipelineAsset;
             pipelineAsset.msaaSampleCount = data.antialiasing;
-            antialiasingValue = data.antialiasing;
-            auxIsVsyncOn = data.vSync;
-            auxIsFullScreen = data.fullScreen;
+            
             int resIndex = GetResolutionIndex(data.resolution);
             if(resIndex != -1)
-            SetResolution(resIndex);
+                SetResolution(resIndex);
         }
     }
     
@@ -182,7 +186,6 @@ public class M_DisplaySettings : MonoBehaviour
     {
         auxIsFullScreen = isFullscreen;
         auxIsVsyncOn = isVsyncOn;
-        Screen.fullScreen = isFullscreen;
         QualitySettings.vSyncCount = isVsyncOn ? 1 : 0;
     }
 

@@ -1,12 +1,9 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using static UnityEngine.GraphicsBuffer;
 
 public class M_ButtonHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, ISelectHandler, IDeselectHandler
 {
@@ -264,7 +261,7 @@ public class M_ButtonHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
         imageComponent.sprite = b_Settings.hoverImage;
         imageComponent.transform.SetParent(this.transform, false);
 
-        // Ajustar posición y tamaño dentro del botón
+        // Ajustar posiciï¿½n y tamaï¿½o dentro del botï¿½n
         RectTransform rectTransform = imageComponent.GetComponent<RectTransform>();
         rectTransform.anchoredPosition = Vector2.zero; // Centrado
         rectTransform.sizeDelta = new Vector2(GetComponent<RectTransform>().sizeDelta.x + b_Settings.hoverImageOffset.x,
@@ -274,6 +271,8 @@ public class M_ButtonHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     private IEnumerator MoveToPosition(Vector3 target)
     {
+        if (rt == null) yield break;
+        
         Vector3 start = rt.anchoredPosition;
         float elapsed = 0f;
 
